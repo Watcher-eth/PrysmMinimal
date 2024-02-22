@@ -43,7 +43,7 @@ const Card = (props) => {
   return (
     <Pressable
       onPress={() => {
-        router.push({
+        router.navigate({
           pathname: "[id]",
           params: {
             id: "123",

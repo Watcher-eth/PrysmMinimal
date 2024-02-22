@@ -24,24 +24,24 @@ const BetFeed = () => {
           if (item.type === "Text")
             return (
               <View key={index} style={{ alignSelf: "center" }}>
-                <TextPost />
+                <TextPost border={true} />
               </View>
             );
           if (item.type === "Link")
             return (
               <View key={index} style={{ alignSelf: "center" }}>
-                <LinkPost />
+                <LinkPost border={true} />
               </View>
             );
           if (item.type === "SideBet")
             return (
               <View key={index} style={{ alignSelf: "center" }}>
-                <SideBet />
+                <SideBet border={true} />
               </View>
             );
           return (
             <View key={index} style={{ alignSelf: "center" }}>
-              <TextPost />
+              <TextPost border={true} />
             </View>
           );
         }}
