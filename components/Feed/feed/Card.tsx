@@ -17,6 +17,7 @@ import {
 } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
 import { router } from "expo-router";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Card = (props) => {
   const screenWidth = Dimensions.get("window").width * 0.85;
@@ -42,8 +43,8 @@ const Card = (props) => {
   return (
     <Pressable
       onPress={() => {
-        router.navigate({
-          pathname: "/bets/[id|",
+        router.push({
+          pathname: "[id]",
           params: {
             id: "123",
             name: name,
@@ -65,7 +66,7 @@ const Card = (props) => {
             flexDirection: "column",
             justifyContent: "flex-end",
             paddingLeft: 10,
-            margin: 15,
+            marginVertical: 15,
             width: screenWidth,
             height: screenHeight,
             borderRadius: 15,

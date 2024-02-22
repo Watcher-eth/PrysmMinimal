@@ -1,23 +1,21 @@
 import { StyleSheet } from "react-native";
 
 import { Text, View } from "@/components/Themed";
+import ProfilePopover from "@/components/profile/profilePopover";
+import Search from "@/components/search";
+import TextPost from "@/components/post/types/TextPost";
+import LinkPost from "@/components/post/types/LinkPost";
+import SideBet from "@/components/post/types/SideBet";
+import CreateBet from "@/components/create/Bet";
 
 export default function TabTwoScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-    </View>
-  );
+  return <CreateBet />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: 500,
     alignItems: "center",
     justifyContent: "center",
   },

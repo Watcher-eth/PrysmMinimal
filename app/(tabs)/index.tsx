@@ -2,12 +2,15 @@ import { StyleSheet } from "react-native";
 
 import { Text, View } from "@/components/Themed";
 import Feed from "@/components/Feed/feed";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <Feed />
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Feed />
+      </View>
+    </GestureHandlerRootView>
   );
 }
 

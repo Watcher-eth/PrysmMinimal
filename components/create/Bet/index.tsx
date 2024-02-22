@@ -4,11 +4,12 @@ import BottomSheet, {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
-import SearchGrid from "./searchGrid";
+import AddTitle from "./addTitle";
+import AddQuestion from "./addQuestion";
+import AddCover from "./addCover";
+import ConfirmBet from "./Confirm";
 
-const Search = () => {
-  const [text, onChangeText] = useState<String>("");
-
+const CreateBet = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   // variables
@@ -43,13 +44,7 @@ const Search = () => {
             onChange={handleSheetChanges}
           >
             <View style={styles.contentContainer}>
-              <TextInput
-                style={styles.input}
-                onChangeText={onChangeText}
-                value={text}
-                placeholder="Search..."
-              />
-              <SearchGrid />
+              <ConfirmBet />
             </View>
           </BottomSheetModal>
         </View>
@@ -67,15 +62,15 @@ const styles = StyleSheet.create({
   sheetContainer: {
     // add horizontal space
     marginHorizontal: 19,
-    borderRadius: 12,
+    borderRadius: 22,
     justifyContent: "flex-start",
   },
   contentContainer: {
     flex: 1,
     alignItems: "center",
-    borderRadius: 12,
-    height: 600,
-    minHeight: 460,
+    borderRadius: 22,
+    height: 340,
+    minHeight: 435,
     backgroundColor: "white",
   },
   input: {
@@ -89,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Search;
+export default CreateBet;
