@@ -15,7 +15,6 @@ import AddTitle from "../Bet/addTitle";
 import AddQuestion from "../Bet/addQuestion";
 import AddPost from "./AddPost";
 import ConfirmPost from "./ConfirmPost";
-import VotingScreen from "@/components/Bet/Vote/SideBet/VotingScreen";
 
 const CreatePost = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -83,7 +82,7 @@ const CreatePost = () => {
       case 0:
         return <AddPost changeStep={changeStep} />; // Pass changeStep as a prop
       case 1:
-        return <VotingScreen changeStep={changeStep} />;
+        return <ConfirmPost changeStep={changeStep} />;
 
       // Add other cases for different steps
       default:
