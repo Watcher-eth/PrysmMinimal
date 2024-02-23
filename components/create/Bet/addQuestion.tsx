@@ -2,7 +2,7 @@ import { View, Text, Dimensions, Pressable } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
 
-const AddQuestion = () => {
+const AddQuestion = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
   const [text, onChangeText] = useState<String>("");
 
@@ -73,6 +73,7 @@ const AddQuestion = () => {
         }}
       >
         <Pressable
+          onPress={() => changeStep(0)}
           style={{
             marginTop: 22,
 
@@ -96,6 +97,7 @@ const AddQuestion = () => {
           </Text>
         </Pressable>
         <Pressable
+          onPress={() => changeStep(2)} // Assuming the next step index is 1
           style={{
             marginTop: 22,
             marginLeft: 16,

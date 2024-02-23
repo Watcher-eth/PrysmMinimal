@@ -62,6 +62,7 @@ function RootLayoutNav() {
             options={{ presentation: "transparentModal", headerShown: false }}
           />
           <Stack.Screen name="[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="post" options={{ headerShown: false }} />
         </Stack>
       </GestureHandlerRootView>
     </ThemeProvider>

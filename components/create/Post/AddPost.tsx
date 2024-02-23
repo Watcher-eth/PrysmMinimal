@@ -1,22 +1,10 @@
 import { View, Text, Dimensions, Pressable } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
-import * as ImagePicker from "expo-image-picker";
 
-const AddCover = ({ changeStep }) => {
+const AddPost = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
-  const pickImageAsync = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
-      quality: 1,
-    });
-
-    if (!result.canceled) {
-      console.log(result);
-    } else {
-      alert("You did not select any image.");
-    }
-  };
+  const [text, onChangeText] = useState<String>("");
 
   return (
     <View
@@ -34,15 +22,37 @@ const AddCover = ({ changeStep }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          paddingTop: 4,
         }}
       >
-        <View style={{ display: "flex", flexDirection: "column" }}>
-          <Text style={{ fontSize: 25, color: "black", fontWeight: "700" }}>
-            Title
-          </Text>
-          <Text style={{ fontSize: 16, color: "gray", fontWeight: "500" }}>
-            [Max 120 characters]
-          </Text>
+        <View style={{ display: "flex", flexDirection: "row", gap: 9 }}>
+          <View
+            style={{
+              display: "flex",
+              height: 30,
+              width: 30,
+              borderRadius: 20,
+              backgroundColor: "darkgray",
+            }}
+          />
+          <View
+            style={{
+              display: "flex",
+              height: 30,
+              width: 30,
+              borderRadius: 20,
+              backgroundColor: "darkgray",
+            }}
+          />
+          <View
+            style={{
+              display: "flex",
+              height: 30,
+              width: 30,
+              borderRadius: 20,
+              backgroundColor: "darkgray",
+            }}
+          />
         </View>
         <Text
           style={{
@@ -60,55 +70,33 @@ const AddCover = ({ changeStep }) => {
           x
         </Text>
       </View>
-      <Pressable
-        onPress={() => pickImageAsync()}
+      <TextInput
+        multiline={true}
+        maxHeight={145}
         style={{
-          marginTop: 15,
+          fontSize: 20,
           display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          width: "100%",
-          height: height / 2.3,
-          borderRadius: 18,
-          backgroundColor: "lightgray",
-          justifyContent: "center",
-          position: "relative",
+          marginTop: 8,
+          width: "99%",
+          fontWeight: "700",
+          minHeight: 110,
         }}
-      >
-        <View
-          style={{
-            width: height / 5,
-            height: height / 5,
-            borderRadius: height / 5 / 2,
-
-            borderWidth: 3,
-            borderColor: "gray",
-            borderStyle: "dashed",
-          }}
-        />
-        <View
-          style={{
-            width: height / 9,
-            height: height / 9,
-            borderRadius: height / 9 / 2,
-            position: "absolute",
-            borderWidth: 3,
-            borderColor: "gray",
-            borderStyle: "dashed",
-          }}
-        />
-      </Pressable>
+        onChangeText={onChangeText}
+        value={text}
+        placeholder="Will Satoshi Nakamoto reveal himself to the public in 2024? to the  to the public in 2024 to the public in 2024 "
+      />
       <View
         style={{
-          marginTop: 2,
+          marginTop: 3,
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           width: "100%",
+          alignSelf: "flex-end",
         }}
       >
         <Pressable
-          onPress={() => changeStep(1)}
+          onPress={() => changeStep(0)}
           style={{
             marginTop: 22,
 
@@ -132,7 +120,7 @@ const AddCover = ({ changeStep }) => {
           </Text>
         </Pressable>
         <Pressable
-          onPress={() => changeStep(3)} // Assuming the next step index is 1
+          onPress={() => changeStep(1)} // Assuming the next step index is 1
           style={{
             marginTop: 22,
             marginLeft: 16,
@@ -160,4 +148,4 @@ const AddCover = ({ changeStep }) => {
   );
 };
 
-export default AddCover;
+export default AddPost;

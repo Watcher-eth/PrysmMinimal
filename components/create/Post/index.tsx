@@ -10,12 +10,14 @@ import Animated, {
   withTiming,
   Easing,
 } from "react-native-reanimated";
-import AddCover from "./addCover";
-import AddTitle from "./addTitle";
-import AddQuestion from "./addQuestion";
-import ConfirmBet from "./Confirm";
 
-const CreateBet = () => {
+import AddTitle from "../Bet/addTitle";
+import AddQuestion from "../Bet/addQuestion";
+import AddPost from "./AddPost";
+import ConfirmPost from "./ConfirmPost";
+import VotingScreen from "@/components/Bet/Vote/SideBet/VotingScreen";
+
+const CreatePost = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const modalHeight = useSharedValue(195); // Initial height
   const translateY = useSharedValue(0); // For moving the modal up
@@ -23,7 +25,7 @@ const CreateBet = () => {
 
   const [currentStep, setCurrentStep] = useState(0);
 
-  const stepHeights = useMemo(() => [210, 230, 424, 450], []);
+  const stepHeights = useMemo(() => [210, 402], []);
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
@@ -35,7 +37,7 @@ const CreateBet = () => {
   }, []);
 
   const changeStep = useCallback(
-    (stepIndex) => {
+    (stepIndex: number) => {
       if (stepIndex >= 0 && stepIndex < stepHeights.length) {
         const newHeight = stepHeights[stepIndex];
         const initialBottomPosition = 200; /* Determine the initial bottom position of the modal */
@@ -56,7 +58,7 @@ const CreateBet = () => {
             easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
           });
         if (stepIndex > 0)
-          paddingTop.value = withTiming(28, {
+          paddingTop.value = withTiming(23, {
             duration: 500,
             easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
           }); // For moving the modal up
@@ -79,13 +81,10 @@ const CreateBet = () => {
   const renderStepContent = () => {
     switch (currentStep) {
       case 0:
-        return <AddTitle changeStep={changeStep} />; // Pass changeStep as a prop
+        return <AddPost changeStep={changeStep} />; // Pass changeStep as a prop
       case 1:
-        return <AddQuestion changeStep={changeStep} />;
-      case 2:
-        return <AddCover changeStep={changeStep} />;
-      case 3:
-        return <ConfirmBet changeStep={changeStep} />;
+        return <VotingScreen changeStep={changeStep} />;
+
       // Add other cases for different steps
       default:
         return null;
@@ -150,4 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateBet;
+export default CreatePost;

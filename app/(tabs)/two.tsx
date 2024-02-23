@@ -7,9 +7,10 @@ import TextPost from "@/components/post/types/TextPost";
 import LinkPost from "@/components/post/types/LinkPost";
 import SideBet from "@/components/post/types/SideBet";
 import CreateBet from "@/components/create/Bet";
+import CreatePost from "@/components/create/Post";
 
 export default function TabTwoScreen() {
-  return <CreateBet />;
+  return <CreatePost />;
 }
 
 const styles = StyleSheet.create({

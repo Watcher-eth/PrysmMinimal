@@ -13,7 +13,7 @@ const Bet = () => {
     useLocalSearchParams<BetType>();
   const { width, height } = Dimensions.get("window");
 
-  console.log("route", name, image);
+  console.log("route", id, name);
   return (
     <ScrollView
       style={{
@@ -30,12 +30,15 @@ const Bet = () => {
           router.back();
         }}
         style={{
-          width: width / 20,
-          height: width / 20,
-          backgroundColor: "white",
+          height: 30,
+          width: 30,
+          backgroundColor: "#909090",
+          borderRadius: 15,
+
           position: "absolute",
           top: 40,
           zIndex: 4,
+          left: 20,
         }}
       ></Pressable>
       <Animated.Image

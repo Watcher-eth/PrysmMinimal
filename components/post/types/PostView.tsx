@@ -1,8 +1,8 @@
-import { View, Text, Dimensions, Image } from "react-native";
+import { View, Text, Dimensions, Image, Pressable } from "react-native";
 import React from "react";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
 import TextPost from "./TextPost";
 import LinkPost from "./LinkPost";
@@ -33,6 +33,7 @@ const PostView = (props: PostFeedType) => {
           justifyContent: "space-between",
           alignItems: "flex-end",
           paddingBottom: 30,
+          marginBottom: -30,
         }}
       >
         <Image
@@ -67,12 +68,15 @@ const PostView = (props: PostFeedType) => {
             top: height / 8.5 / 2,
           }}
         />
-        <View
+        <Pressable
           style={{
             height: 30,
             width: 30,
             backgroundColor: "#909090",
             borderRadius: 15,
+          }}
+          onPress={() => {
+            router.back();
           }}
         />
         <Text style={{ fontSize: 22, color: "white", fontWeight: "700" }}>

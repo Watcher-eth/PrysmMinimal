@@ -9,6 +9,7 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
+import ModalScreen from "@/app/modal";
 
 const ProfileModal = () => {
   // ref
@@ -62,18 +63,19 @@ const ProfileModal = () => {
           />
         </Animated.View>
       </Pressable>
-      <BottomSheetModalProvider>
-        <BottomSheetModal
-          ref={bottomSheetModalRef}
-          index={1}
-          snapPoints={snapPoints}
-          onChange={handleSheetChanges}
-        >
-          <View style={{}}>
-            <Text>Awesome 🎉</Text>
-          </View>
-        </BottomSheetModal>
-      </BottomSheetModalProvider>
+
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
+      >
+        <View style={{ width: 300, height: 300 }}>
+          <Text>Awesome 🎉</Text>
+          <Text>Awesome 🎉</Text>
+          <Text>Awesome 🎉</Text>
+        </View>
+      </BottomSheetModal>
     </BottomSheetModalProvider>
   );
 };

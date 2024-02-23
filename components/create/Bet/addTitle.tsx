@@ -2,7 +2,7 @@ import { View, Text, Dimensions, Pressable } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
 
-const AddTitle = () => {
+const AddTitle = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
   const [text, onChangeText] = useState<String>("");
 
@@ -94,6 +94,7 @@ const AddTitle = () => {
           </Text>
         </Pressable>
         <Pressable
+          onPress={() => changeStep(1)} // Assuming the next step index is 1
           style={{
             marginTop: 22,
             marginLeft: 16,
