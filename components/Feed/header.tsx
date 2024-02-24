@@ -16,10 +16,10 @@ const FeedHeader = () => {
         alignItems: "center",
         justifyContent: "space-between",
         width: "100%",
-        paddingRight: 15,
-        paddingLeft: 15,
+        paddingRight: 7,
+        paddingLeft: 22,
         padding: 11,
-        marginTop: 16,
+        paddingTop: 55,
       }}
     >
       <View>

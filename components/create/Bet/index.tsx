@@ -127,17 +127,15 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgrey",
   },
   sheetContainer: {
-    // add horizontal space
-
     marginHorizontal: 19,
     borderRadius: 22,
     justifyContent: "flex-start",
   },
   contentContainer: {
     flex: 1,
+    zIndex: 10,
     alignItems: "center",
     borderRadius: 22,
-    backgroundColor: "white",
   },
   input: {
     fontSize: 18,

@@ -10,7 +10,7 @@ import CreateBet from "@/components/create/Bet";
 import CreatePost from "@/components/create/Post";
 
 export default function TabTwoScreen() {
-  return <CreatePost />;
+  return <CreateBet />;
 }
 
 const styles = StyleSheet.create({

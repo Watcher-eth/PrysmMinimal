@@ -46,7 +46,7 @@ const CreatePost = () => {
 
         // Adjust translateY to ensure the bottom of the modal remains at the initial bottom position
         translateY.value = withTiming(expectedBottomPosition, {
-          duration: 500,
+          duration: 200,
           easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
         });
 

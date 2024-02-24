@@ -20,8 +20,8 @@ import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 
 const Card = (props) => {
-  const screenWidth = Dimensions.get("window").width * 0.85;
-  const screenHeight = Dimensions.get("window").height * 0.6;
+  const screenWidth = Dimensions.get("window").width * 0.88;
+  const screenHeight = Dimensions.get("window").height * 0.47;
   const { name, description, topic, image, icon } = props;
   const scale = useSharedValue(1);
 
