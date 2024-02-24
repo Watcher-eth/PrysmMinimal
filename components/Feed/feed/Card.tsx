@@ -19,7 +19,13 @@ import Animated from "react-native-reanimated";
 import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 
-const Card = (props) => {
+const Card = (props: {
+  name: any;
+  description: any;
+  topic: any;
+  image: any;
+  icon: any;
+}) => {
   const screenWidth = Dimensions.get("window").width * 0.88;
   const screenHeight = Dimensions.get("window").height * 0.47;
   const { name, description, topic, image, icon } = props;

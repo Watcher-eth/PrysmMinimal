@@ -4,7 +4,7 @@ import { TextInput } from "react-native-gesture-handler";
 
 const AddQuestion = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
-  const [text, onChangeText] = useState<String>("");
+  const [text, onChangeText] = useState<string>("");
 
   return (
     <View
