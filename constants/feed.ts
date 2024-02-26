@@ -7,7 +7,7 @@ export const feedData: CardType[] = [
     topic: "Farcaster",
     icon: "https://pbs.twimg.com/profile_images/1546487688601096192/QoG0ZVgH_400x400.jpg",
     image:
-      " https://raw.githubusercontent.com/farcasterxyz/.github/master/farcaster.jpg",
+      "https://raw.githubusercontent.com/farcasterxyz/.github/master/farcaster.jpg",
   },
   {
     name: "Best Picture",
@@ -15,7 +15,7 @@ export const feedData: CardType[] = [
     topic: "Oppenheimer",
     icon: "https://media-prod.fangoria.com/images/Opp2.width-800.jpg",
     image:
-      " https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",
   },
   {
     name: "Taylor new BF",

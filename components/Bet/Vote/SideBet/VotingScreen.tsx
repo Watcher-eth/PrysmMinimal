@@ -16,6 +16,10 @@ const VotingScreen = ({ changeStep }) => {
         paddingHorizontal: 20,
         width: "100%",
         marginTop: -21,
+        backgroundColor: "white",
+        borderRadius: 20,
+        paddingBottom: 13,
+        paddingTop: 0,
       }}
     >
       <View

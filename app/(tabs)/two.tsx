@@ -8,9 +8,11 @@ import LinkPost from "@/components/post/types/LinkPost";
 import SideBet from "@/components/post/types/SideBet";
 import CreateBet from "@/components/create/Bet";
 import CreatePost from "@/components/create/Post";
+import Slider from "@/components/common/AnimatedSlider";
+import CreateComment from "@/components/create/Comment";
 
 export default function TabTwoScreen() {
-  return <CreateBet />;
+  return <Search />;
 }
 
 const styles = StyleSheet.create({

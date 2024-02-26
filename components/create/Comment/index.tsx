@@ -1,57 +1,61 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { View, Text, StyleSheet, Button, TextInput } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import BottomSheet, {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
-import SearchGrid from "./searchGrid";
-import Animated from "react-native-reanimated";
-import SearchResults from "./SearchResults";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  Easing,
+} from "react-native-reanimated";
 
-const Search = () => {
-  const [text, onChangeText] = useState<String>("");
+import AddComment from "./addComment";
 
+const CreateComment = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const modalHeight = useSharedValue(85); // Initial height
+  const translateY = useSharedValue(0); // For moving the modal up
+  const paddingTop = useSharedValue(0); // For moving the modal up
 
-  // variables
-  const snapPoints = useMemo(() => ["25%", "50%"], []);
-
-  // callbacks
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
+  const snapPoints = useMemo(() => ["25%", "50%"], []);
+
   const handleSheetChanges = useCallback((index: number) => {
     console.log("handleSheetChanges", index);
   }, []);
 
-  // renders
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      paddingTop: paddingTop.value,
+      minHeight: 180,
+      height: 190,
+    };
+  });
+
   return (
     <View style={styles.container}>
       <BottomSheetModalProvider>
         <View style={styles.container}>
           <Button
             onPress={handlePresentModalPress}
-            title="Present Modal"
+            title="Comment"
             color="black"
           />
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={1}
-            bottomInset={370}
-            // set `detached` to true
+            bottomInset={190}
             detached={true}
             style={styles.sheetContainer}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
           >
-            <Animated.View style={styles.contentContainer}>
-              <TextInput
-                style={styles.input}
-                onChangeText={onChangeText}
-                value={text}
-                placeholder="Search..."
-              />
-              <SearchResults />
+            <Animated.View style={[styles.contentContainer, animatedStyle]}>
+              <AddComment />
             </Animated.View>
           </BottomSheetModal>
         </View>
@@ -68,17 +72,14 @@ const styles = StyleSheet.create({
   },
   sheetContainer: {
     // add horizontal space
+    flex: 1,
     marginHorizontal: 19,
-    borderRadius: 12,
-
+    borderRadius: 22,
     justifyContent: "flex-start",
   },
   contentContainer: {
-    flex: 1,
     alignItems: "center",
-    borderRadius: 12,
-    height: 620,
-    minHeight: 470,
+    borderRadius: 22,
     backgroundColor: "white",
   },
   input: {
@@ -92,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Search;
+export default CreateComment;

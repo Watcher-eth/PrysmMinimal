@@ -2,11 +2,12 @@ import { View, Text, Dimensions } from "react-native";
 import React from "react";
 import TrendingTab from "./TrendingTab";
 import ReccomendedTab from "./ReccomendedTab";
+import Animated from "react-native-reanimated";
 
 const SearchGrid = () => {
   const width = Dimensions.get("window").width;
   return (
-    <View
+    <Animated.View
       style={{
         padding: 10,
         marginTop: 13,
@@ -14,9 +15,10 @@ const SearchGrid = () => {
         flexDirection: "column",
         alignItems: "center",
         width: width / 0.8,
+        paddingBottom: 20,
       }}
     >
-      <View
+      <Animated.View
         style={{
           display: "flex",
           flexDirection: "row",
@@ -37,11 +39,13 @@ const SearchGrid = () => {
             See all
           </Text>
         </View>
-      </View>
+      </Animated.View>
       <TrendingTab />
       <ReccomendedTab />
-    </View>
+    </Animated.View>
   );
 };
 
 export default SearchGrid;
+
+
