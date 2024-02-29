@@ -2,7 +2,12 @@ import { View, Text, Dimensions, Image, Pressable } from "react-native";
 import React from "react";
 import { router, useLocalSearchParams } from "expo-router";
 import { BetType, CardType } from "@/types/FeedTypes";
-import Animated from "react-native-reanimated";
+import Animated, {
+  interpolate,
+  useAnimatedRef,
+  useAnimatedStyle,
+  useScrollViewOffset,
+} from "react-native-reanimated";
 import { LinearGradient } from "expo-linear-gradient";
 import { AvatarGroup } from "@/components/common/Avatar";
 import BetFeed from "@/components/Bet/BetFeed";
@@ -12,10 +17,41 @@ const Bet = () => {
   const { name, description, image, icon, topic, id } =
     useLocalSearchParams<BetType>();
   const { width, height } = Dimensions.get("window");
+  const scrollRef = useAnimatedRef<Animated.ScrollView>();
+  const scrollOffset = useScrollViewOffset(scrollRef);
+  const IMG_HEIGHT = 380;
 
+  const imageAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateY: interpolate(
+            scrollOffset.value,
+            [-IMG_HEIGHT, 0, IMG_HEIGHT],
+            [-IMG_HEIGHT / 2, 0, IMG_HEIGHT * 0.75]
+          ),
+        },
+        {
+          scale: interpolate(
+            scrollOffset.value,
+            [-IMG_HEIGHT, 0, IMG_HEIGHT],
+            [2, 1, 1]
+          ),
+        },
+      ],
+    };
+  });
+
+  const headerAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(scrollOffset.value, [0, IMG_HEIGHT / 1.5], [0, 1]),
+    };
+  });
   console.log("route", id, name);
   return (
-    <ScrollView
+    <Animated.ScrollView
+      ref={scrollRef}
+      scrollEventThrottle={16}
       style={{
         flex: 1,
         display: "flex",
@@ -41,20 +77,30 @@ const Bet = () => {
           left: 20,
         }}
       ></Pressable>
+
       <Animated.Image
-        sharedTransitionTag="CardImage"
+        sharedTransitionTag={"shared"}
         source={{
-          uri: "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",
+          uri: image,
         }}
-        style={{ width: width, height: height * 0.5 }}
-        resizeMode="cover" // This prop determines how to resize the image when the frame doesn't match the raw image dimensions
+        style={[{ width: width, height: IMG_HEIGHT }, imageAnimatedStyle]}
       />
+
       <LinearGradient
         // Background Linear Gradient
-        colors={["transparent", "#070707"]}
+        colors={[
+          "transparent",
+          "#070707",
+
+          "#070707",
+          "#070707",
+          "#070707",
+          "#070707",
+          "#070707",
+        ]}
         style={{
           width: width,
-          height: height * 0.31,
+          height: height * 1.61,
           position: "absolute",
           top: height * 0.19,
         }}
@@ -140,7 +186,7 @@ const Bet = () => {
         </Text>
       </View>
       <BetFeed />
-    </ScrollView>
+    </Animated.ScrollView>
   );
 };
 

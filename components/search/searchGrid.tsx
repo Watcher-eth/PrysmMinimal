@@ -2,12 +2,20 @@ import { View, Text, Dimensions } from "react-native";
 import React from "react";
 import TrendingTab from "./TrendingTab";
 import ReccomendedTab from "./ReccomendedTab";
-import Animated from "react-native-reanimated";
+import Animated, {
+  Easing,
+  FadeIn,
+  FadeInDown,
+  FadeOut,
+  FadeOutDown,
+} from "react-native-reanimated";
 
 const SearchGrid = () => {
   const width = Dimensions.get("window").width;
   return (
     <Animated.View
+      entering={FadeInDown.duration(500).easing(Easing.ease)}
+      exiting={FadeOutDown.duration(500).easing(Easing.ease)}
       style={{
         padding: 10,
         marginTop: 13,
@@ -24,7 +32,7 @@ const SearchGrid = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          width: width / 1.27,
+          width: width / 1.2,
         }}
       >
         <Text style={{ fontSize: 22, fontWeight: "800" }}>Today</Text>
@@ -47,5 +55,3 @@ const SearchGrid = () => {
 };
 
 export default SearchGrid;
-
-

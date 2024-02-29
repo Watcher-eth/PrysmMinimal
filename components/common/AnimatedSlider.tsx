@@ -27,7 +27,7 @@ const AnimatedSlider = () => {
   });
 
   const handlePressIn = () => {
-    scale.value = withSpring(2.5);
+    scale.value = withSpring(1.4);
     textOpacity.value = withTiming(1); // Make text visible
   };
 
@@ -40,11 +40,11 @@ const AnimatedSlider = () => {
     <View style={styles.container}>
       <Animated.View style={[styles.sliderContainer, animatedStyle]}>
         <Slider
-          style={[styles.slider, { transform: [{ scale: 3 }] }]}
+          style={[styles.slider, { transform: [{ scale: 3.35 }] }]}
           minimumValue={0}
           tapToSeek={true}
           maximumValue={2}
-          minimumTrackTintColor={"rgba(255, 255, 255, 0.75)"}
+          minimumTrackTintColor={"rgba(20, 20, 20, 0.9)"}
           maximumTrackTintColor={"rgba(150, 150, 150, 0.4)"}
           onValueChange={setSliderValue}
           onTouchStart={handlePressIn}
@@ -69,6 +69,7 @@ const AnimatedSlider = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 13,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "black",
@@ -93,15 +94,15 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   leftText: {
-    color: "black",
+    color: "white",
 
-    left: -18,
+    left: -38,
     bottom: 44.5, // Adjust based on your slider's dimensions
   },
   rightText: {
-    color: "white",
+    color: "black",
 
-    right: -18,
+    right: -38,
     bottom: 44.5, // Adjust based on your slider's dimensions
   },
 });

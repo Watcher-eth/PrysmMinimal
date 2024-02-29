@@ -31,7 +31,7 @@ const Feed = () => {
             </View>
           );
         }}
-        estimatedItemSize={3}
+        estimatedItemSize={4}
         data={feedData}
         centerContent={true}
       />

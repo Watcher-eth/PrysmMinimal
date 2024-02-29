@@ -81,7 +81,7 @@ const Card = (props: {
         ]}
       >
         <Animated.Image
-          sharedTransitionTag="CardImage"
+          sharedTransitionTag={name}
           source={{
             uri: image,
           }} // Replace 'your-image-url' with your image's URI

@@ -4,6 +4,7 @@ import ProfileModal from "../profile/profileModal";
 import { Camera } from "lucide-react-native";
 import { BlurView } from "expo-blur";
 import ProfilePopover from "../profile/profilePopover";
+import Search from "../search";
 
 const FeedHeader = () => {
   return (
@@ -23,13 +24,13 @@ const FeedHeader = () => {
       }}
     >
       <View>
-        <ProfilePopover />
+        <Search />
       </View>
       <Text style={{ color: "white", fontSize: 18, fontWeight: "500" }}>
         Trending
       </Text>
       <View>
-        <ProfileModal />
+        <ProfilePopover />
       </View>
     </BlurView>
   );

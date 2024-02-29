@@ -2,6 +2,14 @@ import React from "react";
 import { View, TextInput, StyleSheet, Text, Image } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { BlurView } from "expo-blur";
+import Animated, {
+  Easing,
+  FadeIn,
+  FadeInDown,
+  FadeInUp,
+  FadeOut,
+  FadeOutDown,
+} from "react-native-reanimated";
 
 const SearchResults = () => {
   const betsData = [
@@ -56,7 +64,7 @@ const SearchResults = () => {
     >
       <Image source={{ uri: item.imageUri }} style={styles.betImage} />
       <BlurView
-        intensity={11}
+        intensity={18}
         tint="systemThinMaterialDark"
         style={{
           width: "100%",
@@ -88,7 +96,11 @@ const SearchResults = () => {
   );
 
   return (
-    <View style={styles.container}>
+    <Animated.View
+      style={styles.container}
+      entering={FadeInDown.duration(500).easing(Easing.ease)}
+      exiting={FadeOutDown.duration(500).easing(Easing.ease)}
+    >
       {/* Render the bets list. You can replace this with a FlatList or ScrollView */}
       {betsData.map((bet) => renderBetItem({ item: bet }))}
 
@@ -111,7 +123,7 @@ const SearchResults = () => {
         keyExtractor={(item) => item.id}
         estimatedItemSize={100} // Adjust based on your average item height
       />
-    </View>
+    </Animated.View>
   );
 };
 

@@ -18,11 +18,12 @@ const ReccomendedTab = () => {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        width: width / 1.25,
+        width: width / 1.21,
         height: width / 2.15,
         borderRadius: 13,
         paddingBottom: 30,
         marginTop: 10,
+        gap: 1,
       }}
     >
       <RecomendedProfile />
@@ -70,22 +71,23 @@ const RecomendedProfile = () => {
             uri: "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
           }}
           style={{
-            width: width / 2.58,
-            height: width / 2.5,
+            width: width / 2.44,
+            height: width / 2.44,
             borderRadius: 9,
             overflow: "hidden",
             position: "absolute",
           }}
         />
         <BlurView
-          intensity={65.5}
+          intensity={60.5}
           tint="regular"
           style={{
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            width: width / 2.58,
-            height: width / 2.5,
+            width: width / 2.44,
+            height: width / 2.44,
+
             borderRadius: 9,
             overflow: "hidden",
             paddingLeft: 10,
@@ -95,13 +97,13 @@ const RecomendedProfile = () => {
         />
         <Image
           source={{
-            uri: "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
+            uri: "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_168/https%3A%2F%2Fopenseauserdata.com%2Ffiles%2Ffd28c65d9b5192168fb259009a3afd36.png",
           }}
           style={{
-            width: width / 4.95,
-            height: width / 4.95,
+            width: width / 4.4,
+            height: width / 4.4,
             borderRadius: 100,
-            marginTop: 10,
+            marginTop: 9,
 
             overflow: "hidden",
           }}
@@ -114,7 +116,7 @@ const RecomendedProfile = () => {
             fontSize: 15.5,
           }}
         >
-          0xDesigner
+          Ted (Not Lasso)
         </Text>
         <TouchableOpacity
           style={{
@@ -167,10 +169,9 @@ const RecomendedCommunity = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          width: width / 2.58,
-          height: width / 2.5,
+          width: width / 2.43,
+          height: width / 2.43,
           borderRadius: 13,
-          border: "1px solid lightgrey",
           backgroundColor: "pink",
         }}
       >
@@ -179,8 +180,8 @@ const RecomendedCommunity = () => {
             uri: "https:/raw.githubusercontent.com/farcasterxyz/.github/master/farcaster.jpg",
           }}
           style={{
-            width: width / 2.58,
-            height: width / 2.5,
+            width: width / 2.44,
+            height: width / 2.44,
             borderRadius: 9,
             overflow: "hidden",
             position: "absolute",
@@ -200,7 +201,7 @@ const RecomendedCommunity = () => {
               color: "white",
               fontWeight: "700",
 
-              fontSize: 17.5,
+              fontSize: 19.5,
             }}
           >
             Farcaster
@@ -210,7 +211,7 @@ const RecomendedCommunity = () => {
               color: "white",
               fontWeight: "500",
 
-              fontSize: 13.5,
+              fontSize: 14,
             }}
           >
             Trending

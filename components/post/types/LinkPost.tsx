@@ -69,11 +69,11 @@ const LinkPost = (props: { border: boolean }) => {
         >
           <Image
             source={{
-              uri: "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
+              uri: "https://avatars.githubusercontent.com/u/1097953?v=4",
             }}
             style={{
-              width: width / 7.5,
-              height: width / 7.5,
+              width: width / 7.8,
+              height: width / 7.8,
               borderRadius: 100,
               overflow: "hidden",
             }}

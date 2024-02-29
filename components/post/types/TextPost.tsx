@@ -47,7 +47,7 @@ const TextPost = (props: { border: boolean }) => {
             display: "flex",
             flexDirection: "column",
             width: width / 1.1,
-            height: height / 4,
+            height: height / 4.9,
             backgroundColor: props.border ? "#0F0F0F" : "transparent",
             alignSelf: "center",
             borderRadius: 20,
@@ -65,11 +65,11 @@ const TextPost = (props: { border: boolean }) => {
         >
           <Image
             source={{
-              uri: "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
+              uri: "https://avatars.githubusercontent.com/u/1097953?v=4",
             }}
             style={{
-              width: width / 7.5,
-              height: width / 7.5,
+              width: width / 7.8,
+              height: width / 7.8,
               borderRadius: 100,
               overflow: "hidden",
             }}

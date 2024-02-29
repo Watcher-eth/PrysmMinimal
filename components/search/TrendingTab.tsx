@@ -31,8 +31,8 @@ const TrendingTab = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-end",
-          width: width / 1.25,
-          height: width / 2.1,
+          width: width / 1.2,
+          height: width / 1.9,
           borderRadius: 13,
           backgroundColor: "lightgray",
           marginTop: 10,
@@ -44,8 +44,8 @@ const TrendingTab = () => {
             uri: "https://people.com/thmb/O_xCNbRlz_oLi0iTy2xWUBGOtQY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(959x222:961x224)/oppenheimer-mag-rollout-7-071923-b6e2ce1f1e034c8585067050f5e4012c.jpg",
           }}
           style={{
-            width: width / 1.25,
-            height: width / 2.1,
+            width: width / 1.2,
+            height: width / 1.9,
             borderRadius: 9,
             overflow: "hidden",
             position: "absolute",
@@ -58,7 +58,7 @@ const TrendingTab = () => {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            width: width / 1.25,
+            width: width / 1.2,
             height: width / 7.5,
             borderBottomLeftRadius: 9,
             borderBottomRightRadius: 9,
@@ -70,13 +70,13 @@ const TrendingTab = () => {
         />
         <Text
           style={{
-            fontSize: 20,
+            fontSize: 22,
             color: "white",
             fontWeight: "700",
             margin: 9,
             paddingRight: 95,
             marginBottom: 6,
-            lineHeight: 21,
+            lineHeight: 22,
           }}
         >
           Will Oppenheimer win an Oscar?

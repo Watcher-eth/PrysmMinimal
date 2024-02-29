@@ -1,3 +1,7 @@
+import "./globals.js";
+import "react-native-get-random-values";
+import "@ethersproject/shims";
+import { PrivyProvider } from "@privy-io/expo";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,

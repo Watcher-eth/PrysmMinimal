@@ -4,6 +4,7 @@ import { TextInput } from "react-native-gesture-handler";
 import { BlurView } from "expo-blur";
 import Animated from "react-native-reanimated";
 import { AvatarGroup } from "@/components/common/Avatar";
+import AnimatedSlider from "@/components/common/AnimatedSlider";
 
 const VotingScreen = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
@@ -180,7 +181,7 @@ const VotingScreen = ({ changeStep }) => {
       >
         <View
           style={{
-            marginTop: 4,
+            marginTop: 0,
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
@@ -195,15 +196,7 @@ const VotingScreen = ({ changeStep }) => {
             Max 221
           </Text>
         </View>
-        <View
-          style={{
-            height: 10,
-            borderRadius: 5,
-            width: "100%",
-            marginTop: 7,
-            backgroundColor: "lightgray",
-          }}
-        />
+        <AnimatedSlider />
       </View>
       <View
         style={{
@@ -235,7 +228,7 @@ const VotingScreen = ({ changeStep }) => {
               fontWeight: "800",
             }}
           >
-            Cancle
+            No
           </Text>
         </Pressable>
         <Pressable
@@ -259,7 +252,7 @@ const VotingScreen = ({ changeStep }) => {
               fontWeight: "800",
             }}
           >
-            Next
+            Yes
           </Text>
         </Pressable>
       </View>
