@@ -12,6 +12,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { AvatarGroup } from "@/components/common/Avatar";
 import BetFeed from "@/components/Bet/BetFeed";
 import { ScrollView } from "react-native-gesture-handler";
+import PollingComponent from "@/components/Bet/BetSlider";
 
 const Bet = () => {
   const { name, description, image, icon, topic, id } =
@@ -184,6 +185,16 @@ const Bet = () => {
         <Text style={{ fontSize: 18, fontWeight: "700", color: "#BEBDBD" }}>
           {description}
         </Text>
+      </View>
+
+      <View
+        style={{
+          paddingHorizontal: 20,
+          marginTop: -15,
+          marginBottom: 5,
+        }}
+      >
+        <PollingComponent yesValue={40} noValue={60} />
       </View>
       <BetFeed />
     </Animated.ScrollView>

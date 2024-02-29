@@ -213,7 +213,7 @@ const LoginModal = ({ changeStep }) => {
           fontSize: 20,
           display: "flex",
           marginLeft: 1,
-          marginTop: 22,
+          marginTop: 24,
           padding: 11,
           height: 45,
           paddingBottom: 0,
@@ -412,11 +412,11 @@ const LoginModal = ({ changeStep }) => {
           color: "gray",
           fontWeight: "500",
           textAlign: "center",
-          paddingHorizontal: 60,
-          marginTop: 10,
+          paddingHorizontal: 50,
+          marginTop: 15,
         }}
       >
-        By signing in you agree to our Terms and Conditions
+        By signing up you agree to our Terms and Conditions
       </Text>
     </View>
   );

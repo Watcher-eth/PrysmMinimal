@@ -26,8 +26,8 @@ const Card = (props: {
   image: any;
   icon: any;
 }) => {
-  const screenWidth = Dimensions.get("window").width * 0.88;
-  const screenHeight = Dimensions.get("window").height * 0.47;
+  const screenWidth = Dimensions.get("window").width * 0.92;
+  const screenHeight = Dimensions.get("window").height * 0.5;
   const { name, description, topic, image, icon } = props;
   const scale = useSharedValue(1);
 
@@ -70,7 +70,7 @@ const Card = (props: {
             flex: 1,
             flexDirection: "column",
             justifyContent: "flex-end",
-            paddingLeft: 10,
+
             marginVertical: 15,
             width: screenWidth,
             height: screenHeight,
@@ -87,7 +87,7 @@ const Card = (props: {
           }} // Replace 'your-image-url' with your image's URI
           style={{
             position: "absolute",
-            margin: 10,
+
             width: screenWidth,
             height: screenHeight,
             borderRadius: 15,
@@ -96,7 +96,14 @@ const Card = (props: {
           resizeMode="cover" // This prop determines how to resize the image when the frame doesn't match the raw image dimensions
         />
 
-        <View style={{ display: "flex", flexDirection: "column", margin: 9 }}>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: 9,
+            marginLeft: 12,
+          }}
+        >
           <Text
             style={{
               fontSize: 52,
@@ -131,23 +138,24 @@ const Card = (props: {
             borderBottomLeftRadius: 10,
             borderBottomRightRadius: 10,
             overflow: "hidden",
-            paddingLeft: 10,
+            paddingLeft: 15,
           }}
         >
           <Image
             source={{ uri: icon }}
             style={{
-              height: screenHeight * 0.11,
-              width: screenHeight * 0.11,
-              borderRadius: 7,
+              height: screenHeight * 0.115,
+              width: screenHeight * 0.115,
+              borderRadius: 5,
               marginRight: 3,
             }}
           />
           <Text
             style={{
-              fontSize: 16,
-              marginLeft: 4,
-              lineHeight: 17,
+              fontSize: 17,
+              marginLeft: 8,
+              lineHeight: 18,
+              fontWeight: "500",
               color: "#ffffff",
               opacity: 0.9,
               maxWidth: screenWidth * 0.78,

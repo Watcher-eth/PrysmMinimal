@@ -53,7 +53,7 @@ const LinkPost = (props: { border: boolean }) => {
             flexDirection: "column",
             width: width / 1.2,
 
-            backgroundColor: props.border ? "#0F0F0F" : "transparent",
+            backgroundColor: props.border ?"#141414"  : "transparent",
             alignSelf: "center",
             borderRadius: 20,
             padding: props.border ? 15 : 0,
