@@ -8,8 +8,10 @@ const useCreateBetStore = create<BetUploadState>((set) => ({
   type: "",
   media: "",
   topic: "",
+  options: [],
   setState: (newState) => set((state) => ({ ...state, ...newState })),
-  reset: () => set(() => ({ content: "", type: "", media: "", topic: "" })),
+  reset: () =>
+    set(() => ({ content: "", type: "", media: "", topic: "", options: [] })),
 }));
 
 export default useCreateBetStore;

@@ -14,6 +14,7 @@ import AddCover from "./addCover";
 import AddTitle from "./addTitle";
 import AddQuestion from "./addQuestion";
 import ConfirmBet from "./Confirm";
+import AddOptions from "./addOptions";
 
 const CreateBet = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -23,7 +24,7 @@ const CreateBet = () => {
 
   const [currentStep, setCurrentStep] = useState(0);
 
-  const stepHeights = useMemo(() => [240, 260, 470, 550], []);
+  const stepHeights = useMemo(() => [240, 260, 310, 470, 550], []);
 
   if (currentStep === 1) {
   }
@@ -67,8 +68,10 @@ const CreateBet = () => {
       case 1:
         return <AddQuestion changeStep={changeStep} />;
       case 2:
-        return <AddCover changeStep={changeStep} />;
+        return <AddOptions changeStep={changeStep} />;
       case 3:
+        return <AddCover changeStep={changeStep} />;
+      case 4:
         return <ConfirmBet changeStep={changeStep} />;
       // Add other cases for different steps
       default:

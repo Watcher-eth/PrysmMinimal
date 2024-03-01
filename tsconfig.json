@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "components/Feed/feed", "app/index.tsx"  ]
+, "components/Feed/feed", "app/index.tsx", "components/create/Bet/addOptions.tsx"  ]
 }

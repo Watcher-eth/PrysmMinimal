@@ -5,6 +5,7 @@ export type BetUploadState = {
   type: string;
   media: string;
   topic: string;
+  options: string[];
   // A generic setter function type
   setState: (values: Partial<BetUploadState>) => void;
   reset: () => void;
