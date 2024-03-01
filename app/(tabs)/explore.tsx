@@ -9,10 +9,8 @@ import { isNotCreated, useEmbeddedWallet, usePrivy } from "@privy-io/expo";
 import { Loader } from "lucide-react-native";
 import LoginPopup from "@/components/Onboarding/LoginModal";
 import { BetModalPropData } from "@/constants/testData";
-import CreateBet from "@/components/create/Bet";
-
 const Explore = () => {
-  return <CreateBet />;
+  return <VoteSideBet {...BetModalPropData} />;
 };
 
 export default Explore;

@@ -42,7 +42,7 @@ export interface VotingScreenProps {
 
 export interface BetModalConfirmationScreenProps {
   image: string;
-  option: string;
+  options: string[];
   question: string;
   changeStep: (step: number) => void;
   multiplier: number;

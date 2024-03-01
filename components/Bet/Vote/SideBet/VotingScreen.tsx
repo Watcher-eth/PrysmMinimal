@@ -29,8 +29,11 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
     // You can also do other actions here if needed, based on the new slider value
   };
 
-  const confirmSelection = () => {
-    setVotingState({ amount: sliderValue });
+  const confirmSelection = (option: number) => {
+    setVotingState({
+      amount: sliderValue,
+      option: option,
+    });
     changeStep(1);
   };
   return (
@@ -236,7 +239,7 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
         }}
       >
         <Pressable
-          onPress={() => changeStep(1)}
+          onPress={() => confirmSelection(1)}
           style={{
             marginTop: 22,
 
@@ -261,7 +264,7 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
           </Text>
         </Pressable>
         <Pressable
-          onPress={() => confirmSelection()} // Assuming the next step index is 1
+          onPress={() => confirmSelection(2)} // Assuming the next step index is 1
           style={{
             marginTop: 22,
             marginLeft: 16,

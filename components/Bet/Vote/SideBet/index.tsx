@@ -82,7 +82,7 @@ const VoteSideBet = (props: BetModalProps) => {
             changeStep={changeStep}
             question={question}
             multiplier={3}
-            option="Yes"
+            options={["No", "Yes"]}
             image={image}
           />
         );

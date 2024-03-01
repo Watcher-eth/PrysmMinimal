@@ -6,8 +6,9 @@ import useVotingStore from "@/lib/stores/VotingStore";
 import { BetModalConfirmationScreenProps } from "@/types/BetTypes";
 
 const ConfirmationScreen = (props: BetModalConfirmationScreenProps) => {
-  const { image, option, question, multiplier, changeStep } = props;
+  const { image, options, question, multiplier, changeStep } = props;
   const amount = useVotingStore((state) => state.amount);
+  const Option = useVotingStore((state) => state.option);
 
   return (
     <View
@@ -76,22 +77,27 @@ const ConfirmationScreen = (props: BetModalConfirmationScreenProps) => {
           padding: 4,
           paddingHorizontal: 10,
           borderRadius: 11,
-          backgroundColor: "#013145",
+
+          backgroundColor: Option === 1 ? "#75171D" : "#013145",
           marginBottom: -30,
           zIndex: 3,
         }}
       >
-        <Vote color={"#0596FF"} height={20} style={{ marginBottom: 1.2 }} />
+        <Vote
+          color={Option === 1 ? "#E23B3B" : "#0596FF"}
+          height={20}
+          style={{ marginBottom: 1.2 }}
+        />
         <Text
           style={{
             fontSize: 16,
-            color: "#0596FF",
+            color: Option === 1 ? "#E23B3B" : "#0596FF",
             fontWeight: "600",
             textAlign: "center",
             marginBottom: 2,
           }}
         >
-          {option}
+          {options[Option - 1]}
         </Text>
       </View>
       <View
