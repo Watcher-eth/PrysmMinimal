@@ -11,16 +11,24 @@ import Animated, {
   Easing,
 } from "react-native-reanimated";
 import VotingScreen from "./VotingScreen";
+import ConfirmationScreen from "./ConfirmationScreen";
+import useVotingStore from "@/lib/stores/VotingStore";
+import { BetModalProps } from "@/types/BetTypes";
 
-const VoteSideBet = () => {
+const VoteSideBet = (props: BetModalProps) => {
+  const { question, title, betId, options, totalPot, image } = props;
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const modalHeight = useSharedValue(395); // Initial height
+  const setVotingState = useVotingStore((state) => state.setState);
+
+  const modalHeight = useSharedValue(440); // Initial height
   const translateY = useSharedValue(0); // For moving the modal up
   const paddingTop = useSharedValue(0); // For moving the modal up
-
   const [currentStep, setCurrentStep] = useState(0);
 
-  const stepHeights = useMemo(() => [510, 530, 424, 450], []);
+  const stepHeights = useMemo(() => [420, 390, 424, 450], []);
+
+  if (currentStep === 1) {
+  }
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
@@ -35,28 +43,10 @@ const VoteSideBet = () => {
     (stepIndex) => {
       if (stepIndex >= 0 && stepIndex < stepHeights.length) {
         const newHeight = stepHeights[stepIndex];
-        const initialBottomPosition = 200; /* Determine the initial bottom position of the modal */
 
         // Calculate the expected bottom position based on the new height
-        const expectedBottomPosition = initialBottomPosition - newHeight;
-
-        // Adjust translateY to ensure the bottom of the modal remains at the initial bottom position
-        translateY.value = withTiming(expectedBottomPosition, {
-          duration: 500,
-          easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
-        });
 
         modalHeight.value = withTiming(newHeight, { duration: 500 });
-        if (stepIndex === 0)
-          paddingTop.value = withTiming(16, {
-            duration: 500,
-            easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
-          });
-        if (stepIndex > 0)
-          paddingTop.value = withTiming(28, {
-            duration: 500,
-            easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
-          }); // For moving the modal up
 
         setCurrentStep(stepIndex);
       }
@@ -76,9 +66,26 @@ const VoteSideBet = () => {
   const renderStepContent = () => {
     switch (currentStep) {
       case 0:
-        return <VotingScreen changeStep={changeStep} />; // Pass changeStep as a prop
+        return (
+          <VotingScreen
+            options={options}
+            totalPot={totalPot}
+            image={image}
+            title={title}
+            question={question}
+            changeStep={changeStep}
+          />
+        ); // Pass changeStep as a prop
       case 1:
-        return <VotingScreen changeStep={changeStep} />;
+        return (
+          <ConfirmationScreen
+            changeStep={changeStep}
+            question={question}
+            multiplier={3}
+            option="Yes"
+            image={image}
+          />
+        );
       // Add other cases for different steps
       default:
         return null;
@@ -99,7 +106,7 @@ const VoteSideBet = () => {
             index={1}
             bottomInset={360}
             detached={true}
-            style={styles.sheetContainer}
+            style={[styles.sheetContainer, { backgroundColor: "#131313" }]}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
           >
@@ -124,14 +131,17 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     justifyContent: "flex-start",
     flex: 1,
+    backgroundColor: "#131313",
+    opacity: 0,
   },
   contentContainer: {
     flex: 1,
     zIndex: 10,
     alignItems: "center",
     borderRadius: 22,
-    minHeight: 500,
-    height: 500,
+    minHeight: 300,
+    height: 300,
+    backgroundColor: "#131313",
   },
   input: {
     fontSize: 18,

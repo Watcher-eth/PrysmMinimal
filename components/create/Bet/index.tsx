@@ -17,13 +17,16 @@ import ConfirmBet from "./Confirm";
 
 const CreateBet = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const modalHeight = useSharedValue(195); // Initial height
+  const modalHeight = useSharedValue(240); // Initial height
   const translateY = useSharedValue(0); // For moving the modal up
   const paddingTop = useSharedValue(0); // For moving the modal up
 
   const [currentStep, setCurrentStep] = useState(0);
 
-  const stepHeights = useMemo(() => [210, 230, 424, 450], []);
+  const stepHeights = useMemo(() => [240, 260, 470, 550], []);
+
+  if (currentStep === 1) {
+  }
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
@@ -38,28 +41,10 @@ const CreateBet = () => {
     (stepIndex) => {
       if (stepIndex >= 0 && stepIndex < stepHeights.length) {
         const newHeight = stepHeights[stepIndex];
-        const initialBottomPosition = 200; /* Determine the initial bottom position of the modal */
 
         // Calculate the expected bottom position based on the new height
-        const expectedBottomPosition = initialBottomPosition - newHeight;
-
-        // Adjust translateY to ensure the bottom of the modal remains at the initial bottom position
-        translateY.value = withTiming(expectedBottomPosition, {
-          duration: 500,
-          easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
-        });
 
         modalHeight.value = withTiming(newHeight, { duration: 500 });
-        if (stepIndex === 0)
-          paddingTop.value = withTiming(16, {
-            duration: 500,
-            easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
-          });
-        if (stepIndex > 0)
-          paddingTop.value = withTiming(28, {
-            duration: 500,
-            easing: Easing.bezier(0.22, 1, 0.36, 1), // Customize this bezier curve as needed
-          }); // For moving the modal up
 
         setCurrentStep(stepIndex);
       }
@@ -72,7 +57,6 @@ const CreateBet = () => {
       height: modalHeight.value,
       paddingTop: paddingTop.value,
       minHeight: modalHeight.value,
-      transform: [{ translateY: translateY.value }],
     };
   });
 
@@ -104,9 +88,9 @@ const CreateBet = () => {
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={1}
-            bottomInset={30}
+            bottomInset={380}
             detached={true}
-            style={styles.sheetContainer}
+            style={[styles.sheetContainer]}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
           >
@@ -129,13 +113,17 @@ const styles = StyleSheet.create({
   sheetContainer: {
     marginHorizontal: 19,
     borderRadius: 22,
-    justifyContent: "flex-start",
+
+    flex: 1,
+    backgroundColor: "#131313",
   },
   contentContainer: {
     flex: 1,
     zIndex: 10,
     alignItems: "center",
     borderRadius: 22,
+
+    backgroundColor: "#131313",
   },
   input: {
     fontSize: 18,

@@ -1,10 +1,13 @@
 import { View, Text, Dimensions, Pressable } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
+import useCreateBetStore from "@/lib/stores/UploadBetStore";
+import { X } from "lucide-react-native";
 
 const AddTitle = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
-  const [text, onChangeText] = useState<String>("");
+  const [text, onChangeText] = useState<string>("");
+  const setVotingState = useCreateBetStore((state) => state.setState);
 
   return (
     <View
@@ -25,28 +28,25 @@ const AddTitle = ({ changeStep }) => {
         }}
       >
         <View style={{ display: "flex", flexDirection: "column" }}>
-          <Text style={{ fontSize: 25, color: "black", fontWeight: "700" }}>
+          <Text style={{ fontSize: 25, color: "white", fontWeight: "700" }}>
             Title
           </Text>
           <Text style={{ fontSize: 16, color: "gray", fontWeight: "500" }}>
             [Max 120 characters]
           </Text>
         </View>
-        <Text
+        <Pressable
           style={{
-            fontSize: 22,
-            color: "#585858",
-            fontWeight: "800",
-            paddingVertical: 4,
-            paddingHorizontal: 10,
+            paddingVertical: 8,
+            paddingHorizontal: 6,
             borderRadius: 17,
             overflow: "hidden",
             backgroundColor: "#D9D9D9",
             alignSelf: "flex-start",
           }}
         >
-          x
-        </Text>
+          <X color={"#585858"} strokeWidth={5} height={20} />
+        </Pressable>
       </View>
       <TextInput
         style={{
@@ -56,6 +56,7 @@ const AddTitle = ({ changeStep }) => {
           marginTop: 22,
           width: "99%",
           fontWeight: "700",
+          color: "white",
         }}
         onChangeText={onChangeText}
         value={text}
@@ -63,17 +64,46 @@ const AddTitle = ({ changeStep }) => {
       />
       <View
         style={{
-          marginTop: 7,
+          marginTop: 8,
+          gap: 5,
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           width: "100%",
+          justifyContent: "center",
         }}
       >
         <Pressable
           style={{
             marginTop: 22,
 
+            padding: 10,
+            borderRadius: 24,
+            overflow: "hidden",
+            backgroundColor: "#1D1D1D",
+            width: 140,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              color: "#D9D9D9",
+              fontWeight: "800",
+            }}
+          >
+            Back
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => {
+            setVotingState({ title: text });
+            changeStep(1);
+          }} // Assuming the next step index is 1
+          style={{
+            marginTop: 22,
+            marginLeft: 16,
             padding: 10,
             borderRadius: 24,
             overflow: "hidden",
@@ -86,31 +116,7 @@ const AddTitle = ({ changeStep }) => {
           <Text
             style={{
               fontSize: 20,
-
-              fontWeight: "800",
-            }}
-          >
-            Cancle
-          </Text>
-        </Pressable>
-        <Pressable
-          onPress={() => changeStep(1)} // Assuming the next step index is 1
-          style={{
-            marginTop: 22,
-            marginLeft: 16,
-            padding: 10,
-            borderRadius: 24,
-            overflow: "hidden",
-            backgroundColor: "#060606",
-            width: 140,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 20,
-              color: "white",
+              color: "#1D1D1D",
               fontWeight: "800",
             }}
           >

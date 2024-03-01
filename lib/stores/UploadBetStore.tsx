@@ -1,7 +1,7 @@
 import { BetUploadState } from "@/types/BetTypes";
 import { create } from "zustand";
 
-const usePostStore = create<BetUploadState>((set) => ({
+const useCreateBetStore = create<BetUploadState>((set) => ({
   question: "",
   title: "",
   icon: "",
@@ -12,4 +12,4 @@ const usePostStore = create<BetUploadState>((set) => ({
   reset: () => set(() => ({ content: "", type: "", media: "", topic: "" })),
 }));
 
-export default usePostStore;
+export default useCreateBetStore;

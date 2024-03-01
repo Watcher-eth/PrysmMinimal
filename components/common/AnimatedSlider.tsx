@@ -8,14 +8,19 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-const AnimatedSlider = () => {
+const AnimatedSlider = ({ onValueChange }) => {
   const [sliderValue, setSliderValue] = useState(0);
-  const scale = useSharedValue(1);
+  const scale = useSharedValue(3.3);
+  const scaleY = useSharedValue(3.3);
+
   const textOpacity = useSharedValue(0); // Controls the opacity of the text elements
+
+  //TODO: Get user balance
+  const userBalance = 221;
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
-      transform: [{ scaleY: scale.value }],
+      transform: [{ scaleX: scale.value }, { scaleY: scaleY.value }],
     };
   });
 
@@ -27,12 +32,12 @@ const AnimatedSlider = () => {
   });
 
   const handlePressIn = () => {
-    scale.value = withSpring(1.4);
+    scaleY.value = withSpring(4);
     textOpacity.value = withTiming(1); // Make text visible
   };
 
   const handlePressOut = () => {
-    scale.value = withSpring(1);
+    scaleY.value = withSpring(3.35);
     textOpacity.value = withTiming(0); // Hide text
   };
 
@@ -40,13 +45,19 @@ const AnimatedSlider = () => {
     <View style={styles.container}>
       <Animated.View style={[styles.sliderContainer, animatedStyle]}>
         <Slider
-          style={[styles.slider, { transform: [{ scale: 3.35 }] }]}
+          style={[
+            styles.slider,
+            { transform: [{ scale: 3.35 }], scaleY: 3.35, scaleX: 3.35 },
+          ]}
           minimumValue={0}
           tapToSeek={true}
-          maximumValue={2}
-          minimumTrackTintColor={"rgba(20, 20, 20, 0.9)"}
-          maximumTrackTintColor={"rgba(150, 150, 150, 0.4)"}
-          onValueChange={setSliderValue}
+          maximumValue={221}
+          minimumTrackTintColor={"rgba(250, 250, 250, 0.85)"}
+          maximumTrackTintColor={"rgba(250, 250, 250, 0.4)"}
+          onValueChange={(value) => {
+            setSliderValue(value);
+            onValueChange(value); // Call the passed in function with the new value
+          }}
           onTouchStart={handlePressIn}
           onTouchEnd={handlePressOut}
           thumbTintColor={"transparent"}

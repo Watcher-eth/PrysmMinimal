@@ -17,7 +17,6 @@ const Feed = () => {
       }}
     >
       <FlashList
-        style={{ zIndex: 1, justifyContent: "center", alignItems: "center" }}
         renderItem={({ item, index }) => {
           return (
             <View key={index} style={{ alignSelf: "center" }}>

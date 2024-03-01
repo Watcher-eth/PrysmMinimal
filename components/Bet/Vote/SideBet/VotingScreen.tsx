@@ -5,10 +5,34 @@ import { BlurView } from "expo-blur";
 import Animated from "react-native-reanimated";
 import { AvatarGroup } from "@/components/common/Avatar";
 import AnimatedSlider from "@/components/common/AnimatedSlider";
+import useVotingStore from "@/lib/stores/VotingStore";
+import { VotingScreenProps } from "@/types/BetTypes";
+import { Coins } from "lucide-react-native";
 
-const VotingScreen = ({ changeStep }) => {
+const VotingScreen: React.FC<VotingScreenProps> = ({
+  changeStep,
+  image,
+  question,
+  title,
+  totalPot,
+  options,
+}) => {
   const { width, height } = Dimensions.get("window");
+  const [sliderValue, setSliderValue] = useState(0); // State to hold the slider value
+  const setVotingState = useVotingStore((state) => state.setState);
 
+  //TODO: get current Balance
+  const currentBalance = 221;
+  // Function to be called when the slider value changes
+  const handleSliderChange = (value: React.SetStateAction<number>) => {
+    setSliderValue(value);
+    // You can also do other actions here if needed, based on the new slider value
+  };
+
+  const confirmSelection = () => {
+    setVotingState({ amount: sliderValue });
+    changeStep(1);
+  };
   return (
     <View
       style={{
@@ -16,11 +40,9 @@ const VotingScreen = ({ changeStep }) => {
         flexDirection: "column",
         paddingHorizontal: 20,
         width: "100%",
-        marginTop: -21,
-        backgroundColor: "white",
+
+        backgroundColor: "#131313",
         borderRadius: 20,
-        paddingBottom: 13,
-        paddingTop: 0,
       }}
     >
       <View
@@ -33,14 +55,13 @@ const VotingScreen = ({ changeStep }) => {
       >
         <Image
           source={{
-            uri: "https://people.com/thmb/O_xCNbRlz_oLi0iTy2xWUBGOtQY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(959x222:961x224)/oppenheimer-mag-rollout-7-071923-b6e2ce1f1e034c8585067050f5e4012c.jpg",
+            uri: image,
           }}
           style={{
             width: width / 1.21,
             height: height / 3.5,
             borderRadius: 11,
             overflow: "hidden",
-            marginTop: 13,
           }}
         />
         <BlurView
@@ -65,13 +86,13 @@ const VotingScreen = ({ changeStep }) => {
             fontSize: 25,
             fontWeight: "700",
             position: "absolute",
-            bottom: 27,
-            lineHeight: 23,
+            bottom: 48,
+            lineHeight: 25,
             left: 10,
             paddingRight: 70,
           }}
         >
-          Oppenheimer
+          {title}
         </Text>
         <Text
           style={{
@@ -79,31 +100,34 @@ const VotingScreen = ({ changeStep }) => {
             fontSize: 14,
             alignSelf: "center",
             fontWeight: "600",
-            bottom: 9,
+            bottom: 12,
             left: 11,
+            width: "85%",
             position: "absolute",
           }}
         >
-          Will Oppenheimer win best soundtrack?
+          {question}
         </Text>
-        <Text
+        <View
           style={{
-            color: "black",
-            fontSize: 11,
+            display: "flex",
             alignSelf: "center",
-            fontWeight: "700",
-            top: 22,
-            right: 9,
+            flexDirection: "row",
+            top: 12,
+            right: 7,
             position: "absolute",
-            padding: 2,
+            padding: 3,
             paddingHorizontal: 6,
             backgroundColor: "white",
             borderRadius: 9,
             overflow: "hidden",
           }}
         >
-          Side Bet
-        </Text>
+          <Coins height={15} color={"black"} strokeWidth={2.2} />
+          <Text style={{ color: "black", fontSize: 14, fontWeight: "700" }}>
+            Side Bet
+          </Text>
+        </View>
       </View>
 
       <View
@@ -133,8 +157,8 @@ const VotingScreen = ({ changeStep }) => {
               alignItems: "center",
             }}
           >
-            <Text style={{ fontSize: 28, fontWeight: "700", color: "gray" }}>
-              18 GHO
+            <Text style={{ fontSize: 28, fontWeight: "700", color: "#D9D9D9" }}>
+              {totalPot}
             </Text>
             <Animated.Image
               source={{
@@ -175,28 +199,29 @@ const VotingScreen = ({ changeStep }) => {
           marginTop: 14,
           display: "flex",
           flexDirection: "column",
-
+          marginBottom: 10,
           width: "100%",
         }}
       >
         <View
           style={{
-            marginTop: 0,
+            marginTop: -3,
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
             width: "100%",
+            marginBottom: 4,
           }}
         >
-          <Text style={{ fontSize: 15, fontWeight: "700", color: "gray" }}>
-            99 PRSM
+          <Text style={{ fontSize: 15, fontWeight: "700", color: "#D9D9D9" }}>
+            {sliderValue.toPrecision(4)} PRSM
           </Text>
-          <Text style={{ fontSize: 15, fontWeight: "700", color: "gray" }}>
-            Max 221
+          <Text style={{ fontSize: 15, fontWeight: "700", color: "#D9D9D9" }}>
+            Max {currentBalance}
           </Text>
         </View>
-        <AnimatedSlider />
+        <AnimatedSlider onValueChange={handleSliderChange} />
       </View>
       <View
         style={{
@@ -205,13 +230,41 @@ const VotingScreen = ({ changeStep }) => {
           flexDirection: "row",
           alignItems: "center",
           width: "100%",
+          marginBottom: 23,
+          alignSelf: "center",
+          justifyContent: "center",
         }}
       >
         <Pressable
-          onPress={() => changeStep(0)}
+          onPress={() => changeStep(1)}
           style={{
             marginTop: 22,
 
+            padding: 10,
+            borderRadius: 24,
+            overflow: "hidden",
+            backgroundColor: "#1D1D1D",
+
+            width: 140,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              color: "#D9D9D9",
+              fontWeight: "800",
+            }}
+          >
+            {options[0]}
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => confirmSelection()} // Assuming the next step index is 1
+          style={{
+            marginTop: 22,
+            marginLeft: 16,
             padding: 10,
             borderRadius: 24,
             overflow: "hidden",
@@ -224,35 +277,11 @@ const VotingScreen = ({ changeStep }) => {
           <Text
             style={{
               fontSize: 20,
-
+              color: "#1D1D1D",
               fontWeight: "800",
             }}
           >
-            No
-          </Text>
-        </Pressable>
-        <Pressable
-          onPress={() => changeStep(2)} // Assuming the next step index is 1
-          style={{
-            marginTop: 22,
-            marginLeft: 16,
-            padding: 10,
-            borderRadius: 24,
-            overflow: "hidden",
-            backgroundColor: "#060606",
-            width: 140,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 20,
-              color: "white",
-              fontWeight: "800",
-            }}
-          >
-            Yes
+            {options[1]}
           </Text>
         </Pressable>
       </View>

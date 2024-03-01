@@ -1,10 +1,13 @@
 import { View, Text, Dimensions, Pressable } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
+import useCreateBetStore from "@/lib/stores/UploadBetStore";
+import { X } from "lucide-react-native";
 
 const AddQuestion = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
   const [text, onChangeText] = useState<string>("");
+  const setVotingState = useCreateBetStore((state) => state.setState);
 
   return (
     <View
@@ -13,7 +16,6 @@ const AddQuestion = ({ changeStep }) => {
         flexDirection: "column",
         paddingHorizontal: 20,
         width: "100%",
-        marginTop: -5,
       }}
     >
       <View
@@ -25,28 +27,25 @@ const AddQuestion = ({ changeStep }) => {
         }}
       >
         <View style={{ display: "flex", flexDirection: "column" }}>
-          <Text style={{ fontSize: 25, color: "black", fontWeight: "700" }}>
+          <Text style={{ fontSize: 25, color: "white", fontWeight: "700" }}>
             Question
           </Text>
           <Text style={{ fontSize: 16, color: "gray", fontWeight: "500" }}>
             [The question you are predicting]
           </Text>
         </View>
-        <Text
+        <Pressable
           style={{
-            fontSize: 22,
-            color: "#585858",
-            fontWeight: "800",
-            paddingVertical: 4,
-            paddingHorizontal: 10,
+            paddingVertical: 8,
+            paddingHorizontal: 6,
             borderRadius: 17,
             overflow: "hidden",
             backgroundColor: "#D9D9D9",
             alignSelf: "flex-start",
           }}
         >
-          x
-        </Text>
+          <X color={"#585858"} strokeWidth={5} height={20} />
+        </Pressable>
       </View>
       <TextInput
         multiline={true}
@@ -54,7 +53,7 @@ const AddQuestion = ({ changeStep }) => {
         style={{
           fontSize: 23,
           display: "flex",
-
+          color: "white",
           marginTop: 22,
           width: "99%",
           fontWeight: "700",
@@ -70,6 +69,8 @@ const AddQuestion = ({ changeStep }) => {
           flexDirection: "row",
           alignItems: "center",
           width: "100%",
+          justifyContent: "center",
+          gap: 5,
         }}
       >
         <Pressable
@@ -77,6 +78,33 @@ const AddQuestion = ({ changeStep }) => {
           style={{
             marginTop: 22,
 
+            padding: 10,
+            borderRadius: 24,
+            overflow: "hidden",
+            backgroundColor: "#1D1D1D",
+            width: 140,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              color: "#D9D9D9",
+              fontWeight: "800",
+            }}
+          >
+            Back
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => {
+            changeStep(2);
+            setVotingState({ question: text });
+          }} // Assuming the next step index is 1
+          style={{
+            marginTop: 22,
+            marginLeft: 16,
             padding: 10,
             borderRadius: 24,
             overflow: "hidden",
@@ -89,31 +117,7 @@ const AddQuestion = ({ changeStep }) => {
           <Text
             style={{
               fontSize: 20,
-
-              fontWeight: "800",
-            }}
-          >
-            Cancle
-          </Text>
-        </Pressable>
-        <Pressable
-          onPress={() => changeStep(2)} // Assuming the next step index is 1
-          style={{
-            marginTop: 22,
-            marginLeft: 16,
-            padding: 10,
-            borderRadius: 24,
-            overflow: "hidden",
-            backgroundColor: "#060606",
-            width: 140,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 20,
-              color: "white",
+              color: "#1D1D1D",
               fontWeight: "800",
             }}
           >

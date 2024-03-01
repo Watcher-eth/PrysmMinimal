@@ -1,18 +1,29 @@
-import { View, Text, Dimensions, Pressable } from "react-native";
+import { View, Text, Dimensions, Pressable, Image } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
+import useCreateBetStore from "@/lib/stores/UploadBetStore";
+import { X } from "lucide-react-native";
 
 const AddCover = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
+  const setVotingState = useCreateBetStore((state) => state.setState);
+
+  // State to hold the selected image URI
+  const [selectedImageUri, setSelectedImageUri] = useState<string | null>(null);
+
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
+      aspect: [4, 3],
       quality: 1,
     });
 
-    if (!result.canceled) {
-      console.log(result);
+    if (!result.canceled && result.assets) {
+      const imageUri = result.assets[0].uri;
+      setSelectedImageUri(imageUri); // Update state with the selected image URI
+      setVotingState({ media: imageUri });
     } else {
       alert("You did not select any image.");
     }
@@ -25,7 +36,6 @@ const AddCover = ({ changeStep }) => {
         flexDirection: "column",
         paddingHorizontal: 20,
         width: "100%",
-        marginTop: -5,
       }}
     >
       <View
@@ -37,67 +47,82 @@ const AddCover = ({ changeStep }) => {
         }}
       >
         <View style={{ display: "flex", flexDirection: "column" }}>
-          <Text style={{ fontSize: 25, color: "black", fontWeight: "700" }}>
-            Title
+          <Text style={{ fontSize: 25, color: "white", fontWeight: "700" }}>
+            Add Cover
           </Text>
           <Text style={{ fontSize: 16, color: "gray", fontWeight: "500" }}>
-            [Max 120 characters]
+            [From your library]
           </Text>
         </View>
-        <Text
+        <Pressable
           style={{
-            fontSize: 22,
-            color: "#585858",
-            fontWeight: "800",
-            paddingVertical: 4,
-            paddingHorizontal: 10,
+            paddingVertical: 8,
+            paddingHorizontal: 6,
             borderRadius: 17,
             overflow: "hidden",
             backgroundColor: "#D9D9D9",
             alignSelf: "flex-start",
           }}
         >
-          x
-        </Text>
+          <X color={"#585858"} strokeWidth={5} height={20} />
+        </Pressable>
       </View>
-      <Pressable
-        onPress={() => pickImageAsync()}
-        style={{
-          marginTop: 15,
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          width: "100%",
-          height: height / 2.3,
-          borderRadius: 18,
-          backgroundColor: "lightgray",
-          justifyContent: "center",
-          position: "relative",
-        }}
-      >
-        <View
+      {selectedImageUri ? (
+        <Image
+          source={{ uri: selectedImageUri }}
           style={{
-            width: height / 5,
-            height: height / 5,
-            borderRadius: height / 5 / 2,
+            marginTop: 15,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            width: height / 2.7,
+            height: height / 2.7,
+            borderRadius: 18,
+            backgroundColor: "lightgray",
+            justifyContent: "center",
+            position: "relative",
+          }}
+        />
+      ) : (
+        <Pressable
+          onPress={() => pickImageAsync()}
+          style={{
+            marginTop: 15,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            width: height / 2.7,
+            height: height / 2.7,
+            borderRadius: 18,
+            backgroundColor: "lightgray",
+            justifyContent: "center",
+            position: "relative",
+          }}
+        >
+          <View
+            style={{
+              width: height / 5,
+              height: height / 5,
+              borderRadius: height / 5 / 2,
 
-            borderWidth: 3,
-            borderColor: "gray",
-            borderStyle: "dashed",
-          }}
-        />
-        <View
-          style={{
-            width: height / 9,
-            height: height / 9,
-            borderRadius: height / 9 / 2,
-            position: "absolute",
-            borderWidth: 3,
-            borderColor: "gray",
-            borderStyle: "dashed",
-          }}
-        />
-      </Pressable>
+              borderWidth: 3,
+              borderColor: "gray",
+              borderStyle: "dashed",
+            }}
+          />
+          <View
+            style={{
+              width: height / 9,
+              height: height / 9,
+              borderRadius: height / 9 / 2,
+              position: "absolute",
+              borderWidth: 3,
+              borderColor: "gray",
+              borderStyle: "dashed",
+            }}
+          />
+        </Pressable>
+      )}
       <View
         style={{
           marginTop: 2,
@@ -105,6 +130,8 @@ const AddCover = ({ changeStep }) => {
           flexDirection: "row",
           alignItems: "center",
           width: "100%",
+          justifyContent: "center",
+          gap: 5,
         }}
       >
         <Pressable
@@ -115,7 +142,7 @@ const AddCover = ({ changeStep }) => {
             padding: 10,
             borderRadius: 24,
             overflow: "hidden",
-            backgroundColor: "#D9D9D9",
+            backgroundColor: "#1D1D1D",
             width: 140,
             alignItems: "center",
             justifyContent: "center",
@@ -124,11 +151,11 @@ const AddCover = ({ changeStep }) => {
           <Text
             style={{
               fontSize: 20,
-
+              color: "#D9D9D9",
               fontWeight: "800",
             }}
           >
-            Cancle
+            Back
           </Text>
         </Pressable>
         <Pressable
@@ -139,7 +166,7 @@ const AddCover = ({ changeStep }) => {
             padding: 10,
             borderRadius: 24,
             overflow: "hidden",
-            backgroundColor: "#060606",
+            backgroundColor: "#D9D9D9",
             width: 140,
             alignItems: "center",
             justifyContent: "center",
@@ -148,7 +175,7 @@ const AddCover = ({ changeStep }) => {
           <Text
             style={{
               fontSize: 20,
-              color: "white",
+              color: "#1D1D1D",
               fontWeight: "800",
             }}
           >

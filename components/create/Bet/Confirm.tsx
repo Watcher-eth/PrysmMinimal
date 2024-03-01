@@ -3,21 +3,14 @@ import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
 import { BlurView } from "expo-blur";
+import useCreateBetStore from "@/lib/stores/UploadBetStore";
+import { Upload, X } from "lucide-react-native";
 
 const ConfirmBet = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
-  const pickImageAsync = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: true,
-      quality: 1,
-    });
-
-    if (!result.canceled) {
-      console.log(result);
-    } else {
-      alert("You did not select any image.");
-    }
-  };
+  const setVotingState = useCreateBetStore((state) => state.setState);
+  const { media, title, question } = useCreateBetStore((state) => state);
+  console.log("props", title, question);
 
   return (
     <View
@@ -35,34 +28,31 @@ const ConfirmBet = ({ changeStep }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+          width: "100%",
         }}
       >
         <View style={{ display: "flex", flexDirection: "column" }}>
-          <Text style={{ fontSize: 25, color: "black", fontWeight: "700" }}>
-            Title
+          <Text style={{ fontSize: 25, color: "white", fontWeight: "700" }}>
+            Upload
           </Text>
-          <Text style={{ fontSize: 16, color: "gray", fontWeight: "500" }}>
-            [Max 120 characters]
+          <Text style={{ fontSize: 15, color: "gray", fontWeight: "500" }}>
+            [Make sure to define a clear question!]
           </Text>
         </View>
-        <Text
+        <Pressable
           style={{
-            fontSize: 22,
-            color: "#585858",
-            fontWeight: "800",
-            paddingVertical: 4,
-            paddingHorizontal: 10,
+            paddingVertical: 8,
+            paddingHorizontal: 6,
             borderRadius: 17,
             overflow: "hidden",
             backgroundColor: "#D9D9D9",
             alignSelf: "flex-start",
           }}
         >
-          x
-        </Text>
+          <X color={"#585858"} strokeWidth={5} height={20} />
+        </Pressable>
       </View>
       <Pressable
-        onPress={() => pickImageAsync()}
         style={{
           marginTop: 15,
           display: "flex",
@@ -78,7 +68,7 @@ const ConfirmBet = ({ changeStep }) => {
       >
         <Image
           source={{
-            uri: "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
+            uri: media,
           }}
           style={{
             width: "100%",
@@ -99,7 +89,7 @@ const ConfirmBet = ({ changeStep }) => {
             lineHeight: 40,
           }}
         >
-          Billboard Hot 1
+          {title}
         </Text>
         <Text
           style={{
@@ -124,7 +114,7 @@ const ConfirmBet = ({ changeStep }) => {
             alignItems: "center",
             justifyContent: "center",
             width: "100%",
-            height: height / 9.1,
+            height: height / 10,
             borderBottomLeftRadius: 19,
             borderBottomRightRadius: 19,
             overflow: "hidden",
@@ -133,13 +123,12 @@ const ConfirmBet = ({ changeStep }) => {
         >
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 16.5,
               color: "white",
-              fontWeight: "500",
-              textAlign: "center",
+              fontWeight: "600",
             }}
           >
-            Will 0xDesigner mint out his 200th Edition of Design of the day?
+            {question}
           </Text>
         </BlurView>
       </Pressable>
@@ -150,6 +139,8 @@ const ConfirmBet = ({ changeStep }) => {
           flexDirection: "row",
           alignItems: "center",
           width: "100%",
+          justifyContent: "center",
+          gap: 5,
         }}
       >
         <Pressable
@@ -160,7 +151,7 @@ const ConfirmBet = ({ changeStep }) => {
             padding: 10,
             borderRadius: 24,
             overflow: "hidden",
-            backgroundColor: "#D9D9D9",
+            backgroundColor: "#1D1D1D",
             width: 140,
             alignItems: "center",
             justifyContent: "center",
@@ -169,11 +160,11 @@ const ConfirmBet = ({ changeStep }) => {
           <Text
             style={{
               fontSize: 20,
-
+              color: "#D9D9D9",
               fontWeight: "800",
             }}
           >
-            Cancle
+            Back
           </Text>
         </Pressable>
         <Pressable
@@ -183,21 +174,25 @@ const ConfirmBet = ({ changeStep }) => {
             padding: 10,
             borderRadius: 24,
             overflow: "hidden",
-            backgroundColor: "#060606",
+            backgroundColor: "#D9D9D9",
             width: 140,
             alignItems: "center",
             justifyContent: "center",
+            display: "flex",
+            flexDirection: "row",
+            gap: 3,
           }}
           onPress={() => changeStep(1)} // Assuming the next step index is 1
         >
+          <Upload color={"#1D1D1D"} height={22} width={21} strokeWidth={3} />
           <Text
             style={{
               fontSize: 20,
-              color: "white",
+              color: "#1D1D1D",
               fontWeight: "800",
             }}
           >
-            Next
+            Upload
           </Text>
         </Pressable>
       </View>

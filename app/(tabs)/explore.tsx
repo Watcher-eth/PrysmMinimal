@@ -8,9 +8,11 @@ import ParalaxHeader from "@/components/Bet/ParalaxHeader";
 import { isNotCreated, useEmbeddedWallet, usePrivy } from "@privy-io/expo";
 import { Loader } from "lucide-react-native";
 import LoginPopup from "@/components/Onboarding/LoginModal";
+import { BetModalPropData } from "@/constants/testData";
+import CreateBet from "@/components/create/Bet";
 
 const Explore = () => {
-  return <LoginPopup />;
+  return <CreateBet />;
 };
 
 export default Explore;
