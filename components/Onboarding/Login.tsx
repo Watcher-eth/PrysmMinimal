@@ -5,6 +5,8 @@ import LoginPopup from "./LoginModal";
 
 const Login = () => {
   const { width, height } = Dimensions.get("window");
+  const wallet = useEmbeddedWallet();
+  console.log("Wallet", wallet);
 
   return (
     <View

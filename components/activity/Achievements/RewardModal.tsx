@@ -23,7 +23,7 @@ import {
   useLoginWithSMS,
   usePrivy,
 } from "@privy-io/expo";
-import AnimatedPressable from "../common/AnimatedPressable";
+import AnimatedPressable from "../../common/AnimatedPressable";
 
 const LoginPopup = () => {
   const { width, height } = Dimensions.get("window");
@@ -172,51 +172,8 @@ const styles = StyleSheet.create({
 
 const LoginModal = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
-  const [phone, setPhone] = useState<string>("");
-  const [loadingState, setLoadingState] = useState<string>("");
 
-  const { sendCode } = useLoginWithSMS();
-
-  const { isReady } = usePrivy();
-  const { user } = usePrivy();
-  if (user !== null) {
-  }
-  if (user === null) {
-  }
-  console.log("ready", isReady);
-
-  function Login() {
-    //Login
-    setLoadingState("logging in");
-    //Create wallet
-    if (isReady) {
-      setLoadingState("conecting wallet");
-
-      const wallet = useEmbeddedWallet();
-      if (isNotCreated(wallet)) {
-        setLoadingState("creating wallet");
-
-        wallet.create();
-      }
-      const { state, login } = useLoginWithOAuth();
-      setLoadingState("finished");
-
-      return wallet;
-    }
-
-    //Link Twitter
-
-    //Update user store
-  }
-  //Socials
-
-  //  return state.status === 'done' ? (
-  // Email   const {sendCode} = useLoginWithEmail();
-  // Switch to confirmation   const {loginWithCode} = useLoginWithEmail();
-
-  //if (isNotCreated(wallet)) {
-  //  return <Button onPress={() => wallet.create()}>Create Wallet</Button>;
-  // }
+  //Choose type of Reward
 
   return (
     <View

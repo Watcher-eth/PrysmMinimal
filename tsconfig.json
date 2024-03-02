@@ -3,15 +3,16 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
-, "components/Feed/feed", "app/index.tsx", "components/create/Bet/addOptions.tsx"  ]
+    "expo-env.d.ts",
+    "components/Feed/feed",
+    "app/index.tsx",
+    "components/create/Bet/addOptions.tsx"
+  ]
 }

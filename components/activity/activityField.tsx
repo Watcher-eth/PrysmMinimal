@@ -5,10 +5,10 @@ const ActivityField = (props: {
   index: number;
   pfp: string;
   name: string;
-  amount: number;
-  won: number;
+  amount: string;
+  title: string;
 }) => {
-  const { pfp, index, name, amount, won } = props;
+  const { pfp, index, name, amount, title } = props;
   return (
     <View
       style={{
@@ -16,8 +16,11 @@ const ActivityField = (props: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        paddingVertical: 8,
-        paddingHorizontal: 5,
+        paddingVertical: 13,
+        paddingHorizontal: 15,
+        borderRadius: 15,
+        marginVertical: 5,
+        backgroundColor: "#1B1B1E",
       }}
     >
       <View
@@ -25,17 +28,14 @@ const ActivityField = (props: {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          gap: 5,
+          gap: 7,
         }}
       >
-        <Text style={{ fontSize: 15, color: "lightgray", fontWeight: "600" }}>
-          {index}.
-        </Text>
         <Image
           source={{ uri: pfp }}
           style={{
-            height: 70,
-            width: 70,
+            height: 40,
+            width: 40,
             borderRadius: 35,
             overflow: "hidden",
           }}
@@ -46,11 +46,13 @@ const ActivityField = (props: {
             flexDirection: "column",
           }}
         >
-          <Text style={{ fontSize: 20, color: "white", fontWeight: "700" }}>
+          <Text style={{ fontSize: 17, color: "white", fontWeight: "700" }}>
             {name}
           </Text>
-          <Text style={{ fontSize: 18, color: "green", fontWeight: "600" }}>
-            +{amount} Prysm
+          <Text
+            style={{ fontSize: 14.5, color: "lightgray", fontWeight: "600" }}
+          >
+            {title}
           </Text>
         </View>
       </View>
@@ -62,8 +64,19 @@ const ActivityField = (props: {
           gap: 5,
         }}
       >
-        <Text style={{ fontSize: 30, color: "white", fontWeight: "800" }}>
-          {won}
+        <Text
+          style={{
+            fontSize: 16,
+            color: "black",
+            fontWeight: "800",
+            paddingVertical: 6,
+            paddingHorizontal: 9,
+            borderRadius: 16,
+            overflow: "hidden",
+            backgroundColor: "white",
+          }}
+        >
+          {amount}
         </Text>
       </View>
     </View>

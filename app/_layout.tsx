@@ -1,7 +1,11 @@
-import "./globals.js";
 import "react-native-get-random-values";
+
 import "@ethersproject/shims";
+
+// Import the ethers library
+import { ethers } from "ethers";
 import { PrivyProvider } from "@privy-io/expo";
+
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,
@@ -67,6 +71,7 @@ function RootLayoutNav() {
           />
           <Stack.Screen name="[id]" options={{ headerShown: false }} />
           <Stack.Screen name="post" options={{ headerShown: false }} />
+          <Stack.Screen name="login" options={{ headerShown: false }} />
         </Stack>
       </GestureHandlerRootView>
     </ThemeProvider>

@@ -11,12 +11,10 @@ import Animated, {
   Easing,
 } from "react-native-reanimated";
 
-import AddTitle from "../Bet/addTitle";
-import AddQuestion from "../Bet/addQuestion";
 import AddPost from "./AddPost";
 import ConfirmPost from "./ConfirmPost";
 
-const CreatePost = () => {
+const CreatePost = (props: { topic: string }) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const modalHeight = useSharedValue(195); // Initial height
   const translateY = useSharedValue(0); // For moving the modal up
@@ -80,7 +78,7 @@ const CreatePost = () => {
   const renderStepContent = () => {
     switch (currentStep) {
       case 0:
-        return <AddPost changeStep={changeStep} />; // Pass changeStep as a prop
+        return <AddPost topic={props.topic} changeStep={changeStep} />; // Pass changeStep as a prop
       case 1:
         return <ConfirmPost changeStep={changeStep} />;
 

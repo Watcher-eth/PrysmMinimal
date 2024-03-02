@@ -1,15 +1,23 @@
 import { View, Text, Pressable } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
 import { UserRoundPlus } from "lucide-react-native";
+import { lensClient } from "@/lib/stores/LensClient";
 
-const FollowButton = () => {
+const FollowButton = ({ profileId }) => {
+  const [isFollowing, setFollowing] = useState(false);
   const scale = useSharedValue(1);
-
+  async function checkFollowing() {
+    const { isFollowedByMe } = await lensClient.profile.fetch({
+      forProfileId: profileId,
+    });
+    setFollowing(isFollowedByMe);
+  }
+  checkFollowing();
   const animatedStyle = useAnimatedStyle(() => {
     return {
       transform: [{ scale: scale.value }],
@@ -24,8 +32,24 @@ const FollowButton = () => {
     scale.value = withSpring(1);
   };
 
+  async function FollowUser() {
+    const result = await lensClient.profile.follow({
+      follow: [
+        {
+          profileId: profileId,
+        },
+      ],
+    });
+    if (result.isSuccess()) {
+      setFollowing(true);
+    }
+  }
   return (
-    <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut}>
+    <Pressable
+      onPress={FollowUser}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+    >
       <Animated.View
         style={[
           animatedStyle,

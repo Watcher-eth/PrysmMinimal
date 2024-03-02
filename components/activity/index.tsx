@@ -1,13 +1,25 @@
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, Dimensions, ActivityIndicator } from "react-native";
 import React, { useState } from "react";
-import { Award } from "lucide-react-native";
+import { Award, MonitorUpIcon } from "lucide-react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import { ActivityPropData } from "@/constants/testData";
+import ActivityField from "./activityField";
 
-const index = () => {
+const ActivityPage = () => {
   const { width, height } = Dimensions.get("window");
   const [page, setPage] = useState<number>(1);
   return (
-    <View style={{ display: "flex", flexDirection: "column", width: "100%" }}>
+    <View
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        padding: 20,
+        paddingTop: 65,
+        backgroundColor: "#101010",
+        height: height,
+      }}
+    >
       <View
         style={{
           display: "flex",
@@ -20,39 +32,61 @@ const index = () => {
         <Text style={{ fontSize: 25, color: "white", fontWeight: "700" }}>
           Activity
         </Text>
-        <Award color={"white"} />
+        <MonitorUpIcon color={"white"} />
       </View>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "100%",
 
-          alignItems: "center",
+      <Text
+        style={{
+          fontSize: 16,
+          color: "lightgray",
+          fontWeight: "700",
+          marginTop: 30,
+          marginRight: 5,
+          marginBottom: 10,
         }}
       >
-        <Text
-          style={{
-            fontSize: page === 1 ? 25 : 23,
-            color: page === 1 ? "white" : "grey",
-            fontWeight: "700",
-          }}
-        >
-          Your Friends
-        </Text>
-        <Text
-          style={{
-            fontSize: page === 2 ? 25 : 23,
-            color: page === 2 ? "white" : "grey",
-            fontWeight: "700",
-          }}
-        >
-          Global
-        </Text>
-      </View>
-      <ScrollView></ScrollView>
+        Today
+      </Text>
+      <ScrollView>
+        {ActivityPropData.map((item, index) => {
+          return (
+            <ActivityField
+              index={index}
+              name={item.name}
+              pfp={item.image}
+              amount={item.amount}
+              title={item.title}
+            />
+          );
+        })}
+      </ScrollView>
+      <Text
+        style={{
+          fontSize: 16,
+          color: "lightgray",
+          fontWeight: "700",
+
+          marginRight: 5,
+          marginBottom: 10,
+        }}
+      >
+        Yesterday
+      </Text>
+      <ScrollView>
+        {ActivityPropData.map((item, index) => {
+          return (
+            <ActivityField
+              index={index}
+              name={item.name}
+              pfp={item.image}
+              amount={item.amount}
+              title={item.title}
+            />
+          );
+        })}
+      </ScrollView>
     </View>
   );
 };
 
-export default index;
+export default ActivityPage;

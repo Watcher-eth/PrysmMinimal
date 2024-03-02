@@ -12,6 +12,7 @@ import { View } from "@/components/Themed";
 import { BlurView } from "expo-blur";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Compass, Globe, Home } from "lucide-react-native";
+import { useEmbeddedWallet } from "@privy-io/expo";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
