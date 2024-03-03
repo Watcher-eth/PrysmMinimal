@@ -24,11 +24,12 @@ import {
   usePrivy,
 } from "@privy-io/expo";
 import AnimatedPressable from "../common/AnimatedPressable";
+import useUserStore from "@/lib/stores/UserStore";
 
 const LoginPopup = () => {
   const { width, height } = Dimensions.get("window");
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const modalHeight = useSharedValue(330); // Initial height
+  const modalHeight = useSharedValue(350); // Initial height
   const paddingTop = useSharedValue(0); // For moving the modal up
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -91,7 +92,7 @@ const LoginPopup = () => {
               paddingHorizontal: 35,
               borderRadius: 18,
               backgroundColor: "white",
-              marginTop: 20,
+              marginTop: 40,
             }}
             onPress={handlePresentModalPress}
           >
@@ -100,7 +101,6 @@ const LoginPopup = () => {
                 color: "black",
                 fontWeight: "700",
                 fontSize: 17,
-                marginTop: 30,
               }}
             >
               Login
@@ -110,9 +110,9 @@ const LoginPopup = () => {
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={1}
-            bottomInset={200}
+            bottomInset={300}
             detached={true}
-            style={[styles.sheetContainer]}
+            style={[styles.sheetContainer, {}]}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
           >
@@ -121,9 +121,7 @@ const LoginPopup = () => {
                 styles.contentContainer,
                 animatedStyle,
                 {
-                  width: width / 1.2,
-                  height: height / 1,
-                  paddingBottom: 200,
+                  width: width / 1.15,
                 },
               ]}
             >
@@ -141,23 +139,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   sheetContainer: {
-    marginHorizontal: 19,
-    borderRadius: 22,
-    justifyContent: "flex-start",
+    borderTopLeftRadius: 22,
+    borderTopRightRadius: 22,
+    alignItems: "center",
+    marginTop: -270,
     backgroundColor: "white",
-    flex: 1,
   },
   contentContainer: {
     zIndex: 10,
     alignItems: "center",
-    borderRadius: 22,
+    borderBottomLeftRadius: 22,
+    borderBottomRightRadius: 22,
 
-    height: 300,
-    minHeight: 300,
+    height: 320,
+    minHeight: 320,
+    paddingBottom: 20,
     backgroundColor: "white",
     alignSelf: "center",
-
-    marginRight: 9.5,
   },
   input: {
     fontSize: 18,
@@ -174,12 +172,14 @@ const LoginModal = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
   const [phone, setPhone] = useState<string>("");
   const [loadingState, setLoadingState] = useState<string>("");
+  const setUser = useUserStore((state) => state.setState);
 
   const { sendCode } = useLoginWithSMS();
 
   const { isReady } = usePrivy();
   const { user } = usePrivy();
   if (user !== null) {
+    setUser({ id: user.id });
   }
   if (user === null) {
   }
@@ -204,7 +204,7 @@ const LoginModal = ({ changeStep }) => {
       return wallet;
     }
 
-    //Link Twitter
+    //Link Twitter (get PFP and Name)
 
     //Update user store
   }
@@ -225,8 +225,9 @@ const LoginModal = ({ changeStep }) => {
         flexDirection: "column",
         paddingHorizontal: 20,
         width: width / 1.15,
-        height: height / 2.5,
+        height: height / 2.4,
         marginTop: 10,
+        paddingBottom: 15,
       }}
     >
       <View

@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { Text, View } from "@/components/Themed";
 import Feed from "@/components/Feed/feed";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import FindFriends from "@/components/Onboarding/Friends/FindFriends";
 
 export default function TabOneScreen() {
   return (

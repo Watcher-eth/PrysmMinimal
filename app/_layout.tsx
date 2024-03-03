@@ -19,7 +19,7 @@ import { useEffect } from "react";
 
 import { useColorScheme } from "@/components/useColorScheme";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-
+import { init } from "@airstack/airstack-react";
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -32,7 +32,7 @@ export const unstable_settings = {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
-
+init(process.env.EXPO_PUBLIC_AIRSTACK!);
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),

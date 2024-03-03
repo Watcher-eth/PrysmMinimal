@@ -1,5 +1,6 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
+import AnimatedPressable from "../common/AnimatedPressable";
 
 const ActivityField = (props: {
   index: number;
@@ -10,7 +11,7 @@ const ActivityField = (props: {
 }) => {
   const { pfp, index, name, amount, title } = props;
   return (
-    <View
+    <AnimatedPressable
       style={{
         display: "flex",
         flexDirection: "row",
@@ -79,7 +80,7 @@ const ActivityField = (props: {
           {amount}
         </Text>
       </View>
-    </View>
+    </AnimatedPressable>
   );
 };
 

@@ -13,6 +13,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@airstack/airstack-react": "^0.6.2",
     "@ethersproject/shims": "^5.7.0",
     "@expo/vector-icons": "^14.0.0",
     "@gorhom/bottom-sheet": "^4",

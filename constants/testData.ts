@@ -38,3 +38,26 @@ export const ActivityPropData = [
       "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_jpg,w_168/https%3A%2F%2Fi.imgur.com%2FVj7CdUX.jpg",
   },
 ];
+
+export const FindFriendsPropData = [
+  {
+    isFollowing: false,
+    name: "Alec",
+    handle: "@Alec.eth",
+    pfp: "https://pbs.twimg.com/profile_images/1484766329798213634/pIfL_r6Y_400x400.jpg",
+  },
+  {
+    isFollowing: false,
+
+    name: "Ted (Not Lasso)",
+    handle: "@Ted",
+    pfp: "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_168/https%3A%2F%2Fopenseauserdata.com%2Ffiles%2Ffd28c65d9b5192168fb259009a3afd36.png",
+  },
+  {
+    isFollowing: true,
+
+    name: "0xSmallbrain",
+    handle: "@0xSmallbrain.eth",
+    pfp: "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_jpg,w_168/https%3A%2F%2Fi.imgur.com%2FVj7CdUX.jpg",
+  },
+];
