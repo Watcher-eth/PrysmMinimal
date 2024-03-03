@@ -15,7 +15,7 @@ export const useScaleAnimation = () => {
   });
 
   const handlePressIn = () => {
-    scale.value = withSpring(1.021);
+    scale.value = withSpring(0.98);
   };
 
   const handlePressOut = () => {

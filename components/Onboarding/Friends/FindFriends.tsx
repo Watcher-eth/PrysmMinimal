@@ -277,10 +277,6 @@ const FindFriends = () => {
                 fontSize: 16,
                 color: "black",
                 fontWeight: "600",
-                marginVertical: 12,
-
-                marginLeft: 22,
-                marginTop: 14,
               }}
             >
               Done

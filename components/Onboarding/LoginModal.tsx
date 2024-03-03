@@ -25,16 +25,17 @@ import {
 } from "@privy-io/expo";
 import AnimatedPressable from "../common/AnimatedPressable";
 import useUserStore from "@/lib/stores/UserStore";
+import ConnectSocialsModal from "./ConnectSocialsModal";
 
 const LoginPopup = () => {
   const { width, height } = Dimensions.get("window");
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const modalHeight = useSharedValue(350); // Initial height
+  const modalHeight = useSharedValue(335); // Initial height
   const paddingTop = useSharedValue(0); // For moving the modal up
 
   const [currentStep, setCurrentStep] = useState(0);
 
-  const stepHeights = useMemo(() => [350, 400], []);
+  const stepHeights = useMemo(() => [335, 272], []);
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
@@ -71,7 +72,7 @@ const LoginPopup = () => {
       case 0:
         return <LoginModal changeStep={changeStep} />; // Pass changeStep as a prop
       case 1:
-        return <LoginModal changeStep={changeStep} />;
+        return <ConnectSocialsModal changeStep={changeStep} />;
       case 2:
         return <LoginModal changeStep={changeStep} />;
       case 3:
@@ -93,6 +94,8 @@ const LoginPopup = () => {
               borderRadius: 18,
               backgroundColor: "white",
               marginTop: 40,
+              width: 120,
+              alignSelf: "center",
             }}
             onPress={handlePresentModalPress}
           >
@@ -101,6 +104,7 @@ const LoginPopup = () => {
                 color: "black",
                 fontWeight: "700",
                 fontSize: 17,
+                alignSelf: "center",
               }}
             >
               Login
@@ -137,6 +141,8 @@ const LoginPopup = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: "87%",
+    alignSelf: "center",
   },
   sheetContainer: {
     borderTopLeftRadius: 22,
@@ -179,7 +185,7 @@ const LoginModal = ({ changeStep }) => {
   const { isReady } = usePrivy();
   const { user } = usePrivy();
   if (user !== null) {
-    setUser({ id: user.id });
+    setUser({ id: "user.id" });
   }
   if (user === null) {
   }
@@ -226,7 +232,7 @@ const LoginModal = ({ changeStep }) => {
         paddingHorizontal: 20,
         width: width / 1.15,
         height: height / 2.4,
-        marginTop: 10,
+
         paddingBottom: 15,
       }}
     >
@@ -289,7 +295,10 @@ const LoginModal = ({ changeStep }) => {
         placeholder="+1 685 823904 "
       />
       <AnimatedPressable
-        onPress={() => sendCode({ phone })}
+        onPress={() => {
+          sendCode({ phone });
+          changeStep(1);
+        }}
         style={{
           marginTop: 12,
           display: "flex",
