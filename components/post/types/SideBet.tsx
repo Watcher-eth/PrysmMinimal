@@ -56,7 +56,7 @@ const SideBet = (props: { border: boolean }) => {
             borderRadius: 20,
             padding: props.border ? 15 : 0,
             paddingBottom: props.border ? 17 : 0,
-            marginVertical: 15,
+            marginTop: 15,
           },
         ]}
       >
@@ -84,7 +84,7 @@ const SideBet = (props: { border: boolean }) => {
               flexDirection: "row",
               justifyContent: "space-between",
 
-              width: width / 1.36,
+              width: props.border ? width / 1.43 : width / 1.36,
             }}
           >
             <View

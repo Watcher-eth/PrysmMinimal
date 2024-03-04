@@ -85,7 +85,7 @@ const LinkPost = (props: { border: boolean }) => {
               flexDirection: "row",
               justifyContent: "space-between",
 
-              width: width / 1.36,
+              width: props.border ? width / 1.43 : width / 1.36,
             }}
           >
             <View

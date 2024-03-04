@@ -2,9 +2,17 @@ import { View, Text, Image, Dimensions } from "react-native";
 import React from "react";
 import AnimatedPressable from "../common/AnimatedPressable";
 import { Globe, Unplug, X } from "lucide-react-native";
+import { useAuth } from "@/app/_layout";
 
 const ConnectSocialsModal = ({ changeStep }) => {
   const { width } = Dimensions.get("window");
+  const { setIsLoggedIn } = useAuth(); // Access the setIsLoggedIn function
+
+  const handleLogin = () => {
+    // Perform login logic here
+    setIsLoggedIn(true); // Update the state on successful login
+  };
+
   return (
     <View
       style={{
@@ -90,6 +98,7 @@ const ConnectSocialsModal = ({ changeStep }) => {
         Add your X profile to help us find your friends on Prysm
       </Text>
       <AnimatedPressable
+        onPress={() => setIsLoggedIn(true)}
         style={{
           width: width / 1.27,
           height: 50,

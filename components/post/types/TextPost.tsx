@@ -54,7 +54,7 @@ const TextPost = (props: { border: boolean }) => {
             padding: props.border ? 15 : 0,
             paddingBottom: props.border ? 17 : 0,
             marginBottom: props.border ? 0 : -10,
-            marginTop: props.border ? 0 : 10,
+            marginTop: props.border ? 15 : 10,
           },
         ]}
       >
@@ -82,7 +82,7 @@ const TextPost = (props: { border: boolean }) => {
               flexDirection: "row",
               justifyContent: "space-between",
 
-              width: width / 1.36,
+              width: props.border ? width / 1.43 : width / 1.36,
             }}
           >
             <View

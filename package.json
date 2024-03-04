@@ -23,6 +23,7 @@
     "@react-native-community/slider": "4.4.2",
     "@react-navigation/native": "^6.0.2",
     "@shopify/flash-list": "1.6.3",
+    "@tanstack/react-query": "^5.24.7",
     "atob": "^2.1.2",
     "base-64": "^1.0.0",
     "btoa": "^1.2.1",

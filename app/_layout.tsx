@@ -15,11 +15,19 @@ import {
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import { useColorScheme } from "@/components/useColorScheme";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { init } from "@airstack/airstack-react";
+import {
+  InMemoryStorageProvider,
+  LensClient,
+  development,
+  production,
+} from "@lens-protocol/client";
+import { AsyncStorageProvider } from "@/lib/stores/LensClient";
+import Login from "@/components/Onboarding/Login";
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -33,6 +41,19 @@ export const unstable_settings = {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 init(process.env.EXPO_PUBLIC_AIRSTACK!);
+const AuthContext = createContext(null);
+
+export const AuthProvider = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => useContext(AuthContext);
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
@@ -54,15 +75,31 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    <AuthProvider>
+      <RootLayoutNav />
+    </AuthProvider>
+  );
 }
 
 function RootLayoutNav() {
+  const { isLoggedIn } = useAuth(); // Access the logged-in state
   const colorScheme = useColorScheme();
+
+  if (!isLoggedIn) {
+    // If not logged in, show the login screen
+    return (
+      <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
+        <Login />
+      </GestureHandlerRootView>
+    );
+  }
+
+  // If logged in, show the tabs screen
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+      <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen

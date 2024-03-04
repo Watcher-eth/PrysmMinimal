@@ -2,6 +2,7 @@ import { View, Text, Image, Dimensions, Button } from "react-native";
 import React from "react";
 import { isNotCreated, useEmbeddedWallet } from "@privy-io/expo";
 import LoginPopup from "./LoginModal";
+import { useAuth } from "@/app/_layout";
 
 const Login = () => {
   const { width, height } = Dimensions.get("window");

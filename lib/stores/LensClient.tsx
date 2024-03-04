@@ -15,7 +15,7 @@ export interface IStorageProvider {
   removeItem(key: string): Promise<string> | Promise<void> | void;
 }
 
-class AsyncStorageProvider implements IStorageProvider {
+export class AsyncStorageProvider implements IStorageProvider {
   async getItem(key: string): Promise<string | null> {
     try {
       const value = await AsyncStorage.getItem(key);
@@ -45,14 +45,13 @@ class AsyncStorageProvider implements IStorageProvider {
   }
 }
 
+// Initialize the LensClient with the development or production environment and the AsyncStorageProvider
 const storageProvider = new AsyncStorageProvider();
 
-// Initialize the LensClient with the development or production environment and the AsyncStorageProvider
 export const lensClient = new LensClient({
-  environment: development, // or production, depending on your target environment
-  storage: storageProvider,
+  environment: development,
+  storage: new AsyncStorageProvider(),
 });
-
 export async function LoginToLens(address: string) {
   //Check Profiles
   const allOwnedProfiles = await lensClient.profile.fetchAll({
