@@ -11,7 +11,7 @@ import FeedHeader from "@/components/Feed/header";
 import { View } from "@/components/Themed";
 import { BlurView } from "expo-blur";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Compass, Globe, Home } from "lucide-react-native";
+import { Compass, FlaskConical, Globe, Home } from "lucide-react-native";
 import { useEmbeddedWallet } from "@privy-io/expo";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -94,6 +94,9 @@ function MyTabBar({ state, descriptors, navigation }) {
             {label === "Explore" && (
               <Compass color={isFocused ? "white" : "gray"} />
             )}
+            {label === "Test" && (
+              <FlaskConical color={isFocused ? "white" : "gray"} />
+            )}
           </TouchableOpacity>
         );
       })}
@@ -137,6 +140,14 @@ export default function TabLayout() {
         name="two"
         options={{
           title: "Tab Two",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="test"
+        options={{
+          title: "Test",
           headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}

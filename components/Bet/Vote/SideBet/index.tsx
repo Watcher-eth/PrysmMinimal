@@ -14,6 +14,8 @@ import VotingScreen from "./VotingScreen";
 import ConfirmationScreen from "./ConfirmationScreen";
 import useVotingStore from "@/lib/stores/VotingStore";
 import { BetModalProps } from "@/types/BetTypes";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
+import PollingComponent from "../../BetSlider";
 
 const VoteSideBet = (props: BetModalProps) => {
   const { question, title, betId, options, totalPot, image } = props;
@@ -96,11 +98,9 @@ const VoteSideBet = (props: BetModalProps) => {
     <View style={styles.container}>
       <BottomSheetModalProvider>
         <View style={styles.container}>
-          <Button
-            onPress={handlePresentModalPress}
-            title="Present Modal"
-            color="black"
-          />
+          <AnimatedPressable onPress={handlePresentModalPress}>
+            <PollingComponent yesValue={40} noValue={60} />
+          </AnimatedPressable>
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={1}
@@ -123,8 +123,6 @@ const VoteSideBet = (props: BetModalProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
-    backgroundColor: "lightgrey",
   },
   sheetContainer: {
     marginHorizontal: 19,
@@ -133,8 +131,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#131313",
     opacity: 0,
+    zIndex: 13,
   },
   contentContainer: {
+  
     flex: 1,
     zIndex: 10,
     alignItems: "center",

@@ -15,6 +15,8 @@ import AddTitle from "./addTitle";
 import AddQuestion from "./addQuestion";
 import ConfirmBet from "./Confirm";
 import AddOptions from "./addOptions";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
+import { Plus } from "lucide-react-native";
 
 const CreateBet = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -83,11 +85,19 @@ const CreateBet = () => {
     <View style={styles.container}>
       <BottomSheetModalProvider>
         <View style={styles.container}>
-          <Button
+          <AnimatedPressable
             onPress={handlePresentModalPress}
-            title="Present Modal"
-            color="black"
-          />
+            style={{
+              padding: 10,
+              backgroundColor: "rgba(90,90,90, 0.3)",
+              borderRadius: 20,
+              overflow: "hidden",
+              width: 43,
+              height: 43,
+            }}
+          >
+            <Plus color="white" strokeWidth={3} />
+          </AnimatedPressable>
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={1}
@@ -110,15 +120,14 @@ const CreateBet = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
-    backgroundColor: "lightgrey",
+    backgroundColor: "transparent",
   },
   sheetContainer: {
     marginHorizontal: 19,
     borderRadius: 22,
+    backgroundColor: "transparent",
 
     flex: 1,
-    backgroundColor: "#131313",
   },
   contentContainer: {
     flex: 1,

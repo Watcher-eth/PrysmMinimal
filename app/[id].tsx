@@ -15,6 +15,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import PollingComponent from "@/components/Bet/BetSlider";
 import { ChevronLeft, Share } from "lucide-react-native";
 import AnimatedPressable from "@/components/common/AnimatedPressable";
+import VoteSideBet from "@/components/Bet/Vote/SideBet";
+import { BetModalPropData } from "@/constants/testData";
 
 const Bet = () => {
   const { name, description, image, icon, topic, id } =
@@ -220,7 +222,7 @@ const Bet = () => {
           marginBottom: 5,
         }}
       >
-        <PollingComponent yesValue={40} noValue={60} />
+        <VoteSideBet {...BetModalPropData} />
       </View>
       <BetFeed />
     </Animated.ScrollView>

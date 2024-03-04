@@ -11,6 +11,7 @@ import TextPost from "../post/types/TextPost";
 import SideBet from "../post/types/SideBet";
 import LinkPost from "../post/types/LinkPost";
 import { FlashList } from "@shopify/flash-list";
+import CreateBet from "../create/Bet";
 
 // Define a fetch function
 /*const fetchPublications = async () => {
