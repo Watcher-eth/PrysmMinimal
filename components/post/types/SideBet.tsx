@@ -7,6 +7,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import { router } from "expo-router";
+import PollingComponent from "@/components/Bet/BetSlider";
 
 const SideBet = (props: { border: boolean }) => {
   const { width, height } = Dimensions.get("window");
@@ -29,14 +30,14 @@ const SideBet = (props: { border: boolean }) => {
     <Pressable
       onPress={() => {
         router.navigate({
-          pathname: "/post/[post]",
+          pathname: "/post/123",
           params: {
             post: "123",
             name: "Oppenheimer",
 
             image:
               "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
-            type: "Link",
+            type: "SideBet",
           },
         });
       }}
@@ -50,7 +51,7 @@ const SideBet = (props: { border: boolean }) => {
             display: "flex",
             flexDirection: "column",
             width: width / 1.1,
-            backgroundColor: props.border ? "#141414"  : "transparent",
+            backgroundColor: props.border ? "#141414" : "transparent",
             alignSelf: "center",
             borderRadius: 20,
             padding: props.border ? 15 : 0,
@@ -83,7 +84,7 @@ const SideBet = (props: { border: boolean }) => {
               flexDirection: "row",
               justifyContent: "space-between",
 
-              width: width / 1.62,
+              width: width / 1.36,
             }}
           >
             <View
@@ -129,8 +130,9 @@ const SideBet = (props: { border: boolean }) => {
               uri: "https://people.com/thmb/O_xCNbRlz_oLi0iTy2xWUBGOtQY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(959x222:961x224)/oppenheimer-mag-rollout-7-071923-b6e2ce1f1e034c8585067050f5e4012c.jpg",
             }}
             style={{
-              width: width / 1.21,
-              height: height / 3.5,
+              width: props.border ? width / 1.22 : width / 1.12,
+
+              height: height / 4.2,
               borderRadius: 10,
               overflow: "hidden",
               marginTop: 13,
@@ -200,58 +202,12 @@ const SideBet = (props: { border: boolean }) => {
         </View>
         <View
           style={{
-            marginTop: 20,
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            alignSelf: "center",
+            marginTop: 5,
+            paddingHorizontal: 4,
+            marginBottom: -10,
           }}
         >
-          <Pressable
-            style={{
-              padding: 9,
-              borderRadius: 24,
-              overflow: "hidden",
-              backgroundColor: "#E23B3B",
-              width: 140,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 18,
-                color: "white",
-                fontWeight: "800",
-              }}
-            >
-              No
-            </Text>
-          </Pressable>
-          <Pressable
-            style={{
-              marginLeft: 20,
-              padding: 9,
-              borderRadius: 24,
-              overflow: "hidden",
-              backgroundColor: "#57AC5B",
-              width: 140,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 18,
-                color: "white",
-                fontWeight: "800",
-              }}
-            >
-              Yes
-            </Text>
-          </Pressable>
+          <PollingComponent yesValue={72} noValue={28} />
         </View>
       </Animated.View>
     </Pressable>

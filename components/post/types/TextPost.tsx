@@ -26,14 +26,14 @@ const TextPost = (props: { border: boolean }) => {
     <Pressable
       onPress={() => {
         router.navigate({
-          pathname: "/post",
+          pathname: "/post/123",
           params: {
             post: "123",
             name: "Oppenheimer",
 
             image:
               "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
-            type: "Link",
+            type: "Text",
           },
         });
       }}
@@ -53,6 +53,8 @@ const TextPost = (props: { border: boolean }) => {
             borderRadius: 20,
             padding: props.border ? 15 : 0,
             paddingBottom: props.border ? 17 : 0,
+            marginBottom: props.border ? 0 : -10,
+            marginTop: props.border ? 0 : 10,
           },
         ]}
       >
@@ -80,7 +82,7 @@ const TextPost = (props: { border: boolean }) => {
               flexDirection: "row",
               justifyContent: "space-between",
 
-              width: width / 1.62,
+              width: width / 1.36,
             }}
           >
             <View
@@ -91,9 +93,16 @@ const TextPost = (props: { border: boolean }) => {
               }}
             >
               <Text style={{ color: "white", fontSize: 17, fontWeight: "600" }}>
-                TextPost
+                Jesse Pollack
               </Text>
-              <Text style={{ color: "white", fontSize: 15, fontWeight: "400" }}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 14,
+                  marginTop: 1,
+                  fontWeight: "400",
+                }}
+              >
                 /Oppenheimer
               </Text>
             </View>

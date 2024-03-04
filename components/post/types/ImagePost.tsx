@@ -31,7 +31,7 @@ const LinkPost = (props: { border: boolean }) => {
     <Pressable
       onPress={() => {
         router.navigate({
-          pathname: "/post/[post]",
+          pathname: "/post/123",
           params: {
             post: "123",
             name: "Oppenheimer",
@@ -53,12 +53,12 @@ const LinkPost = (props: { border: boolean }) => {
             flexDirection: "column",
             width: width / 1.2,
 
-            backgroundColor: props.border ?"#141414"  : "transparent",
+            backgroundColor: props.border ? "#141414" : "transparent",
             alignSelf: "center",
             borderRadius: 20,
             padding: props.border ? 15 : 0,
-            paddingBottom: props.border ? 17 : 0,
-            marginVertical: 15,
+            paddingBottom: props.border ? 17 : 3,
+            marginVertical: props.border ? 17 : 0,
           },
         ]}
       >
@@ -86,7 +86,7 @@ const LinkPost = (props: { border: boolean }) => {
               flexDirection: "row",
               justifyContent: "space-between",
 
-              width: width / 1.62,
+              width: width / 1.36,
             }}
           >
             <View

@@ -4,6 +4,7 @@ import { Award, MonitorUpIcon } from "lucide-react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { ActivityPropData } from "@/constants/testData";
 import ActivityField from "./activityField";
+import Chart from "./Chart";
 
 const ActivityPage = () => {
   const { width, height } = Dimensions.get("window");
@@ -34,56 +35,59 @@ const ActivityPage = () => {
         </Text>
         <MonitorUpIcon color={"white"} />
       </View>
-
-      <Text
-        style={{
-          fontSize: 16,
-          color: "lightgray",
-          fontWeight: "700",
-          marginTop: 30,
-          marginRight: 5,
-          marginBottom: 10,
-        }}
-      >
-        Today
-      </Text>
       <ScrollView>
-        {ActivityPropData.map((item, index) => {
-          return (
-            <ActivityField
-              index={index}
-              name={item.name}
-              pfp={item.image}
-              amount={item.amount}
-              title={item.title}
-            />
-          );
-        })}
-      </ScrollView>
-      <Text
-        style={{
-          fontSize: 16,
-          color: "lightgray",
-          fontWeight: "700",
+        <Chart />
+        <Text
+          style={{
+            fontSize: 16,
+            color: "lightgray",
+            fontWeight: "700",
+            marginTop: 25,
+            marginRight: 5,
+            marginBottom: 8,
+          }}
+        >
+          Today
+        </Text>
+        <View>
+          {ActivityPropData.map((item, index) => {
+            return (
+              <ActivityField
+                index={index}
+                name={item.name}
+                pfp={item.image}
+                amount={item.amount}
+                title={item.title}
+              />
+            );
+          })}
+        </View>
+        <Text
+          style={{
+            fontSize: 16,
+            color: "lightgray",
+            fontWeight: "700",
 
-          marginRight: 5,
-          marginBottom: 10,
-        }}
-      >
-        Yesterday
-      </Text>
-      <ScrollView>
-        {ActivityPropData.map((item, index) => {
-          return (
-            <ActivityField
-              index={index}
-              name={item.name}
-              pfp={item.image}
-              amount={item.amount}
-              title={item.title}
-            />
-          );
-        })}
+            marginRight: 5,
+            marginBottom: 8,
+            marginTop: 9,
+          }}
+        >
+          Yesterday
+        </Text>
+        <View>
+          {ActivityPropData.map((item, index) => {
+            return (
+              <ActivityField
+                index={index}
+                name={item.name}
+                pfp={item.image}
+                amount={item.amount}
+                title={item.title}
+              />
+            );
+          })}
+        </View>
       </ScrollView>
     </View>
   );

@@ -13,7 +13,8 @@ const Feed = () => {
         flex: 1,
         width: width,
         justifyContent: "center",
-        marginTop: 50,
+        paddingTop: 50,
+        backgroundColor: "#101010",
       }}
     >
       <FlashList

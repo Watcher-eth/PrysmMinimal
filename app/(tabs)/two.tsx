@@ -11,20 +11,10 @@ import Slider from "@/components/common/AnimatedSlider";
 import CreateComment from "@/components/create/Comment";
 import { Lock } from "lucide-react-native";
 import { router } from "expo-router";
+import ActivityPage from "@/components/activity";
 
 export default function TabTwoScreen() {
-  return (
-    <Pressable
-      style={{ padding: 100 }}
-      onPress={() => {
-        router.navigate({
-          pathname: "/login",
-        });
-      }}
-    >
-      <Lock />
-    </Pressable>
-  );
+  return <ActivityPage />;
 }
 
 const styles = StyleSheet.create({

@@ -62,23 +62,32 @@ const ActivityField = (props: {
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          gap: 5,
+          gap: 3,
+          paddingVertical: 7,
+          paddingHorizontal: 7,
+          borderRadius: 16,
+          overflow: "hidden",
+          backgroundColor: "white",
         }}
       >
         <Text
           style={{
-            fontSize: 16,
+            fontSize: 14.5,
             color: "black",
-            fontWeight: "800",
-            paddingVertical: 6,
-            paddingHorizontal: 9,
-            borderRadius: 16,
-            overflow: "hidden",
-            backgroundColor: "white",
+            fontWeight: "700",
           }}
         >
           {amount}
         </Text>
+        <Image
+          style={{
+            width: 18,
+            height: 18,
+            borderRadius: 10,
+            overflow: "hidden",
+          }}
+          source={require("../../assets/images/PrysmLogo.png")}
+        />
       </View>
     </AnimatedPressable>
   );

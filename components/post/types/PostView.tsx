@@ -7,10 +7,12 @@ import { FlashList } from "@shopify/flash-list";
 import TextPost from "./TextPost";
 import LinkPost from "./LinkPost";
 import SideBet from "./SideBet";
+import { ScrollView } from "react-native-gesture-handler";
+import { ChevronLeft, Share } from "lucide-react-native";
 
 const PostView = (props: PostFeedType) => {
   const { post, name, image, type } = props;
-  const feedData = [{ type: "Text" }, { type: "Text" }, { type: "Text" }];
+  const feedData = [{ type: "Text" }, { type: "Link" }, { type: "Text" }];
 
   const { width, height } = Dimensions.get("window");
   return (
@@ -21,6 +23,7 @@ const PostView = (props: PostFeedType) => {
         width: width,
         backgroundColor: "#070707",
         height: height,
+        alignItems: "center",
       }}
     >
       <View
@@ -69,66 +72,113 @@ const PostView = (props: PostFeedType) => {
           }}
         />
         <Pressable
-          style={{
-            height: 30,
-            width: 30,
-            backgroundColor: "#909090",
-            borderRadius: 15,
-          }}
           onPress={() => {
             router.back();
           }}
-        />
-        <Text style={{ fontSize: 22, color: "white", fontWeight: "700" }}>
-          Oppenheimer
-        </Text>
-        <View
           style={{
             height: 30,
             width: 30,
-            backgroundColor: "#909090",
-            borderRadius: 15,
-          }}
-        />
-      </View>
 
-      <FlashList
+            backgroundColor: "rgba(100, 100, 100, 0.4)",
+            borderRadius: 15,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+
+            zIndex: 4,
+            left: 10,
+          }}
+        >
+          <ChevronLeft height={21} color={"white"} strokeWidth={4} />
+        </Pressable>
+
+        <Text style={{ fontSize: 22, color: "white", fontWeight: "700" }}>
+          Oppenheimer
+        </Text>
+        <Pressable
+          onPress={() => {
+            router.back();
+          }}
+          style={{
+            height: 30,
+            width: 30,
+
+            backgroundColor: "rgba(100, 100, 100, 0.4)",
+            borderRadius: 15,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+
+            zIndex: 4,
+            right: 10,
+          }}
+        >
+          <Share height={16} color={"white"} strokeWidth={4} />
+        </Pressable>
+      </View>
+      <ScrollView
         style={{
-          zIndex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-          paddingHorizontal: 10,
-          width: width / 1.1,
+          alignSelf: "center",
+          width: width,
+          display: "flex",
+          marginTop: 30,
+          paddingTop: 8,
+          marginLeft: 13,
         }}
-        renderItem={({ item, index }) => {
-          if (item.type === "Text")
+      >
+        {type === "Text" && (
+          <View style={{ alignSelf: "center", marginBottom: 10 }}>
+            <TextPost border={false} />
+          </View>
+        )}
+        {type === "Link" && (
+          <View style={{ alignSelf: "center", marginBottom: 10 }}>
+            <LinkPost border={false} />
+          </View>
+        )}
+        {type === "SideBet" && (
+          <View style={{ alignSelf: "center", marginBottom: 10 }}>
+            <SideBet border={false} />
+          </View>
+        )}
+        <FlashList
+          style={{
+            zIndex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            paddingHorizontal: 10,
+            width: width / 1.1,
+          }}
+          renderItem={({ item, index }) => {
+            if (item.type === "Text")
+              return (
+                <View key={index} style={{ alignSelf: "center" }}>
+                  <TextPost border={false} />
+                </View>
+              );
+            if (item.type === "Link")
+              return (
+                <View key={index} style={{ alignSelf: "center" }}>
+                  <LinkPost border={false} />
+                </View>
+              );
+            if (item.type === "SideBet")
+              return (
+                <View key={index} style={{ alignSelf: "center" }}>
+                  <SideBet border={false} />
+                </View>
+              );
             return (
               <View key={index} style={{ alignSelf: "center" }}>
-                <TextPost border={false} />
+                <TextPost border={true} />
               </View>
             );
-          if (item.type === "Link")
-            return (
-              <View key={index} style={{ alignSelf: "center" }}>
-                <LinkPost border={false} />
-              </View>
-            );
-          if (item.type === "SideBet")
-            return (
-              <View key={index} style={{ alignSelf: "center" }}>
-                <SideBet border={false} />
-              </View>
-            );
-          return (
-            <View key={index} style={{ alignSelf: "center" }}>
-              <TextPost border={true} />
-            </View>
-          );
-        }}
-        estimatedItemSize={3}
-        data={feedData}
-        centerContent={true}
-      />
+          }}
+          estimatedItemSize={3}
+          data={feedData}
+          centerContent={true}
+        />
+      </ScrollView>
     </View>
   );
 };

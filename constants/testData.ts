@@ -1,3 +1,5 @@
+import { ActivityChartType } from "@/types/AcitivityTypes";
+
 export const BetModalPropData = {
   question: "Will Oppenheimer win best picture at the 2024 Academy Awards",
   amount: "8,213.203",
@@ -59,5 +61,23 @@ export const FindFriendsPropData = [
     name: "0xSmallbrain",
     handle: "@0xSmallbrain.eth",
     pfp: "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_jpg,w_168/https%3A%2F%2Fi.imgur.com%2FVj7CdUX.jpg",
+  },
+];
+
+export const ActivityChartData: ActivityChartType[] = [
+  {
+    amount: 3.7,
+    image:
+      "https://raw.githubusercontent.com/farcasterxyz/.github/master/farcaster.jpg",
+  },
+  {
+    amount: 7.5,
+    image:
+      "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",
+  },
+  {
+    amount: 1.8,
+    image:
+      "https://www.brides.com/thmb/AKCV9mWFEAgFRgRN9HnbePceqLk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1179298993-016de42ca11d4a25b911999cb8a7db1f.jpg",
   },
 ];

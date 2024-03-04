@@ -29,7 +29,7 @@ const LinkPost = (props: { border: boolean }) => {
     <Pressable
       onPress={() => {
         router.navigate({
-          pathname: "/post/[post]",
+          pathname: "/post/123",
           params: {
             post: "123",
             name: "Oppenheimer",
@@ -56,7 +56,8 @@ const LinkPost = (props: { border: boolean }) => {
             borderRadius: 20,
             padding: props.border ? 15 : 0,
             paddingBottom: props.border ? 17 : 0,
-            marginVertical: 20,
+            marginVertical: props.border ? 20 : 0,
+            marginBottom: props.border ? 0 : 20,
           },
         ]}
       >
@@ -84,7 +85,7 @@ const LinkPost = (props: { border: boolean }) => {
               flexDirection: "row",
               justifyContent: "space-between",
 
-              width: width / 1.62,
+              width: width / 1.36,
             }}
           >
             <View
@@ -130,10 +131,11 @@ const LinkPost = (props: { border: boolean }) => {
               uri: "https://people.com/thmb/O_xCNbRlz_oLi0iTy2xWUBGOtQY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(959x222:961x224)/oppenheimer-mag-rollout-7-071923-b6e2ce1f1e034c8585067050f5e4012c.jpg",
             }}
             style={{
-              width: width / 1.22,
-              height: height / 3.3,
+              width: props.border ? width / 1.22 : width / 1.15,
+              height: height / 4.2,
               borderRadius: 10,
               overflow: "hidden",
+              alignSelf: "flex-start",
               marginTop: 13,
             }}
           />
@@ -144,7 +146,7 @@ const LinkPost = (props: { border: boolean }) => {
               fontSize: 23,
               fontWeight: "700",
               position: "absolute",
-              bottom: 27,
+              bottom: 29,
               lineHeight: 23,
               left: 10,
               paddingRight: 70,
@@ -158,11 +160,11 @@ const LinkPost = (props: { border: boolean }) => {
               fontSize: 12,
               alignSelf: "center",
               fontWeight: "700",
-              bottom: 6,
+              bottom: 8,
               left: 10,
               position: "absolute",
               padding: 2,
-              paddingHorizontal: 5,
+              paddingHorizontal: 6,
               backgroundColor: "white",
               borderRadius: 9,
               overflow: "hidden",

@@ -5,7 +5,7 @@ import { useLocalSearchParams } from "expo-router";
 
 const PostViewPage = () => {
   const { post, name, image, type } = useLocalSearchParams<PostFeedType>();
-
+  console.log("postPAge", type, name);
   return <PostView name={name} type={type} image={image} post={post} />;
 };
 

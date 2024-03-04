@@ -1,18 +1,34 @@
-import { View, Text, Button } from "react-native";
-import React from "react";
-import Login from "@/components/Onboarding/Login";
-import CreateProfile from "@/components/Onboarding/CreateProfile";
-import SearchResults from "@/components/search/SearchResults";
-import VoteSideBet from "@/components/Bet/Vote/SideBet";
-import ParalaxHeader from "@/components/Bet/ParalaxHeader";
-import { isNotCreated, useEmbeddedWallet, usePrivy } from "@privy-io/expo";
-import { Loader } from "lucide-react-native";
-import LoginPopup from "@/components/Onboarding/LoginModal";
-import { BetModalPropData } from "@/constants/testData";
-import CreatePost from "@/components/create/Post";
-import ActivityPage from "@/components/activity";
-const Explore = () => {
-  return <ActivityPage />;
-};
+import { StyleSheet } from "react-native";
 
-export default Explore;
+import { Text, View } from "@/components/Themed";
+import Feed from "@/components/Feed/feed";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import FindFriends from "@/components/Onboarding/Friends/FindFriends";
+
+export default function Explore() {
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Feed />
+      </View>
+    </GestureHandlerRootView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  separator: {
+    marginVertical: 30,
+    height: 1,
+    width: "80%",
+  },
+});
