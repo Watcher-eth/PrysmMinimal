@@ -10,7 +10,7 @@ const test = () => {
   return (
     <ScrollView style={{ flex: 1 }}>
       <View style={{ height: 420, width: "100%" }} />
-      <VoteSideBet {...BetModalPropData} />
+      <CreateBet />
     </ScrollView>
   );
 };

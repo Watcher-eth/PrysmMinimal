@@ -28,6 +28,7 @@ import {
 } from "@lens-protocol/client";
 import { AsyncStorageProvider } from "@/lib/stores/LensClient";
 import Login from "@/components/Onboarding/Login";
+import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -47,9 +48,11 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-      {children}
-    </AuthContext.Provider>
+    <ErrorBoundary>
+      <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+        {children}
+      </AuthContext.Provider>
+    </ErrorBoundary>
   );
 };
 
@@ -98,21 +101,19 @@ function RootLayoutNav() {
   // If logged in, show the tabs screen
 
   return (
-    <PrivyProvider appId="clsz6ft6o05svsulm7mi5b7v6">
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
-          <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="modal"
-              options={{ presentation: "transparentModal", headerShown: false }}
-            />
-            <Stack.Screen name="[id]" options={{ headerShown: false }} />
-            <Stack.Screen name="post" options={{ headerShown: false }} />
-            <Stack.Screen name="login" options={{ headerShown: false }} />
-          </Stack>
-        </GestureHandlerRootView>
-      </ThemeProvider>
-    </PrivyProvider>
+    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="modal"
+            options={{ presentation: "transparentModal", headerShown: false }}
+          />
+          <Stack.Screen name="[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="post" options={{ headerShown: false }} />
+          <Stack.Screen name="login" options={{ headerShown: false }} />
+        </Stack>
+      </GestureHandlerRootView>
+    </ThemeProvider>
   );
 }

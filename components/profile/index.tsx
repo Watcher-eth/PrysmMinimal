@@ -11,6 +11,11 @@ import { ScrollView } from "react-native-gesture-handler";
 import { ActivityPropData } from "@/constants/testData";
 import UserPredictions from "./UserPredictions";
 import { BlurView } from "expo-blur";
+import Animated, {
+  FadeInLeft,
+  FadeInRight,
+  FadeOutRight,
+} from "react-native-reanimated";
 
 const ProfilePage = () => {
   const { width, height } = Dimensions.get("window");
@@ -22,7 +27,9 @@ const ProfilePage = () => {
       const backgroundColor =
         Math.random() < 0.5 ? "#404040" : "rgba(255,255,255, 0.8)"; // Randomly choose between lightgray and white
       views.push(
-        <View
+        <Animated.View
+          entering={FadeInLeft.duration((70 * i) / 2)}
+          exiting={FadeOutRight.duration((70 * i) / 2)}
           key={i}
           style={{
             height: 48,

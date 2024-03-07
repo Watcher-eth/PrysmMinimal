@@ -2,6 +2,8 @@ import { View, Text, Dimensions, Image, Pressable } from "react-native";
 import React from "react";
 import { BlurView } from "expo-blur";
 import Animated, {
+  FadeInDown,
+  FadeOutDown,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
@@ -45,6 +47,8 @@ const SideBet = (props: { border: boolean }) => {
       onPressOut={handlePressOut}
     >
       <Animated.View
+        entering={FadeInDown.duration(500)}
+        exiting={FadeOutDown.duration(500)}
         style={[
           animatedStyle,
           {

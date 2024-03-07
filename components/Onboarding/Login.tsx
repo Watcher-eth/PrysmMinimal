@@ -6,8 +6,8 @@ import { useAuth } from "@/app/_layout";
 
 const Login = () => {
   const { width, height } = Dimensions.get("window");
-  const wallet = useEmbeddedWallet();
-  console.log("Wallet", wallet);
+  // const wallet = useEmbeddedWallet();
+  //console.log("Wallet", wallet);
 
   return (
     <View

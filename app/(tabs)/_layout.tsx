@@ -13,6 +13,10 @@ import { BlurView } from "expo-blur";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Compass, FlaskConical, Globe, Home } from "lucide-react-native";
 import { useEmbeddedWallet } from "@privy-io/expo";
+import { TabBarButton } from "@/components/common/AnimatedTabBarButton";
+import { HomeIcon } from "@/assets/icons/HomeIcon";
+import { ExploreIcon } from "@/assets/icons/ExploreIcon";
+import { ProfileIcon } from "@/assets/icons/ProfileIcon";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -110,17 +114,44 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveBackgroundColor: "#070707",
+        headerShown: false,
+
+        tabBarBackground: () => (
+          <BlurView
+            style={{
+              position: "absolute",
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              padding: 18,
+              marginHorizontal: 65,
+              marginVertical: 34,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              borderRadius: 50,
+              overflow: "hidden",
+            }}
+            tint="systemChromeMaterialDark"
+            intensity={100}
+          />
+        ),
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
       }}
-      tabBar={(props) => <MyTabBar {...props} />}
     >
       <Tabs.Screen
         name="index"
         options={{
           title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarButton: ({ accessibilityState, onPress }) => (
+            <TabBarButton
+              title="Home"
+              focused={accessibilityState?.selected}
+              icon={HomeIcon}
+              onPress={onPress}
+            />
+          ),
           headerStyle: {
             backgroundColor: "#000000",
           },
@@ -133,7 +164,14 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: "Explore",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarButton: ({ accessibilityState, onPress }) => (
+            <TabBarButton
+              title="Explore"
+              focused={accessibilityState?.selected}
+              icon={ExploreIcon}
+              onPress={onPress}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -141,7 +179,14 @@ export default function TabLayout() {
         options={{
           title: "Tab Two",
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarButton: ({ accessibilityState, onPress }) => (
+            <TabBarButton
+              title="Profile"
+              focused={accessibilityState?.selected}
+              icon={ProfileIcon}
+              onPress={onPress}
+            />
+          ),
         }}
       />
       <Tabs.Screen

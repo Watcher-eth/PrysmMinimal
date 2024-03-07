@@ -1,6 +1,8 @@
 import { View, Text, Dimensions, Image, Pressable } from "react-native";
 import React from "react";
 import Animated, {
+  FadeInDown,
+  FadeOutDown,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
@@ -41,6 +43,8 @@ const TextPost = (props: { border: boolean }) => {
       onPressOut={handlePressOut}
     >
       <Animated.View
+        entering={FadeInDown.duration(500)}
+        exiting={FadeOutDown.duration(500)}
         style={[
           animatedStyle,
           {

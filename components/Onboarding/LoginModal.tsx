@@ -180,11 +180,11 @@ const LoginModal = ({ changeStep }) => {
   const [loadingState, setLoadingState] = useState<string>("");
   const setUser = useUserStore((state) => state.setState);
 
-  const { sendCode } = useLoginWithSMS();
+  //  const { sendCode } = useLoginWithSMS();
 
-  const { isReady } = usePrivy();
-  const { user } = usePrivy();
-  if (user !== null) {
+  // const { isReady } = usePrivy();
+  // const { user } = usePrivy();
+  /* if (user !== null) {
     setUser({ id: "user.id" });
   }
   if (user === null) {
@@ -223,7 +223,7 @@ const LoginModal = ({ changeStep }) => {
   //if (isNotCreated(wallet)) {
   //  return <Button onPress={() => wallet.create()}>Create Wallet</Button>;
   // }
-
+  */
   return (
     <View
       style={{

@@ -2,6 +2,7 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import AnimatedPressable from "../common/AnimatedPressable";
 import { ActivityPropData } from "@/constants/testData";
+import Animated, { FadeInDown, FadeOutDown } from "react-native-reanimated";
 
 const UserPredictions = (props: {
   index: number;
@@ -25,7 +26,9 @@ const UserPredictions = (props: {
         backgroundColor: "#1B1B1E",
       }}
     >
-      <View
+      <Animated.View
+       entering={FadeInDown.duration(500)}
+       exiting={FadeOutDown.duration(500)}
         style={{
           display: "flex",
           flexDirection: "row",
@@ -62,7 +65,7 @@ const UserPredictions = (props: {
             {question}
           </Text>
         </View>
-      </View>
+      </Animated.View>
     </AnimatedPressable>
   );
 };

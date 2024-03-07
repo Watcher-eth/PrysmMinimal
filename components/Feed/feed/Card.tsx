@@ -8,7 +8,11 @@ import {
   Pressable,
 } from "react-native";
 import { BlurView } from "expo-blur";
-import { useAnimatedStyle } from "react-native-reanimated";
+import {
+  FadeInDown,
+  FadeOutDown,
+  useAnimatedStyle,
+} from "react-native-reanimated";
 import {
   withSpring,
   useSharedValue,
@@ -64,6 +68,8 @@ const Card = (props: {
       onPressOut={handlePressOut}
     >
       <Animated.View
+        entering={FadeInDown.duration(500)}
+        exiting={FadeOutDown.duration(500)}
         style={[
           animatedStyle,
           {
