@@ -12,9 +12,10 @@ import CreateComment from "@/components/create/Comment";
 import { Lock } from "lucide-react-native";
 import { router } from "expo-router";
 import ActivityPage from "@/components/activity";
+import ProfilePage from "@/components/profile";
 
 export default function TabTwoScreen() {
-  return <ActivityPage />;
+  return <ProfilePage />;
 }
 
 const styles = StyleSheet.create({

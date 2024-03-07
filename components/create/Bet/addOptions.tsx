@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { TextInput } from "react-native-gesture-handler";
 import useCreateBetStore from "@/lib/stores/UploadBetStore";
 import { X } from "lucide-react-native";
+import Animated, { FadeInUp, FadeOutDown } from "react-native-reanimated";
 
 const AddOptions = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
@@ -11,7 +12,9 @@ const AddOptions = ({ changeStep }) => {
   const setVotingState = useCreateBetStore((state) => state.setState);
 
   return (
-    <View
+    <Animated.View
+      entering={FadeInUp.duration(500)}
+      exiting={FadeOutDown.duration(500)}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -149,7 +152,7 @@ const AddOptions = ({ changeStep }) => {
           </Text>
         </Pressable>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 

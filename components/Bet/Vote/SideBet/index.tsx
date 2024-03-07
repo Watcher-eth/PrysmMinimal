@@ -9,6 +9,8 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
   Easing,
+  ZoomInEasyUp,
+  ZoomOutDown,
 } from "react-native-reanimated";
 import VotingScreen from "./VotingScreen";
 import ConfirmationScreen from "./ConfirmationScreen";
@@ -22,9 +24,8 @@ const VoteSideBet = (props: BetModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const setVotingState = useVotingStore((state) => state.setState);
 
-  const modalHeight = useSharedValue(440); // Initial height
-  const translateY = useSharedValue(0); // For moving the modal up
-  const paddingTop = useSharedValue(0); // For moving the modal up
+  const modalHeight = useSharedValue(420); // Initial height
+  const modalTop = useSharedValue(-420); // For moving the modal up
   const [currentStep, setCurrentStep] = useState(0);
 
   const stepHeights = useMemo(() => [420, 390, 424, 450], []);
@@ -45,11 +46,8 @@ const VoteSideBet = (props: BetModalProps) => {
     (stepIndex) => {
       if (stepIndex >= 0 && stepIndex < stepHeights.length) {
         const newHeight = stepHeights[stepIndex];
-
-        // Calculate the expected bottom position based on the new height
-
         modalHeight.value = withTiming(newHeight, { duration: 500 });
-
+        modalTop.value = withTiming(-newHeight, { duration: 500 }); // Adjust top position
         setCurrentStep(stepIndex);
       }
     },
@@ -59,9 +57,8 @@ const VoteSideBet = (props: BetModalProps) => {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       height: modalHeight.value,
-      paddingTop: paddingTop.value,
       minHeight: modalHeight.value,
-      transform: [{ translateY: translateY.value }],
+      top: modalTop.value, // Set top position
     };
   });
 
@@ -104,13 +101,17 @@ const VoteSideBet = (props: BetModalProps) => {
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={1}
-            bottomInset={360}
+            bottomInset={0}
             detached={true}
             style={[styles.sheetContainer, { backgroundColor: "#131313" }]}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
           >
-            <Animated.View style={[styles.contentContainer, animatedStyle]}>
+            <Animated.View
+              entering={ZoomInEasyUp.duration(500)}
+              exiting={ZoomOutDown.duration(500)}
+              style={[styles.contentContainer, animatedStyle]}
+            >
               {renderStepContent()}
             </Animated.View>
           </BottomSheetModal>
@@ -134,7 +135,6 @@ const styles = StyleSheet.create({
     zIndex: 13,
   },
   contentContainer: {
-  
     flex: 1,
     zIndex: 10,
     alignItems: "center",

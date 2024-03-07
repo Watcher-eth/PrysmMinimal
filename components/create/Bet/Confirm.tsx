@@ -5,6 +5,7 @@ import * as ImagePicker from "expo-image-picker";
 import { BlurView } from "expo-blur";
 import useCreateBetStore from "@/lib/stores/UploadBetStore";
 import { Upload, X } from "lucide-react-native";
+import Animated, { FadeInUp, FadeOutDown } from "react-native-reanimated";
 
 const ConfirmBet = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
@@ -13,7 +14,9 @@ const ConfirmBet = ({ changeStep }) => {
   console.log("props", title, question);
 
   return (
-    <View
+    <Animated.View
+      entering={FadeInUp.duration(200)}
+      exiting={FadeOutDown.duration(200)}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -196,7 +199,7 @@ const ConfirmBet = ({ changeStep }) => {
           </Text>
         </Pressable>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 

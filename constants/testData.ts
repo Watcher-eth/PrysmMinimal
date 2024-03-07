@@ -5,7 +5,7 @@ export const BetModalPropData = {
   amount: "8,213.203",
   betId: "1234",
   title: "Oppenheimer",
-  totalPot: 1534,
+  totalPot: 180.213,
   options: ["No", "Yes"],
   image:
     "https://imgs.search.brave.com/t1L4NG0G9uVXWT5F44Tp6reSnaW1mSMVd9thDo1mwyE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/dGVsZWdyYXBoLmNv/LnVrL2NvbnRlbnQv/ZGFtL2ZpbG1zLzIw/MjQvMDEvMTgvVEVM/RU1NR0xQSUNUMDAw/MzQzMjcwMDY1XzE3/MDU1OTY4MDkzMDMw/X3RyYW5zX052QlF6/UU5qdjRCcUE3TjJD/eG5KV25ZSTN0Q2JW/Qmd1OVQwYWVzdXN2/TjFURTdhMGRkZF9l/c0kuanBlZz9pbXdp/ZHRoPTQ4MA",

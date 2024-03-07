@@ -8,7 +8,11 @@ import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
-  Easing,
+  FadeOutUp,
+  FadeInUp,
+  FadeOutDown,
+  ZoomInEasyUp,
+  ZoomOutDown,
 } from "react-native-reanimated";
 import AddCover from "./addCover";
 import AddTitle from "./addTitle";
@@ -20,20 +24,17 @@ import { Plus } from "lucide-react-native";
 
 const CreateBet = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const modalHeight = useSharedValue(240); // Initial height
-  const translateY = useSharedValue(0); // For moving the modal up
-  const paddingTop = useSharedValue(0); // For moving the modal up
+  const modalHeight = useSharedValue(260); // Initial height
+  const modalTop = useSharedValue(-260); // Initial top position
 
   const [currentStep, setCurrentStep] = useState(0);
 
-  const stepHeights = useMemo(() => [240, 260, 310, 470, 550], []);
-
-  if (currentStep === 1) {
-  }
+  const stepHeights = useMemo(() => [260, 280, 330, 490, 570], []);
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
+
   const snapPoints = useMemo(() => ["25%", "50%"], []);
 
   const handleSheetChanges = useCallback((index: number) => {
@@ -44,11 +45,8 @@ const CreateBet = () => {
     (stepIndex) => {
       if (stepIndex >= 0 && stepIndex < stepHeights.length) {
         const newHeight = stepHeights[stepIndex];
-
-        // Calculate the expected bottom position based on the new height
-
         modalHeight.value = withTiming(newHeight, { duration: 500 });
-
+        modalTop.value = withTiming(-newHeight, { duration: 500 }); // Adjust top position
         setCurrentStep(stepIndex);
       }
     },
@@ -58,8 +56,8 @@ const CreateBet = () => {
   const animatedStyle = useAnimatedStyle(() => {
     return {
       height: modalHeight.value,
-      paddingTop: paddingTop.value,
       minHeight: modalHeight.value,
+      top: modalTop.value, // Set top position
     };
   });
 
@@ -91,9 +89,11 @@ const CreateBet = () => {
               padding: 10,
               backgroundColor: "rgba(90,90,90, 0.3)",
               borderRadius: 20,
+              marginHorizontal: 10,
               overflow: "hidden",
               width: 43,
               height: 43,
+              alignSelf: "flex-end",
             }}
           >
             <Plus color="white" strokeWidth={3} />
@@ -101,13 +101,17 @@ const CreateBet = () => {
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={1}
-            bottomInset={380}
+            bottomInset={modalHeight.value}
             detached={true}
             style={[styles.sheetContainer]}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
           >
-            <Animated.View style={[styles.contentContainer, animatedStyle]}>
+            <Animated.View
+              entering={ZoomInEasyUp.duration(500)}
+              exiting={ZoomOutDown.duration(500)}
+              style={[styles.contentContainer, animatedStyle]}
+            >
               {renderStepContent()}
             </Animated.View>
           </BottomSheetModal>
@@ -120,22 +124,23 @@ const CreateBet = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "transparent",
+    justifyContent: "flex-end", // Align items to the bottom
   },
   sheetContainer: {
     marginHorizontal: 19,
     borderRadius: 22,
     backgroundColor: "transparent",
-
     flex: 1,
   },
   contentContainer: {
-    flex: 1,
+    position: "absolute",
+    left: 0,
+    right: 0,
     zIndex: 10,
     alignItems: "center",
     borderRadius: 22,
-
     backgroundColor: "#131313",
+    paddingTop: 25,
   },
   input: {
     fontSize: 18,

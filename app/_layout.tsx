@@ -98,19 +98,21 @@ function RootLayoutNav() {
   // If logged in, show the tabs screen
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="modal"
-            options={{ presentation: "transparentModal", headerShown: false }}
-          />
-          <Stack.Screen name="[id]" options={{ headerShown: false }} />
-          <Stack.Screen name="post" options={{ headerShown: false }} />
-          <Stack.Screen name="login" options={{ headerShown: false }} />
-        </Stack>
-      </GestureHandlerRootView>
-    </ThemeProvider>
+    <PrivyProvider appId="clsz6ft6o05svsulm7mi5b7v6">
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="modal"
+              options={{ presentation: "transparentModal", headerShown: false }}
+            />
+            <Stack.Screen name="[id]" options={{ headerShown: false }} />
+            <Stack.Screen name="post" options={{ headerShown: false }} />
+            <Stack.Screen name="login" options={{ headerShown: false }} />
+          </Stack>
+        </GestureHandlerRootView>
+      </ThemeProvider>
+    </PrivyProvider>
   );
 }

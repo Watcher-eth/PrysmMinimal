@@ -4,6 +4,13 @@ import { TextInput } from "react-native-gesture-handler";
 import * as ImagePicker from "expo-image-picker";
 import useCreateBetStore from "@/lib/stores/UploadBetStore";
 import { X } from "lucide-react-native";
+import Animated, {
+  FadeIn,
+  FadeInDown,
+  FadeInUp,
+  FadeOut,
+  FadeOutDown,
+} from "react-native-reanimated";
 
 const AddCover = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
@@ -30,7 +37,9 @@ const AddCover = ({ changeStep }) => {
   };
 
   return (
-    <View
+    <Animated.View
+      entering={FadeInDown.duration(500)}
+      exiting={FadeOutDown.duration(500)}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -159,7 +168,7 @@ const AddCover = ({ changeStep }) => {
           </Text>
         </Pressable>
         <Pressable
-          onPress={() => changeStep(3)} // Assuming the next step index is 1
+          onPress={() => changeStep(4)} // Assuming the next step index is 1
           style={{
             marginTop: 22,
             marginLeft: 16,
@@ -183,7 +192,7 @@ const AddCover = ({ changeStep }) => {
           </Text>
         </Pressable>
       </View>
-    </View>
+    </Animated.View>
   );
 };
 
