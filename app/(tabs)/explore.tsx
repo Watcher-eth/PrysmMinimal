@@ -4,11 +4,15 @@ import { Text, View } from "@/components/Themed";
 import Feed from "@/components/Feed/feed";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import FindFriends from "@/components/Onboarding/Friends/FindFriends";
+import ExploreHeader from "@/components/Feed/feed/ExploreHeader";
+import TopicHeader from "@/components/Feed/TopicHeader";
 
 export default function Explore() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
+        <TopicHeader />
+
         <Feed />
       </View>
     </GestureHandlerRootView>

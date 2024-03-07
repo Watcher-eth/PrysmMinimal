@@ -13,7 +13,7 @@ const Feed = () => {
         flex: 1,
         width: width,
         justifyContent: "center",
-        paddingTop: 50,
+        paddingTop: 5 ,
         backgroundColor: "#101010",
       }}
     >

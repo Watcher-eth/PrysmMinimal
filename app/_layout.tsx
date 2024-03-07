@@ -44,7 +44,7 @@ init(process.env.EXPO_PUBLIC_AIRSTACK!);
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>

@@ -16,11 +16,20 @@ const ExploreHeader = ({ data }) => {
   );
 
   return (
-    <View>
+    <View
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        height: 200,
+        backgroundColor: "black",
+      }}
+    >
       <FlashList
         data={topData}
         renderItem={renderItem}
         horizontal
+        estimatedItemSize={4}
         showsHorizontalScrollIndicator={false}
         style={{ maxHeight: 50, overflow: "hidden" }}
       />
@@ -28,6 +37,7 @@ const ExploreHeader = ({ data }) => {
         data={bottomData}
         renderItem={renderItem}
         horizontal
+        estimatedItemSize={4}
         showsHorizontalScrollIndicator={false}
         style={{ maxHeight: 50, overflow: "hidden", marginTop: 10 }}
       />

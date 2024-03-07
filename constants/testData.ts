@@ -81,3 +81,15 @@ export const ActivityChartData: ActivityChartType[] = [
       "https://www.brides.com/thmb/AKCV9mWFEAgFRgRN9HnbePceqLk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1179298993-016de42ca11d4a25b911999cb8a7db1f.jpg",
   },
 ];
+
+export const testTopics = [
+  "Trending",
+  "US Elections",
+  "Taylor Swift",
+  "TIKTOK BAN",
+  "Dune",
+  "ETH ETF",
+  "2024 Oscars",
+  "Coinbase",
+  "UEFA European Cup",
+];
