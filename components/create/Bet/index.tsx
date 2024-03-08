@@ -13,7 +13,6 @@ import Animated, {
   FadeOutDown,
   ZoomInEasyUp,
   ZoomOutDown,
-  withSpring,
 } from "react-native-reanimated";
 import AddCover from "./addCover";
 import AddTitle from "./addTitle";
@@ -41,26 +40,19 @@ const CreateBet = () => {
   const handleSheetChanges = useCallback((index: number) => {
     console.log("handleSheetChanges", index);
   }, []);
+
   const changeStep = useCallback(
     (stepIndex) => {
       if (stepIndex >= 0 && stepIndex < stepHeights.length) {
         const newHeight = stepHeights[stepIndex];
-        // Use withSpring for a spring-based animation
-        modalHeight.value = withSpring(newHeight, {
-          damping: 20, // Adjust damping for more or less "bounciness"
-          stiffness: 100, // Adjust stiffness, a higher value increases the speed
-          mass: 1, // Adjust mass, affects the "heaviness" of the animation
-        });
-        modalTop.value = withSpring(-newHeight, {
-          damping: 20,
-          stiffness: 100,
-          mass: 1,
-        }); // Adjust top position with spring animation
+        modalHeight.value = withTiming(newHeight, { duration: 500 });
+        modalTop.value = withTiming(-newHeight, { duration: 500 }); // Adjust top position
         setCurrentStep(stepIndex);
       }
     },
     [stepHeights]
   );
+
   const animatedStyle = useAnimatedStyle(() => {
     return {
       height: modalHeight.value,
@@ -95,6 +87,7 @@ const CreateBet = () => {
             onPress={handlePresentModalPress}
             style={{
               padding: 10,
+
               backgroundColor: "rgba(90,90,90, 0.3)",
               borderRadius: 20,
               marginHorizontal: 10,
@@ -109,7 +102,7 @@ const CreateBet = () => {
           <BottomSheetModal
             ref={bottomSheetModalRef}
             index={1}
-            bottomInset={modalHeight.value}
+            bottomInset={0}
             detached={true}
             style={[styles.sheetContainer]}
             snapPoints={snapPoints}
