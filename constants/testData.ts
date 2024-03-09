@@ -22,7 +22,7 @@ export const ActivityPropData = [
       "https://pbs.twimg.com/profile_images/1484766329798213634/pIfL_r6Y_400x400.jpg",
   },
   {
-    question: "Will Taylor Swift get engaged in 2ß24?",
+    question: "Will Taylor Swift get engaged with Travis Kelcee in 2024?",
     amount: "8,213",
     betId: "1234",
     name: "Ted (Not Lasso)",
@@ -31,7 +31,7 @@ export const ActivityPropData = [
       "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_168/https%3A%2F%2Fopenseauserdata.com%2Ffiles%2Ffd28c65d9b5192168fb259009a3afd36.png",
   },
   {
-    question: "Will Taylor Swift get engaged in 2ß24?",
+    question: "Will GTA 6 deluxe edition cost more than 80 Dollars?",
     amount: "1500",
     betId: "1234",
     name: "0xSmallbrain.eth",
