@@ -49,6 +49,7 @@ export interface BetModalConfirmationScreenProps {
 }
 
 export interface BetViewProps {
+  index: number;
   title: string;
   question: string;
   image: string;

@@ -10,6 +10,14 @@ export const feedData: CardType[] = [
       "https://raw.githubusercontent.com/farcasterxyz/.github/master/farcaster.jpg",
   },
   {
+    name: "2024 US Elections",
+    description: "Who will win the 2024 US federal Elections?",
+    topic: "United",
+    icon: "https://imgs.search.brave.com/sPyOs2oMZQvpm5gohHVpKUmtpCsEb11OYAIRHSLHFAc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTU3/NTY0ODkxL3Bob3Rv/L2FtZXJpY2FuLWZs/YWcuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPWtjdGZNYUFV/TG52THctU3lUZUF0/bkZYWEZUb0ZDRThi/VlRsWnc3cUcwUmc9",
+    image:
+      "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F31bac9d5-25be-4cef-9745-b75c82eb24d0.png?crop=1500%2C1000%2C0%2C0",
+  },
+  {
     name: "Best Picture",
     description: "Will Oppenheimer win the 2024 Academy Awards: Best Picture?",
     topic: "Oppenheimer",

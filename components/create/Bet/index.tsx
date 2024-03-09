@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, Pressable } from "react-native";
 import BottomSheet, {
   BottomSheetModal,
   BottomSheetModalProvider,
@@ -21,6 +21,7 @@ import ConfirmBet from "./Confirm";
 import AddOptions from "./addOptions";
 import AnimatedPressable from "@/components/common/AnimatedPressable";
 import { Plus } from "lucide-react-native";
+import { router } from "expo-router";
 
 const CreateBet = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);

@@ -52,17 +52,31 @@ const Card = (props: {
   return (
     <Pressable
       onPress={() => {
-        router.navigate({
-          pathname: "[id]",
-          params: {
-            id: "123",
-            name: name,
-            description: description,
-            icon: icon,
-            image: image,
-            topic: topic,
-          },
-        });
+        props.name === "2024 US Elections"
+          ? router.navigate({
+              pathname: "/post/123",
+              params: {
+                id: "123",
+                name: "2024 US Elections",
+                description:
+                  "2024 US Elections for Congress, Senate and the Presidency",
+                icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqDLplaUZ71u8SY0N3AZuGXA77q92s-T2elw&usqp=CAU",
+                image:
+                  "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F31bac9d5-25be-4cef-9745-b75c82eb24d0.png?crop=1500%2C1000%2C0%2C0",
+                topic: "USA",
+              },
+            })
+          : router.navigate({
+              pathname: "[id]",
+              params: {
+                id: "123",
+                name: name,
+                description: description,
+                icon: icon,
+                image: image,
+                topic: topic,
+              },
+            });
       }}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
@@ -99,9 +113,25 @@ const Card = (props: {
             borderRadius: 15,
             overflow: "hidden",
           }}
-          resizeMode="cover" // This prop determines how to resize the image when the frame doesn't match the raw image dimensions
+          resizeMode="cover"
         />
+        <LinearGradient
+          colors={[
+            "rgba(7,7,7, 0.05)",
+            "rgba(7,7,7, 0.15)",
+            "rgba(7,7,7, 0.3)",
+            "rgba(7,7,7, 0.5)",
+            "transparent",
+          ]}
+          style={{
+            position: "absolute",
 
+            width: screenWidth,
+            height: screenHeight / 2.5,
+            borderRadius: 15,
+            overflow: "hidden",
+          }}
+        />
         <View
           style={{
             display: "flex",
