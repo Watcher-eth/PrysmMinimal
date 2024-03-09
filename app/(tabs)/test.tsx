@@ -11,7 +11,7 @@ import { router } from "expo-router";
 const test = () => {
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "#070707" }}>
-      <View style={{ height: 190, width: "100%" }} />
+      <View style={{ height: 590, width: "100%" }} />
 
       <CreateBet />
     </ScrollView>

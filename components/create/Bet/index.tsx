@@ -108,6 +108,7 @@ const CreateBet = () => {
             style={[styles.sheetContainer]}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
+            backgroundStyle={{ backgroundColor: "transparent" }}
           >
             <Animated.View
               entering={ZoomInEasyUp.duration(500)}
