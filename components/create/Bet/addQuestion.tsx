@@ -52,13 +52,14 @@ const AddQuestion = ({ changeStep }) => {
       </View>
       <TextInput
         multiline={true}
-        maxHeight={95}
+        maxHeight={88}
         style={{
           fontSize: 23,
           display: "flex",
           color: "white",
           marginTop: 22,
           width: "99%",
+          minHeight: 88,
           fontWeight: "700",
         }}
         onChangeText={onChangeText}

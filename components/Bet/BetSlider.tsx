@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 const PollingComponent = ({ yesValue, noValue }) => {
   // Ensure the values sum up to 100%
@@ -24,6 +24,55 @@ const PollingComponent = ({ yesValue, noValue }) => {
   );
 };
 
+export const PollingComponentImage = ({ yesValue, noValue }) => {
+  // Ensure the values sum up to 100%
+  const total = yesValue.amount + noValue.amount;
+  const yesPercentage = (yesValue.amount / total) * 100;
+  const noPercentage = (noValue.amount / total) * 100;
+
+  return (
+    <View style={styles.container}>
+      <View
+        style={{ ...styles.box, ...styles.noBox, width: `${noPercentage}%` }}
+      >
+        <Text style={styles.text}>{`${noPercentage.toFixed(0)}% ${
+          noValue.name
+        }`}</Text>
+        <Image
+          source={{ uri: noValue.image }}
+          style={{
+            height: 32,
+            width: 32,
+            borderRadius: 3,
+            overflow: "hidden",
+            marginVertical: -12,
+            marginRight: -5,
+          }}
+        />
+      </View>
+      <View style={styles.divider} />
+      <View
+        style={{ ...styles.box, ...styles.yesBox, width: `${yesPercentage}%` }}
+      >
+        <Image
+          source={{ uri: yesValue.image }}
+          style={{
+            height: 32,
+            width: 32,
+            borderRadius: 3,
+            overflow: "hidden",
+            marginVertical: -12,
+            marginLeft: -5,
+          }}
+        />
+        <Text style={styles.text}>{`${yesValue.name} ${yesPercentage.toFixed(
+          0
+        )}%`}</Text>
+      </View>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
@@ -42,22 +91,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   noBox: {
-    backgroundColor: "#E20038",
-    borderRadius: 5,
-    borderBottomLeftRadius: 5,
+    backgroundColor: "#0067E1",
+    borderRadius: 8,
+    borderBottomLeftRadius: 8,
     paddingVertical: 11,
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
   },
   yesBox: {
-    backgroundColor: "#16CC9F",
-    borderRadius: 5,
-    borderBottomRightRadius: 5,
+    backgroundColor: "#CB0000",
+    borderRadius: 8,
+    borderBottomRightRadius: 8,
     paddingVertical: 11,
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
   },
   divider: {
     width: 5,

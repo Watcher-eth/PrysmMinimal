@@ -19,8 +19,10 @@ const FeedHeader = () => {
         width: "100%",
         paddingRight: 7,
         paddingLeft: 22,
-        padding: 11,
+        padding: 18,
+        marginBottom: 0,
         paddingTop: 55,
+        zIndex: 30,
       }}
     >
       <View>

@@ -14,6 +14,9 @@ import BottomSheet, {
 } from "@gorhom/bottom-sheet";
 import SearchGrid from "./searchGrid";
 import Animated, {
+  ZoomInEasyDown,
+  ZoomInEasyUp,
+  ZoomOutDown,
   useAnimatedStyle,
   useSharedValue,
   withSpring,
@@ -72,10 +75,13 @@ const Search = () => {
             // set `detached` to true
             detached={true}
             style={[styles.sheetContainer, { width: width / 1.09 }]}
+            backgroundStyle={{ backgroundColor: "#131313" }}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
           >
             <Animated.View
+              entering={ZoomInEasyDown.duration(500)}
+              exiting={ZoomOutDown.duration(500)}
               style={[styles.contentContainer, { width: width / 1.09 }]}
             >
               <TextInput
@@ -96,12 +102,13 @@ const Search = () => {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   sheetContainer: {
-    backgroundColor: "white",
+    backgroundColor: "#131313",
 
     marginTop: 180,
     // add horizontal space
     borderTopLeftRadius: 22,
     borderTopRightRadius: 22,
+    marginRight: 9.5,
   },
   contentContainer: {
     alignItems: "center",
@@ -110,7 +117,7 @@ const styles = StyleSheet.create({
 
     height: 488,
     minHeight: 400,
-    backgroundColor: "white",
+    backgroundColor: "#131313",
     alignSelf: "center",
 
     marginRight: 9.5,
@@ -119,7 +126,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     display: "flex",
     width: "90%",
-    backgroundColor: "#F3F3F3",
+    backgroundColor: "#191919",
     padding: 10,
     marginHorizontal: 10,
     borderRadius: 25,

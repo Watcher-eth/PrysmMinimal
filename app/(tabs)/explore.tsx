@@ -11,8 +11,6 @@ export default function Explore() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <TopicHeader />
-
         <Feed />
       </View>
     </GestureHandlerRootView>

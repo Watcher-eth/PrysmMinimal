@@ -12,6 +12,8 @@ import SideBet from "../post/types/SideBet";
 import LinkPost from "../post/types/LinkPost";
 import { FlashList } from "@shopify/flash-list";
 import CreateBet from "../create/Bet";
+import ExploreHeader from "./feed/ExploreHeader";
+import FeedHeader from "./header";
 
 // Define a fetch function
 /*const fetchPublications = async () => {
@@ -64,7 +66,7 @@ const PostFeed = () => {
         width: width, // Full width of the screen
         height: height, // Full height of the screen
         display: "flex",
-
+        marginTop: -95,
         backgroundColor: "#101010",
       }}
     >

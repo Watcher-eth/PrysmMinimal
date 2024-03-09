@@ -47,3 +47,12 @@ export interface BetModalConfirmationScreenProps {
   changeStep: (step: number) => void;
   multiplier: number;
 }
+
+export interface BetViewProps {
+  title: string;
+  question: string;
+  image: string;
+  topic: string;
+  option1: { amount: number; name: string; image: string };
+  option2: { amount: number; name: string; image: string };
+}

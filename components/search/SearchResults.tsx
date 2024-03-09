@@ -106,7 +106,7 @@ const SearchResults = () => {
 
       <Text
         style={{
-          color: "black",
+          color: "white",
           fontSize: 18,
           fontWeight: "bold",
 
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
 
     alignItems: "center",
-    backgroundColor: "#F3F3F3", // Slightly lighter than the container for contrast
+    backgroundColor: "#191919", // Slightly lighter than the container for contrast
     padding: 10,
     marginVertical: 5,
     marginHorizontal: 0,
@@ -196,10 +196,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   userName: {
-    color: "#333",
     marginLeft: 10,
     fontSize: 17,
     fontWeight: "600",
+    color: "white",
   },
   userAddress: {
     fontWeight: "400",

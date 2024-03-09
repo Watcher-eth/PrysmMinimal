@@ -46,7 +46,7 @@ const TrendingTab = () => {
           style={{
             width: width / 1.2,
             height: width / 1.9,
-            borderRadius: 9,
+            borderRadius: 12,
             overflow: "hidden",
             position: "absolute",
           }}
@@ -60,8 +60,8 @@ const TrendingTab = () => {
             alignItems: "center",
             width: width / 1.2,
             height: width / 7.5,
-            borderBottomLeftRadius: 9,
-            borderBottomRightRadius: 9,
+            borderBottomLeftRadius: 12,
+            borderBottomRightRadius: 12,
             overflow: "hidden",
             paddingLeft: 10,
             position: "absolute",

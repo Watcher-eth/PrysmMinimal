@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, Dimensions } from "react-native";
 import BottomSheet, {
   BottomSheetModal,
   BottomSheetModalProvider,
@@ -23,7 +23,7 @@ const VoteSideBet = (props: BetModalProps) => {
   const { question, title, betId, options, totalPot, image } = props;
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const setVotingState = useVotingStore((state) => state.setState);
-
+  const { width, height } = Dimensions.get("window");
   const modalHeight = useSharedValue(420); // Initial height
   const modalTop = useSharedValue(-420); // For moving the modal up
   const [currentStep, setCurrentStep] = useState(0);
@@ -110,7 +110,11 @@ const VoteSideBet = (props: BetModalProps) => {
             <Animated.View
               entering={ZoomInEasyUp.duration(500)}
               exiting={ZoomOutDown.duration(500)}
-              style={[styles.contentContainer, animatedStyle]}
+              style={[
+                styles.contentContainer,
+                animatedStyle,
+                { width: width / 1.05, marginRight: 9.5 },
+              ]}
             >
               {renderStepContent()}
             </Animated.View>
@@ -132,16 +136,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#131313",
     opacity: 0,
-    zIndex: 13,
+    zIndex: 30,
   },
   contentContainer: {
     flex: 1,
-    zIndex: 10,
+    zIndex: 30,
     alignItems: "center",
     borderRadius: 22,
     minHeight: 300,
     height: 300,
     backgroundColor: "#131313",
+    right: 29.5,
   },
   input: {
     fontSize: 18,

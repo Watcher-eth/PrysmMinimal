@@ -61,7 +61,7 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
             uri: image,
           }}
           style={{
-            width: width / 1.21,
+            width: width / 1.13,
             height: height / 3.5,
             borderRadius: 11,
             overflow: "hidden",
@@ -179,7 +179,7 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
       <View
         style={{
           height: 1,
-          width: width / 1.23,
+          width: width / 1.16,
           marginVertical: 10,
           backgroundColor: "lightgray",
         }}

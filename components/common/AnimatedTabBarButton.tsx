@@ -8,8 +8,8 @@ import * as Haptics from "expo-haptics";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-export const ACTIVE_COLOR = "#FFDD44";
-export const INACTIVE_COLOR = "#FFF9DB";
+export const ACTIVE_COLOR = "white";
+export const INACTIVE_COLOR = "gray";
 export function TabBarButton({ icon, title, onPress, focused }: any) {
   const color = focused ? ACTIVE_COLOR : INACTIVE_COLOR;
   const scale = useSharedValue(1);
@@ -36,7 +36,6 @@ export function TabBarButton({ icon, title, onPress, focused }: any) {
       style={[styles.pressable, animatedStyle]}
     >
       {icon({ focused, color })}
-      <Text style={[styles.label, { color }]}>{title}</Text>
     </AnimatedPressable>
   );
 }

@@ -34,7 +34,7 @@ function MyTabBar({ state, descriptors, navigation }) {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        padding: 18,
+        padding: 15,
         marginHorizontal: 65,
         marginVertical: 34,
         bottom: 0,
@@ -88,18 +88,35 @@ function MyTabBar({ state, descriptors, navigation }) {
             style={{ flex: 1 }}
           >
             {label === "Tab One" && (
-              <Home color={isFocused ? "white" : "gray"} />
+              <TabBarButton
+                title="Home"
+                focused={isFocused}
+                icon={HomeIcon}
+                onPress={onPress}
+              />
             )}
 
             {label === "Tab Two" && (
-              <Globe color={isFocused ? "white" : "gray"} />
+              <TabBarButton
+                title="Profile"
+                focused={isFocused}
+                icon={ProfileIcon}
+                onPress={onPress}
+              />
             )}
-
             {label === "Explore" && (
-              <Compass color={isFocused ? "white" : "gray"} />
+              <TabBarButton
+                title="Explore"
+                focused={isFocused}
+                icon={ExploreIcon}
+                onPress={onPress}
+              />
             )}
             {label === "Test" && (
-              <FlaskConical color={isFocused ? "white" : "gray"} />
+              <FlaskConical
+                style={{ alignSelf: "center" }}
+                color={isFocused ? "white" : "gray"}
+              />
             )}
           </TouchableOpacity>
         );
@@ -114,31 +131,11 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
-
-        tabBarBackground: () => (
-          <BlurView
-            style={{
-              position: "absolute",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              padding: 18,
-              marginHorizontal: 65,
-              marginVertical: 34,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              borderRadius: 50,
-              overflow: "hidden",
-            }}
-            tint="systemChromeMaterialDark"
-            intensity={100}
-          />
-        ),
+        tabBarActiveBackgroundColor: "#070707",
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
       }}
+      tabBar={(props) => <MyTabBar {...props} />}
     >
       <Tabs.Screen
         name="index"

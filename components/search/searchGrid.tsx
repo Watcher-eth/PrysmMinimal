@@ -35,7 +35,9 @@ const SearchGrid = () => {
           width: width / 1.2,
         }}
       >
-        <Text style={{ fontSize: 22, fontWeight: "800" }}>Today</Text>
+        <Text style={{ fontSize: 22, fontWeight: "800", color: "white" }}>
+          Today
+        </Text>
         <View
           style={{
             display: "flex",

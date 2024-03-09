@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
   },
   sliderContainer: {
-    width: 220,
+    width: 280,
     height: 100,
 
     justifyContent: "center",
@@ -95,8 +95,8 @@ const styles = StyleSheet.create({
     position: "relative", // Allows absolute positioning of the text elements
   },
   slider: {
-    width: 100,
-    height: 200,
+    width: 107,
+    height: 120,
     transform: [{ scale: 3 }],
   },
   text: {

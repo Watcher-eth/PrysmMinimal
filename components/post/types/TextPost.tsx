@@ -55,6 +55,7 @@ const TextPost = (props: { border: boolean }) => {
             backgroundColor: props.border ? "#141414" : "transparent",
             alignSelf: "center",
             borderRadius: 20,
+            zIndex: 10,
             padding: props.border ? 15 : 0,
             paddingBottom: props.border ? 17 : 0,
             marginBottom: props.border ? 0 : -10,
