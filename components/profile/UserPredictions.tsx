@@ -17,7 +17,7 @@ const UserPredictions = (props: {
     <AnimatedPressable
       onPress={() =>
         router.navigate({
-          pathname: "[id]",
+          pathname: "modal",
           params: {
             id: index,
             name: title,

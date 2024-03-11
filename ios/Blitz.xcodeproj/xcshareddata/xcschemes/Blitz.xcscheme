@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Prysm.app"
-               BlueprintName = "Prysm"
-               ReferencedContainer = "container:Prysm.xcodeproj">
+               BuildableName = "Blitz.app"
+               BlueprintName = "Blitz"
+               ReferencedContainer = "container:Blitz.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "PrysmTests.xctest"
-               BlueprintName = "PrysmTests"
-               ReferencedContainer = "container:Prysm.xcodeproj">
+               BuildableName = "BlitzTests.xctest"
+               BlueprintName = "BlitzTests"
+               ReferencedContainer = "container:Blitz.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Prysm.app"
-            BlueprintName = "Prysm"
-            ReferencedContainer = "container:Prysm.xcodeproj">
+            BuildableName = "Blitz.app"
+            BlueprintName = "Blitz"
+            ReferencedContainer = "container:Blitz.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Prysm.app"
-            BlueprintName = "Prysm"
-            ReferencedContainer = "container:Prysm.xcodeproj">
+            BuildableName = "Blitz.app"
+            BlueprintName = "Blitz"
+            ReferencedContainer = "container:Blitz.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

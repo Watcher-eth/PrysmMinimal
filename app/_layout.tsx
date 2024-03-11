@@ -108,11 +108,12 @@ function RootLayoutNav() {
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen
               name="modal"
-              options={{ presentation: "transparentModal", headerShown: false }}
+              options={{ presentation: "modal", headerShown: false }}
             />
             <Stack.Screen name="[id]" options={{ headerShown: false }} />
             <Stack.Screen name="post" options={{ headerShown: false }} />
             <Stack.Screen name="login" options={{ headerShown: false }} />
+
             <Stack.Screen name="featuredBet" options={{ headerShown: false }} />
           </Stack>
         </GestureHandlerRootView>

@@ -30,10 +30,10 @@ const TopicHeader = () => {
                     key={index}
                     style={{
                       padding: 10,
-                      paddingVertical: 8,
+                      paddingVertical: 10,
                       fontSize: 15,
                       backgroundColor: header === item ? "white" : "#1B1B1E",
-                      borderRadius: 16,
+                      borderRadius: 20,
                       overflow: "hidden",
                       marginRight: 10,
                       color: header === item ? "#1B1B1E" : "white",
@@ -60,10 +60,10 @@ const TopicHeader = () => {
                     style={{
                       padding: 10,
                       fontSize: 16,
-                      paddingVertical: 8,
+                      paddingVertical: 10,
 
                       backgroundColor: header === item ? "white" : "#1B1B1E",
-                      borderRadius: 16,
+                      borderRadius: 20,
                       overflow: "hidden",
                       marginRight: 10,
                       color: header === item ? "#1B1B1E" : "white",

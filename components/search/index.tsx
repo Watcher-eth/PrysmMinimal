@@ -23,6 +23,7 @@ import Animated, {
 } from "react-native-reanimated";
 import SearchResults from "./SearchResults";
 import { Search as SearchIcon } from "lucide-react-native";
+import { BlurView } from "expo-blur";
 const Search = () => {
   const [text, onChangeText] = useState<String>("");
   const { width, height } = Dimensions.get("window");
@@ -86,12 +87,27 @@ const Search = () => {
                 styles.contentContainer,
                 {
                   width: width / 1.09,
-                  backgroundColor: "#131313",
-                  height: height / 1.74,
+                  height: height / 1.7,
                   minHeight: 400,
                 },
               ]}
             >
+              <BlurView
+                intensity={50}
+                tint="systemChromeMaterialDark"
+                style={[
+                  styles.contentContainer,
+                  {
+                    width: width / 1.09,
+                    borderRadius: 20,
+                    overflow: "hidden",
+                    height: height / 1.7,
+                    paddingTop: 22,
+                    minHeight: 400,
+                    position: "absolute",
+                  },
+                ]}
+              />
               <TextInput
                 style={styles.input}
                 onChangeText={onChangeText}
@@ -123,7 +139,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 22,
     borderBottomRightRadius: 22,
 
-    backgroundColor: "#131313",
     alignSelf: "center",
 
     marginRight: 9.5,
@@ -133,10 +148,12 @@ const styles = StyleSheet.create({
     display: "flex",
     width: "90%",
     color: "white",
-    backgroundColor: "#191919",
+    backgroundColor: "rgba(255,255,255, 0.25)",
     padding: 10,
     marginHorizontal: 10,
     borderRadius: 25,
+    marginTop: 18,
+    marginBottom: -10,
   },
 });
 
