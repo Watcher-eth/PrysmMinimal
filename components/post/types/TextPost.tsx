@@ -9,7 +9,11 @@ import Animated, {
 } from "react-native-reanimated";
 import { router } from "expo-router";
 
-const TextPost = (props: { border: boolean }) => {
+const TextPost = (props: {
+  border: boolean;
+  content: string;
+  topic: string;
+}) => {
   const { width, height } = Dimensions.get("window");
   const scale = useSharedValue(1);
 
@@ -55,7 +59,7 @@ const TextPost = (props: { border: boolean }) => {
             backgroundColor: props.border ? "#141414" : "transparent",
             alignSelf: "center",
             borderRadius: 20,
-            zIndex: 10,
+            zIndex: 2,
             padding: props.border ? 15 : 0,
             paddingBottom: props.border ? 17 : 0,
             marginBottom: props.border ? 0 : -10,
@@ -108,7 +112,7 @@ const TextPost = (props: { border: boolean }) => {
                   fontWeight: "400",
                 }}
               >
-                /Oppenheimer
+                {props.topic ? props.topic : "/Oppenheimer"}
               </Text>
             </View>
             <Text style={{ fontWeight: "700", color: "lightgrey" }}>
@@ -124,8 +128,9 @@ const TextPost = (props: { border: boolean }) => {
             marginTop: 9,
           }}
         >
-          Rotten 🍅 review for #Oppenheimer is 93% which makes it certified
-          fresh 🔥 Honestly can’t see how #Oppenheimer could not win this.{" "}
+          {props.content !== undefined
+            ? props.content
+            : "Rotten 🍅 review for #Oppenheimer is 93% which makes it certified fresh 🔥 Honestly cant see how #Oppenheimer could not win this"}
         </Text>
       </Animated.View>
     </Pressable>

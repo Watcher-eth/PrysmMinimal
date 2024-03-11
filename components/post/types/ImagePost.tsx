@@ -75,7 +75,7 @@ const LinkPost = (props: { border: boolean }) => {
         >
           <Image
             source={{
-              uri: "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
+              uri: "https://f8n-production-collection-assets.imgix.net/0xEC0a7A26456B8451aefc4b00393ce1BefF5eB3e9/9648/nft.png?q=80&auto=format%2Ccompress&cs=srgb&h=640",
             }}
             style={{
               width: width / 7.5,

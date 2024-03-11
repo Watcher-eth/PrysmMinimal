@@ -1,9 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
-import { Text, View } from "@/components/Themed";
 import Feed from "@/components/Feed/feed";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import FindFriends from "@/components/Onboarding/Friends/FindFriends";
+import FindFriends from "@/components/Feed/Onboarding/Friends/FindFriends";
 import ExploreHeader from "@/components/Feed/feed/ExploreHeader";
 import TopicHeader from "@/components/Feed/TopicHeader";
 

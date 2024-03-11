@@ -54,7 +54,7 @@ const Card = (props: {
       onPress={() => {
         props.name === "2024 US Elections"
           ? router.navigate({
-              pathname: "/post/123",
+              pathname: "/featuredBet/123",
               params: {
                 id: "123",
                 name: "2024 US Elections",

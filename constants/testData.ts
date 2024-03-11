@@ -19,7 +19,7 @@ export const ActivityPropData = [
     name: "Alec.eth",
     title: "Oppenheimer Best Picture",
     image:
-      "https://pbs.twimg.com/profile_images/1484766329798213634/pIfL_r6Y_400x400.jpg",
+      "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",
   },
   {
     question: "Will Taylor Swift get engaged with Travis Kelcee in 2024?",
@@ -28,7 +28,7 @@ export const ActivityPropData = [
     name: "Ted (Not Lasso)",
     title: "Taylor Swift Engaged",
     image:
-      "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_png,w_168/https%3A%2F%2Fopenseauserdata.com%2Ffiles%2Ffd28c65d9b5192168fb259009a3afd36.png",
+      "https://pyxis.nymag.com/v1/imgs/714/769/21baa9f9edb6ff5f9a7d91b88febedbadd-taylor-travis.1x.rsquare.w1400.jpg",
   },
   {
     question: "Will GTA 6 deluxe edition cost more than 80 Dollars?",
@@ -37,7 +37,7 @@ export const ActivityPropData = [
     name: "0xSmallbrain.eth",
     title: "GTA 6 Online",
     image:
-      "https://res.cloudinary.com/merkle-manufactory/image/fetch/c_fill,f_jpg,w_168/https%3A%2F%2Fi.imgur.com%2FVj7CdUX.jpg",
+      "https://phantom-marca.unidadeditorial.es/931e11306070eef2226fbf72e6452563/resize/828/f/jpg/assets/multimedia/imagenes/2023/12/04/17017052216381.jpg",
   },
 ];
 

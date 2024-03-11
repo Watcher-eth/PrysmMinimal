@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
 import Slider from "@react-native-community/slider";
 import Animated, {
   useSharedValue,
@@ -7,12 +7,13 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
+import * as Haptics from "expo-haptics";
 
 const AnimatedSlider = ({ onValueChange }) => {
   const [sliderValue, setSliderValue] = useState(0);
   const scale = useSharedValue(3.3);
   const scaleY = useSharedValue(3.3);
-
+  const { width, height } = Dimensions.get("window");
   const textOpacity = useSharedValue(0); // Controls the opacity of the text elements
 
   //TODO: Get user balance
@@ -34,11 +35,13 @@ const AnimatedSlider = ({ onValueChange }) => {
   const handlePressIn = () => {
     scaleY.value = withSpring(4);
     textOpacity.value = withTiming(1); // Make text visible
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
 
   const handlePressOut = () => {
     scaleY.value = withSpring(3.35);
     textOpacity.value = withTiming(0); // Hide text
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   };
 
   return (
@@ -47,7 +50,12 @@ const AnimatedSlider = ({ onValueChange }) => {
         <Slider
           style={[
             styles.slider,
-            { transform: [{ scale: 3.35 }], scaleY: 3.35, scaleX: 3.35 },
+            {
+              transform: [{ scale: 3.35 }],
+              scaleY: 3.35,
+              scaleX: 3.35,
+              width: width / 3.68,
+            },
           ]}
           minimumValue={0}
           tapToSeek={true}
@@ -95,7 +103,6 @@ const styles = StyleSheet.create({
     position: "relative", // Allows absolute positioning of the text elements
   },
   slider: {
-    width: 107,
     height: 120,
     transform: [{ scale: 3 }],
   },

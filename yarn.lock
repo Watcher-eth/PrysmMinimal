@@ -2671,32 +2671,32 @@
     "@parcel/watcher-win32-ia32" "2.4.1"
     "@parcel/watcher-win32-x64" "2.4.1"
 
-"@privy-io/api-base@0.4.4", "@privy-io/api-base@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.npmjs.org/@privy-io/api-base/-/api-base-0.4.4.tgz"
-  integrity sha512-5lTNYu98nFtJUmjYT/l3irvQp0TNKs0shh4CEHPhqO/3gg1YhIUtnF+fy53lGRjo7vnAh72/zVhv6vTdNFXdoA==
+"@privy-io/api-base@0.4.5", "@privy-io/api-base@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/@privy-io/api-base/-/api-base-0.4.5.tgz#b1aedd5b20e7288e0c90d9a930b55a3beeefcbbb"
+  integrity sha512-I9wAvLL0JNJMHK7Ubh8y6jchgEGmSkLqhtdtW3w8e3NtGBUM3MRtpRtiVH/FdwNba7ZUpcjFHhUpHoqzOZmWRw==
   dependencies:
     zod "^3.21.4"
 
-"@privy-io/expo@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.npmjs.org/@privy-io/expo/-/expo-0.7.0.tgz"
-  integrity sha512-njbC9yN2S+qMXliC7d6KZLDiYH98KXxdtBLupI6fFgGmxqG1vkWNja8rGTOXkvidoW8DJgyq1+6WDtQHuUgymA==
+"@privy-io/expo@^0.8.3":
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/@privy-io/expo/-/expo-0.8.3.tgz#d301f93dccc2a2c63bcb9ff65199758ca58e6eef"
+  integrity sha512-iR4HfDZEoXGL5YvsDr+vqoogx8b3dINesSz8LANcQQyBrSurMuRBv2PwO3NIOz4drlyPprzEigXQzPsSqgrFOg==
   dependencies:
-    "@privy-io/js-sdk-core" "0.13.1"
+    "@privy-io/js-sdk-core" "0.13.5"
     react-fast-compare "^3.2.2"
 
-"@privy-io/js-sdk-core@0.13.1":
-  version "0.13.1"
-  resolved "https://registry.npmjs.org/@privy-io/js-sdk-core/-/js-sdk-core-0.13.1.tgz"
-  integrity sha512-mJnQZxaRFUzB2KVy7RvSUDfTxH/TukTIAjz5AIBkqn4ZlwslA/UMnaPq9nHge5v+G43AKArds9Lbn2sJNicQQA==
+"@privy-io/js-sdk-core@0.13.5":
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/@privy-io/js-sdk-core/-/js-sdk-core-0.13.5.tgz#0252766c6a07ec3132e3b6e8f83264e709f04a56"
+  integrity sha512-S6YpC2njioULaZ/5UjWcjXhBJDoGLQ0QSnQlOl4v/h8Lhin51Jx2eQMQ/Ot97FLttBAAVQ3o77SCA4nlpOnS3w==
   dependencies:
     "@ethersproject/abstract-signer" "^5.7.0"
     "@ethersproject/bignumber" "^5.7.0"
     "@ethersproject/providers" "^5.7.2"
     "@ethersproject/units" "^5.7.0"
-    "@privy-io/api-base" "^0.4.4"
-    "@privy-io/public-api" "1.8.2"
+    "@privy-io/api-base" "^0.4.5"
+    "@privy-io/public-api" "1.10.0"
     eventemitter3 "^5.0.1"
     fetch-retry "^5.0.6"
     jose "^4.11.2"
@@ -2704,12 +2704,12 @@
     set-cookie-parser "^2.6.0"
     uuid ">=8 <10"
 
-"@privy-io/public-api@1.8.2":
-  version "1.8.2"
-  resolved "https://registry.npmjs.org/@privy-io/public-api/-/public-api-1.8.2.tgz"
-  integrity sha512-ldcL7cUHvE3leiqzbUqOCMj21E9PR2p7HVhF7aq7xIqE7I9+QspDs1PwK2TGj2jKEspOB5Fwf66vQMh9p3+4KA==
+"@privy-io/public-api@1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@privy-io/public-api/-/public-api-1.10.0.tgz#4de390164bfa532f79983f5afafe8eb8821c0156"
+  integrity sha512-CSFSzbTm6gSpRjbB87tq+MunQXz7uI1Ns4z5HCFDf1sDuuBor/ytHccf0bCViaGKn01ePyC2FnUSwRO8ErejuQ==
   dependencies:
-    "@privy-io/api-base" "0.4.4"
+    "@privy-io/api-base" "0.4.5"
     ethers "^5.7.2"
     libphonenumber-js "^1.10.31"
     zod "^3.22.4"
@@ -5511,7 +5511,7 @@ expo-font@~11.10.3:
 
 expo-haptics@~12.8.1:
   version "12.8.1"
-  resolved "https://registry.yarnpkg.com/expo-haptics/-/expo-haptics-12.8.1.tgz#42b996763be33d661bd33bbc3b3958c3f2734b9d"
+  resolved "https://registry.npmjs.org/expo-haptics/-/expo-haptics-12.8.1.tgz"
   integrity sha512-ntLsHkfle8K8w9MW8pZEw92ZN3sguaGUSSIxv30fPKNeQFu7Cq/h47Qv3tONv2MO3wU48N9FbKnant6XlfptpA==
 
 expo-image-loader@~4.6.0:
@@ -5667,6 +5667,11 @@ fast-redact@^3.0.0:
   version "3.3.0"
   resolved "https://registry.npmjs.org/fast-redact/-/fast-redact-3.3.0.tgz"
   integrity sha512-6T5V1QK1u4oF+ATxs1lWUmlEk6P2T9HqJG3e2DnHOdVgZy2rFJBoEnrIedcTXlkAHU/zKC+7KETJ+KGGKwxgMQ==
+
+fast-text-encoding@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/fast-text-encoding/-/fast-text-encoding-1.0.6.tgz"
+  integrity sha512-VhXlQgj9ioXCqGstD37E/HBeqEGV/qOD/kmbVG8h5xKBYvM1L3lR1Zn4555cQ8GkYbJa8aJSipLPndE1k6zK2w==
 
 fast-xml-parser@^4.0.12, fast-xml-parser@^4.2.4:
   version "4.3.4"

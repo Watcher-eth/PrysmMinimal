@@ -4,6 +4,7 @@ import { TextInput } from "react-native-gesture-handler";
 import useCreateBetStore from "@/lib/stores/UploadBetStore";
 import { X } from "lucide-react-native";
 import Animated, { FadeInUp, FadeOutDown } from "react-native-reanimated";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
 
 const AddTitle = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
@@ -76,7 +77,7 @@ const AddTitle = ({ changeStep }) => {
           justifyContent: "center",
         }}
       >
-        <Pressable
+        <AnimatedPressable
           style={{
             marginTop: 22,
 
@@ -98,8 +99,8 @@ const AddTitle = ({ changeStep }) => {
           >
             Back
           </Text>
-        </Pressable>
-        <Pressable
+        </AnimatedPressable>
+        <AnimatedPressable
           onPress={() => {
             setVotingState({ title: text });
             changeStep(1);
@@ -125,7 +126,7 @@ const AddTitle = ({ changeStep }) => {
           >
             Next
           </Text>
-        </Pressable>
+        </AnimatedPressable>
       </View>
     </Animated.View>
   );

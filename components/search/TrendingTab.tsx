@@ -6,26 +6,30 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
+import AnimatedPressable from "../common/AnimatedPressable";
+import { router } from "expo-router";
 
 const TrendingTab = () => {
   const { width, height } = Dimensions.get("window");
-  const scale = useSharedValue(1);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: scale.value }],
-    };
-  });
-
-  const handlePressIn = () => {
-    scale.value = withSpring(1.08);
-  };
-
-  const handlePressOut = () => {
-    scale.value = withSpring(1);
-  };
   return (
-    <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut}>
+    <AnimatedPressable
+      onPress={() =>
+        router.navigate({
+          pathname: "[id]",
+          params: {
+            id: "123",
+            name: "Oppenheimer Best Picture",
+            description:
+              "Will Oppenheimer win the Oscar for Best Picture at the 2024 Academy Awards?",
+            icon: "icon",
+            image:
+              "https://people.com/thmb/O_xCNbRlz_oLi0iTy2xWUBGOtQY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(959x222:961x224)/oppenheimer-mag-rollout-7-071923-b6e2ce1f1e034c8585067050f5e4012c.jpg",
+            topic: "Oscars",
+          },
+        })
+      }
+    >
       <Animated.View
         style={{
           display: "flex",
@@ -74,12 +78,12 @@ const TrendingTab = () => {
             color: "white",
             fontWeight: "700",
             margin: 9,
-            paddingRight: 95,
+            paddingRight: 600,
             marginBottom: 6,
             lineHeight: 22,
           }}
         >
-          Will Oppenheimer win an Oscar?
+          Oppenheimer Best Picture?
         </Text>
         <Text
           style={{
@@ -88,11 +92,11 @@ const TrendingTab = () => {
             fontWeight: "400",
             marginHorizontal: 9,
             marginBottom: 9,
-
+            paddingRight: 60,
             lineHeight: 15,
           }}
         >
-          Will Oppenheimer win an Oscar?
+          Will Oppenheimer win the Oscar for Best Picture in 2024?
         </Text>
         <View
           style={{
@@ -110,9 +114,10 @@ const TrendingTab = () => {
               color: "[#2C2626]",
               fontWeight: "700",
               lineHeight: 10,
+              marginTop: 2.5,
               borderRadius: 11,
               backgroundColor: "white",
-              padding: 5,
+              padding: 6,
               overflow: "hidden",
             }}
           >
@@ -120,7 +125,7 @@ const TrendingTab = () => {
           </Text>
         </View>
       </Animated.View>
-    </Pressable>
+    </AnimatedPressable>
   );
 };
 

@@ -74,7 +74,7 @@ const LinkPost = (props: { border: boolean }) => {
         >
           <Image
             source={{
-              uri: "https://avatars.githubusercontent.com/u/1097953?v=4",
+              uri: "https://f8n-production-collection-assets.imgix.net/0xEC0a7A26456B8451aefc4b00393ce1BefF5eB3e9/9648/nft.png?q=80&auto=format%2Ccompress&cs=srgb&h=640",
             }}
             style={{
               width: width / 7.8,
@@ -100,7 +100,7 @@ const LinkPost = (props: { border: boolean }) => {
               }}
             >
               <Text style={{ color: "white", fontSize: 17, fontWeight: "600" }}>
-                TextPost
+                ShyKite.eth
               </Text>
               <Text style={{ color: "white", fontSize: 15, fontWeight: "400" }}>
                 /Oppenheimer

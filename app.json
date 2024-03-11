@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "Prysm",
-    "slug": "Prysm",
+    "name": "Blitz",
+    "slug": "Blitz",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icons/BlitzIcon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -15,14 +15,14 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.Prysm"
+      "bundleIdentifier": "com.anonymous.blitz"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#101010"
       },
-      "package": "com.anonymous.Prysm"
+      "package": "com.anonymous.blitz"
     },
     "web": {
       "bundler": "metro",

@@ -28,7 +28,7 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>myapp</string>
-          <string>com.anonymous.Prysm</string>
+          <string>com.anonymous.blitz</string>
         </array>
       </dict>
     </array>

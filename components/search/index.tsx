@@ -25,7 +25,7 @@ import SearchResults from "./SearchResults";
 import { Search as SearchIcon } from "lucide-react-native";
 const Search = () => {
   const [text, onChangeText] = useState<String>("");
-  const { width } = Dimensions.get("window");
+  const { width, height } = Dimensions.get("window");
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   // variables
@@ -82,7 +82,15 @@ const Search = () => {
             <Animated.View
               entering={ZoomInEasyDown.duration(500)}
               exiting={ZoomOutDown.duration(500)}
-              style={[styles.contentContainer, { width: width / 1.09 }]}
+              style={[
+                styles.contentContainer,
+                {
+                  width: width / 1.09,
+                  backgroundColor: "#131313",
+                  height: height / 1.74,
+                  minHeight: 400,
+                },
+              ]}
             >
               <TextInput
                 style={styles.input}
@@ -115,8 +123,6 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 22,
     borderBottomRightRadius: 22,
 
-    height: 488,
-    minHeight: 400,
     backgroundColor: "#131313",
     alignSelf: "center",
 
@@ -126,6 +132,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     display: "flex",
     width: "90%",
+    color: "white",
     backgroundColor: "#191919",
     padding: 10,
     marginHorizontal: 10,

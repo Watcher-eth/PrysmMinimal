@@ -30,7 +30,7 @@ const CreateBet = () => {
 
   const [currentStep, setCurrentStep] = useState(0);
 
-  const stepHeights = useMemo(() => [260, 280, 330, 490, 570], []);
+  const stepHeights = useMemo(() => [260, 280, 330, 520, 615], []);
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();

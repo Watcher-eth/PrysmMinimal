@@ -11,6 +11,7 @@ import Animated, {
   FadeOut,
   FadeOutDown,
 } from "react-native-reanimated";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
 
 const AddCover = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
@@ -143,7 +144,7 @@ const AddCover = ({ changeStep }) => {
           gap: 5,
         }}
       >
-        <Pressable
+        <AnimatedPressable
           onPress={() => changeStep(1)}
           style={{
             marginTop: 22,
@@ -166,8 +167,8 @@ const AddCover = ({ changeStep }) => {
           >
             Back
           </Text>
-        </Pressable>
-        <Pressable
+        </AnimatedPressable>
+        <AnimatedPressable
           onPress={() => changeStep(4)} // Assuming the next step index is 1
           style={{
             marginTop: 22,
@@ -190,7 +191,7 @@ const AddCover = ({ changeStep }) => {
           >
             Next
           </Text>
-        </Pressable>
+        </AnimatedPressable>
       </View>
     </Animated.View>
   );

@@ -7,6 +7,7 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
+import AnimatedPressable from "../common/AnimatedPressable";
 
 const ReccomendedTab = () => {
   const { width, height } = Dimensions.get("window");
@@ -36,24 +37,9 @@ export default ReccomendedTab;
 
 const RecomendedProfile = () => {
   const { width, height } = Dimensions.get("window");
-  const scale = useSharedValue(1);
-
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: scale.value }],
-    };
-  });
-
-  const handlePressIn = () => {
-    scale.value = withSpring(1.08);
-  };
-
-  const handlePressOut = () => {
-    scale.value = withSpring(1);
-  };
 
   return (
-    <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut}>
+    <AnimatedPressable onPress={() => {}}>
       <Animated.View
         style={{
           display: "flex",
@@ -141,29 +127,15 @@ const RecomendedProfile = () => {
           </Text>
         </TouchableOpacity>
       </Animated.View>
-    </Pressable>
+    </AnimatedPressable>
   );
 };
 
 const RecomendedCommunity = () => {
   const { width, height } = Dimensions.get("window");
-  const scale = useSharedValue(1);
 
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ scale: scale.value }],
-    };
-  });
-
-  const handlePressIn = () => {
-    scale.value = withSpring(1.08);
-  };
-
-  const handlePressOut = () => {
-    scale.value = withSpring(1);
-  };
   return (
-    <Pressable onPressIn={handlePressIn} onPressOut={handlePressOut}>
+    <AnimatedPressable onPress={() => {}}>
       <Animated.View
         style={{
           display: "flex",
@@ -218,6 +190,6 @@ const RecomendedCommunity = () => {
           </Text>
         </View>
       </Animated.View>
-    </Pressable>
+    </AnimatedPressable>
   );
 };

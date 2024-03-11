@@ -1,6 +1,6 @@
 import { Button, Pressable, StyleSheet } from "react-native";
 
-import { Text, View } from "@/components/Themed";
+import { Text, View } from "react-native";
 import ProfilePopover from "@/components/profile/profilePopover";
 import Search from "@/components/search";
 import TextPost from "@/components/post/types/TextPost";

@@ -24,7 +24,7 @@ const FeaturedBet = (props: BetType) => {
   const { width, height } = Dimensions.get("window");
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
-  const IMG_HEIGHT = 380;
+  const IMG_HEIGHT = height / 2.3;
 
   const imageAnimatedStyle = useAnimatedStyle(() => {
     return {
@@ -129,7 +129,7 @@ const FeaturedBet = (props: BetType) => {
         ]}
         style={{
           width: width,
-          height: height * 1.61,
+          height: height * 1.45,
           position: "absolute",
           top: height * 0.19,
         }}
@@ -181,20 +181,19 @@ const FeaturedBet = (props: BetType) => {
           {...{
             index: 2,
 
-            title: "Presidency",
+            title: "Senate Majority",
             topic: "USA",
             image:
-              "https://e3.365dm.com/20/10/2048x1152/skynews-us-election-2020-polling_5131912.jpg",
-            question:
-              "Who will become the 77th President of the United States?",
+              "https://msmagazine.com/wp-content/uploads/2020/07/The-2020-Battle-for-Control-of-the-U.S.-Senate-Heats-Up.jpg",
+            question: "Who will win a majority in the Senate?",
             option2: {
-              name: "Trump",
+              name: "Republicans",
               amount: 58,
               image:
                 "https://news.northeastern.edu/wp-content/uploads/2022/07/Donald_Trump_1400-1.jpg",
             },
             option1: {
-              name: "Biden",
+              name: "Democrates",
               amount: 42,
               image:
                 "https://s.abcnews.com/images/International/biden-michigan-ap-rc-200909_hpMain.jpg",
@@ -229,7 +228,7 @@ const FeaturedBet = (props: BetType) => {
           {...{
             index: 4,
 
-            title: "Presidency",
+            title: "Super Tuesday",
             topic: "USA",
             image:
               "https://fivethirtyeight.com/wp-content/uploads/2023/01/2023-ELECTIONS-4x3-1.jpg?w=916",

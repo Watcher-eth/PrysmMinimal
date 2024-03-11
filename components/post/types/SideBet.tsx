@@ -73,7 +73,7 @@ const SideBet = (props: { border: boolean }) => {
         >
           <Image
             source={{
-              uri: "https://avatars.githubusercontent.com/u/1097953?v=4",
+              uri: "https://openseauserdata.com/files/47b8a2e50ce4e48b5918c3a2b186a6bf.png",
             }}
             style={{
               width: width / 7.8,
@@ -99,7 +99,7 @@ const SideBet = (props: { border: boolean }) => {
               }}
             >
               <Text style={{ color: "white", fontSize: 17, fontWeight: "600" }}>
-                TextPost
+                0xKraken.eth
               </Text>
               <Text style={{ color: "white", fontSize: 15, fontWeight: "400" }}>
                 /Oppenheimer

@@ -1,3 +1,4 @@
+import "fast-text-encoding";
 import "react-native-get-random-values";
 import "@ethersproject/shims";
 
@@ -26,7 +27,7 @@ import {
   production,
 } from "@lens-protocol/client";
 import { AsyncStorageProvider } from "@/lib/stores/LensClient";
-import Login from "@/components/Onboarding/Login";
+import Login from "@/components/Feed/Onboarding/Login";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 export {
   // Catch any errors thrown by the Layout component.
@@ -44,7 +45,7 @@ init(process.env.EXPO_PUBLIC_AIRSTACK!);
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <ErrorBoundary>
@@ -100,20 +101,22 @@ function RootLayoutNav() {
   // If logged in, show the tabs screen
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="modal"
-            options={{ presentation: "transparentModal", headerShown: false }}
-          />
-          <Stack.Screen name="[id]" options={{ headerShown: false }} />
-          <Stack.Screen name="post" options={{ headerShown: false }} />
-          <Stack.Screen name="login" options={{ headerShown: false }} />
-          <Stack.Screen name="featuredBet" options={{ headerShown: false }} />
-        </Stack>
-      </GestureHandlerRootView>
-    </ThemeProvider>
+    <PrivyProvider appId="clsz6ft6o05svsulm7mi5b7v6">
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="modal"
+              options={{ presentation: "transparentModal", headerShown: false }}
+            />
+            <Stack.Screen name="[id]" options={{ headerShown: false }} />
+            <Stack.Screen name="post" options={{ headerShown: false }} />
+            <Stack.Screen name="login" options={{ headerShown: false }} />
+            <Stack.Screen name="featuredBet" options={{ headerShown: false }} />
+          </Stack>
+        </GestureHandlerRootView>
+      </ThemeProvider>
+    </PrivyProvider>
   );
 }

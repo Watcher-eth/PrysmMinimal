@@ -129,7 +129,7 @@ const Bet = () => {
         ]}
         style={{
           width: width,
-          height: height * 1.61,
+          height: IMG_HEIGHT * 3.2,
           position: "absolute",
           top: height * 0.19,
         }}
@@ -220,11 +220,25 @@ const Bet = () => {
           paddingHorizontal: 20,
           marginTop: -15,
           marginBottom: 5,
+          zIndex: 12,
         }}
       >
-        <VoteSideBet {...BetModalPropData} />
+        <VoteSideBet
+          title={name}
+          question={description}
+          image={image}
+          totalPot={2069}
+          betId="123"
+          options={["No", "Yes"]}
+        />
       </View>
-      <BetFeed />
+      <View
+        style={{
+          zIndex: 2,
+        }}
+      >
+        <BetFeed />
+      </View>
     </Animated.ScrollView>
   );
 };

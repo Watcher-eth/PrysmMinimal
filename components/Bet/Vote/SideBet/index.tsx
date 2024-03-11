@@ -106,6 +106,7 @@ const VoteSideBet = (props: BetModalProps) => {
             style={[styles.sheetContainer, { backgroundColor: "#131313" }]}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
+            backgroundStyle={{ opacity: 0 }}
           >
             <Animated.View
               entering={ZoomInEasyUp.duration(500)}
@@ -137,6 +138,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#131313",
     opacity: 0,
     zIndex: 30,
+    marginTop: 200,
   },
   contentContainer: {
     flex: 1,

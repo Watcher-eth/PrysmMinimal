@@ -33,7 +33,7 @@ const ProfilePage = () => {
           key={i}
           style={{
             height: 48,
-            width: 16,
+            width: ((width / 10) * 6.9) / 16,
             borderRadius: 8,
             backgroundColor,
 
@@ -104,7 +104,7 @@ const ProfilePage = () => {
             fontWeight: "700",
           }}
         >
-          Alec.eth
+          Alec.lens
         </Text>
         <Text
           style={{

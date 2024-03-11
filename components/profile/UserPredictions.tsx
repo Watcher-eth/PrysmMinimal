@@ -3,6 +3,7 @@ import React from "react";
 import AnimatedPressable from "../common/AnimatedPressable";
 import { ActivityPropData } from "@/constants/testData";
 import Animated, { FadeInDown, FadeOutDown } from "react-native-reanimated";
+import { router } from "expo-router";
 
 const UserPredictions = (props: {
   index: number;
@@ -14,6 +15,19 @@ const UserPredictions = (props: {
   const { image, index, question, amount, title } = props;
   return (
     <AnimatedPressable
+      onPress={() =>
+        router.navigate({
+          pathname: "[id]",
+          params: {
+            id: index,
+            name: title,
+            description: question,
+            icon: "icon",
+            image: image,
+            topic: "topic",
+          },
+        })
+      }
       style={{
         display: "flex",
         flexDirection: "row",
@@ -27,8 +41,8 @@ const UserPredictions = (props: {
       }}
     >
       <Animated.View
-       entering={FadeInDown.duration(500)}
-       exiting={FadeOutDown.duration(500)}
+        entering={FadeInDown.duration(500)}
+        exiting={FadeOutDown.duration(500)}
         style={{
           display: "flex",
           flexDirection: "row",

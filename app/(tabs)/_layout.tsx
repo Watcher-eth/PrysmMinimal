@@ -8,7 +8,7 @@ import { useColorScheme } from "@/components/useColorScheme";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import ProfileModal from "@/components/profile/profileModal";
 import FeedHeader from "@/components/Feed/header";
-import { View } from "@/components/Themed";
+
 import { BlurView } from "expo-blur";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Compass, FlaskConical, Globe, Home } from "lucide-react-native";
@@ -17,6 +17,8 @@ import { TabBarButton } from "@/components/common/AnimatedTabBarButton";
 import { HomeIcon } from "@/assets/icons/HomeIcon";
 import { ExploreIcon } from "@/assets/icons/ExploreIcon";
 import { ProfileIcon } from "@/assets/icons/ProfileIcon";
+import CreateBet from "@/components/create/Bet";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -77,7 +79,7 @@ function MyTabBar({ state, descriptors, navigation }) {
         };
 
         return (
-          <TouchableOpacity
+          <AnimatedPressable
             key={index}
             accessibilityRole="button"
             accessibilityState={isFocused ? { selected: true } : {}}
@@ -114,11 +116,11 @@ function MyTabBar({ state, descriptors, navigation }) {
             )}
             {label === "Test" && (
               <FlaskConical
-                style={{ alignSelf: "center" }}
+                style={{ alignSelf: "center", paddingBottom: -20 }}
                 color={isFocused ? "white" : "gray"}
               />
             )}
-          </TouchableOpacity>
+          </AnimatedPressable>
         );
       })}
     </BlurView>

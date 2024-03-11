@@ -6,6 +6,7 @@ import { BlurView } from "expo-blur";
 import useCreateBetStore from "@/lib/stores/UploadBetStore";
 import { Upload, X } from "lucide-react-native";
 import Animated, { FadeInUp, FadeOutDown } from "react-native-reanimated";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
 
 const ConfirmBet = ({ changeStep }) => {
   const { width, height } = Dimensions.get("window");
@@ -146,7 +147,7 @@ const ConfirmBet = ({ changeStep }) => {
           gap: 5,
         }}
       >
-        <Pressable
+        <AnimatedPressable
           onPress={() => changeStep(2)} // Assuming the next step index is 1
           style={{
             marginTop: 22,
@@ -169,8 +170,8 @@ const ConfirmBet = ({ changeStep }) => {
           >
             Back
           </Text>
-        </Pressable>
-        <Pressable
+        </AnimatedPressable>
+        <AnimatedPressable
           style={{
             marginTop: 22,
             marginLeft: 16,
@@ -197,7 +198,7 @@ const ConfirmBet = ({ changeStep }) => {
           >
             Upload
           </Text>
-        </Pressable>
+        </AnimatedPressable>
       </View>
     </Animated.View>
   );

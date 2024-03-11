@@ -1,14 +1,16 @@
-import { View, Text, Image, Pressable } from "react-native";
+import { View, Text, Image, Pressable, Dimensions } from "react-native";
 import React from "react";
 import { BlurView } from "expo-blur";
 import { ScanFace, Vote } from "lucide-react-native";
 import useVotingStore from "@/lib/stores/VotingStore";
 import { BetModalConfirmationScreenProps } from "@/types/BetTypes";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
 
 const ConfirmationScreen = (props: BetModalConfirmationScreenProps) => {
   const { image, options, question, multiplier, changeStep } = props;
   const amount = useVotingStore((state) => state.amount);
   const Option = useVotingStore((state) => state.option);
+  const { width, height } = Dimensions.get("window");
 
   return (
     <View
@@ -155,16 +157,16 @@ const ConfirmationScreen = (props: BetModalConfirmationScreenProps) => {
           marginBottom: 15,
         }}
       >
-        <Pressable
+        <AnimatedPressable
           onPress={() => changeStep(0)}
           style={{
             marginTop: 12,
 
-            padding: 10,
+            padding: 12,
             borderRadius: 24,
             overflow: "hidden",
             backgroundColor: "#1D1D1D",
-            width: 140,
+            width: width / 2.5,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -176,20 +178,20 @@ const ConfirmationScreen = (props: BetModalConfirmationScreenProps) => {
               fontWeight: "800",
             }}
           >
-            Cancle
+            Cancel
           </Text>
-        </Pressable>
-        <Pressable
+        </AnimatedPressable>
+        <AnimatedPressable
           style={{
             marginTop: 12,
             display: "flex",
             flexDirection: "row",
             marginLeft: 16,
-            padding: 10,
+            padding: 12,
             borderRadius: 24,
             overflow: "hidden",
             backgroundColor: "#D9D9D9",
-            width: 140,
+            width: width / 2.5,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -205,7 +207,7 @@ const ConfirmationScreen = (props: BetModalConfirmationScreenProps) => {
           >
             Confirm
           </Text>
-        </Pressable>
+        </AnimatedPressable>
       </View>
     </View>
   );

@@ -8,6 +8,7 @@ import AnimatedSlider from "@/components/common/AnimatedSlider";
 import useVotingStore from "@/lib/stores/VotingStore";
 import { VotingScreenProps } from "@/types/BetTypes";
 import { Coins } from "lucide-react-native";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
 
 const VotingScreen: React.FC<VotingScreenProps> = ({
   changeStep,
@@ -225,17 +226,17 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
           justifyContent: "center",
         }}
       >
-        <Pressable
+        <AnimatedPressable
           onPress={() => confirmSelection(1)}
           style={{
             marginTop: 22,
 
-            padding: 10,
+            padding: 12,
             borderRadius: 24,
             overflow: "hidden",
             backgroundColor: "#1D1D1D",
 
-            width: 140,
+            width: width / 2.6,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -249,17 +250,17 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
           >
             {options[0]}
           </Text>
-        </Pressable>
-        <Pressable
+        </AnimatedPressable>
+        <AnimatedPressable
           onPress={() => confirmSelection(2)} // Assuming the next step index is 1
           style={{
             marginTop: 22,
             marginLeft: 16,
-            padding: 10,
+            padding: 12,
             borderRadius: 24,
             overflow: "hidden",
             backgroundColor: "#D9D9D9",
-            width: 140,
+            width: width / 2.6,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -273,7 +274,7 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
           >
             {options[1]}
           </Text>
-        </Pressable>
+        </AnimatedPressable>
       </View>
     </View>
   );

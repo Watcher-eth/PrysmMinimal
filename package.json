@@ -1,5 +1,5 @@
 {
-  "name": "prysm",
+  "name": "blitz",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
@@ -18,7 +18,7 @@
     "@expo/vector-icons": "^14.0.0",
     "@gorhom/bottom-sheet": "^4",
     "@lens-protocol/client": "^2.0.0-alpha.34",
-    "@privy-io/expo": "^0.7.0",
+    "@privy-io/expo": "^0.8.3",
     "@react-native-async-storage/async-storage": "^1.22.3",
     "@react-native-community/slider": "4.4.2",
     "@react-navigation/native": "^6.0.2",
@@ -42,6 +42,7 @@
     "expo-status-bar": "~1.11.1",
     "expo-system-ui": "~2.9.3",
     "expo-web-browser": "~12.8.2",
+    "fast-text-encoding": "^1.0.6",
     "lucide-react-native": "^0.331.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
