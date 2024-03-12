@@ -33,8 +33,8 @@ const UserPredictions = (props: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        paddingVertical: 13,
-        paddingHorizontal: 15,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
         borderRadius: 15,
         marginVertical: 5,
         backgroundColor: "#1B1B1E",
@@ -53,8 +53,8 @@ const UserPredictions = (props: {
         <Image
           source={{ uri: image }}
           style={{
-            height: 50,
-            width: 50,
+            height: 55,
+            width: 55,
             borderRadius: 8,
             overflow: "hidden",
           }}

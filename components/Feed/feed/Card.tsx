@@ -120,6 +120,7 @@ const Card = (props: {
             "rgba(7,7,7, 0.05)",
             "rgba(7,7,7, 0.15)",
             "rgba(7,7,7, 0.3)",
+            "rgba(7,7,7, 0.4)",
             "rgba(7,7,7, 0.5)",
             "transparent",
           ]}
@@ -127,7 +128,7 @@ const Card = (props: {
             position: "absolute",
 
             width: screenWidth,
-            height: screenHeight / 2.5,
+            height: screenHeight / 2.4,
             borderRadius: 15,
             overflow: "hidden",
           }}

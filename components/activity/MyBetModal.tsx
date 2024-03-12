@@ -22,10 +22,10 @@ const MyBetModal = (props: {
         alignSelf: "center",
         paddingBottom: 30,
         gap: 2,
-        padding: 12,
-        paddingTop: 25,
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        padding: 15,
+        paddingTop: 20,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
       }}
     >
       <View
@@ -101,6 +101,7 @@ const MyBetModal = (props: {
           backgroundColor: "#131313",
         }}
       />
+
       <View
         style={{
           width: "100%",
@@ -124,8 +125,8 @@ const MyBetModal = (props: {
             alignItems: "flex-start",
           }}
         >
-          <Text style={{ fontSize: 12, color: "lightgray", fontWeight: "500" }}>
-            Balance
+          <Text style={{ fontSize: 12, color: "lightgray", fontWeight: "600" }}>
+            You own
           </Text>
           <Text
             style={{
@@ -145,7 +146,7 @@ const MyBetModal = (props: {
             alignItems: "flex-end",
           }}
         >
-          <Text style={{ fontSize: 12, color: "lightgray", fontWeight: "500" }}>
+          <Text style={{ fontSize: 12, color: "lightgray", fontWeight: "600" }}>
             Value
           </Text>
           <Text
@@ -169,7 +170,7 @@ const MyBetModal = (props: {
           marginBottom: 13,
           alignSelf: "center",
           justifyContent: "space-between",
-          width: "97%",
+          width: "99%",
         }}
       >
         <AnimatedPressable
@@ -180,7 +181,7 @@ const MyBetModal = (props: {
             borderRadius: 24,
             overflow: "hidden",
             backgroundColor: "#1D1D1D",
-            width: width / 2.5,
+            width: width / 2.3,
             alignItems: "center",
             justifyContent: "center",
             display: "flex",
@@ -204,11 +205,11 @@ const MyBetModal = (props: {
             marginTop: 12,
             display: "flex",
             flexDirection: "row",
-            padding: 9,
+            padding: 8,
             borderRadius: 24,
             overflow: "hidden",
             backgroundColor: "#D9D9D9",
-            width: width / 2.5,
+            width: width / 2.3,
             alignItems: "center",
             justifyContent: "center",
           }}

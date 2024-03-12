@@ -19,6 +19,7 @@
     "@gorhom/bottom-sheet": "^4",
     "@lens-protocol/client": "^2.0.0-alpha.34",
     "@privy-io/expo": "^0.8.3",
+    "@rainbow-me/animated-charts": "^1.0.0-alpha.6",
     "@react-native-async-storage/async-storage": "^1.22.3",
     "@react-native-community/slider": "4.4.2",
     "@react-navigation/native": "^6.0.2",

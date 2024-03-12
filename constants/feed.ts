@@ -33,4 +33,13 @@ export const feedData: CardType[] = [
     image:
       "https://www.brides.com/thmb/AKCV9mWFEAgFRgRN9HnbePceqLk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1179298993-016de42ca11d4a25b911999cb8a7db1f.jpg",
   },
+
+  {
+    description: "Will GTA 6 deluxe edition cost more than 80 Dollars?",
+    topic: "GTA 6",
+    icon: "https://imgs.search.brave.com/lUy0tf7-rGuwEXhtMLQAZgtdzq7RFpMfVUAWzgDNOBI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi81LzUzL1Jv/Y2tzdGFyX0dhbWVz/X0xvZ28uc3ZnLzIy/MHB4LVJvY2tzdGFy/X0dhbWVzX0xvZ28u/c3ZnLnBuZw",
+    name: "Price",
+    image:
+      "https://phantom-marca.unidadeditorial.es/931e11306070eef2226fbf72e6452563/resize/828/f/jpg/assets/multimedia/imagenes/2023/12/04/17017052216381.jpg",
+  },
 ];

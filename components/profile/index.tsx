@@ -6,6 +6,7 @@ import {
   MonitorUpIcon,
   Stars,
   Trophy,
+  UserPlus,
 } from "lucide-react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { ActivityPropData } from "@/constants/testData";
@@ -16,6 +17,8 @@ import Animated, {
   FadeInRight,
   FadeOutRight,
 } from "react-native-reanimated";
+import { LinearGradient } from "expo-linear-gradient";
+import AnimatedPressable from "../common/AnimatedPressable";
 
 const ProfilePage = () => {
   const { width, height } = Dimensions.get("window");
@@ -33,7 +36,7 @@ const ProfilePage = () => {
           key={i}
           style={{
             height: 48,
-            width: ((width / 10) * 6.9) / 16,
+            width: ((width / 10) * 6.6) / 16,
             borderRadius: 8,
             backgroundColor,
 
@@ -77,6 +80,16 @@ const ProfilePage = () => {
           position: "absolute",
         }}
       />
+      <LinearGradient
+        colors={["transparent", "#101010"]}
+        style={{
+          height: 100,
+          width: "120%",
+          overflow: "hidden",
+          position: "absolute",
+          top: 10,
+        }}
+      />
       <View
         style={{
           display: "flex",
@@ -90,34 +103,81 @@ const ProfilePage = () => {
             uri: "https://pbs.twimg.com/profile_images/1484766329798213634/pIfL_r6Y_400x400.jpg",
           }}
           style={{
-            height: 75,
-            width: 75,
-            borderRadius: 38,
+            height: 85,
+            width: 85,
+            borderRadius: 43,
             overflow: "hidden",
+            borderWidth: 4,
+            borderColor: "#202020",
           }}
         />
         <Text
           style={{
-            fontSize: 21,
-            marginTop: 13,
-            color: "lightgray",
+            fontSize: 23,
+            marginTop: 10,
+            color: "white",
             fontWeight: "700",
           }}
         >
           Alec.lens
         </Text>
-        <Text
+        <View
           style={{
-            fontSize: 25,
-            color: "white",
-            fontWeight: "700",
-            marginRight: 5,
+            display: "flex",
+            flexDirection: "row",
+            width: "50%",
+            alignItems: "center",
+
             marginTop: 5,
-            marginBottom: 13,
           }}
         >
-          $14,000.48
-        </Text>
+          <Text
+            style={{
+              fontSize: 14,
+              color: "lightgray",
+              padding: 8,
+              paddingHorizontal: 12,
+              backgroundColor: "#1B1B1E",
+              borderRadius: 15,
+              overflow: "hidden",
+              fontWeight: "700",
+              marginRight: 5,
+              marginTop: 8,
+              alignSelf: "center",
+              marginBottom: 10,
+            }}
+          >
+            $14,000.48
+          </Text>
+          <AnimatedPressable
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              marginTop: 8,
+              paddingHorizontal: 12,
+              backgroundColor: "#1B1B1E",
+              borderRadius: 15,
+              overflow: "hidden",
+              alignItems: "center",
+              padding: 8,
+              marginBottom: 10,
+            }}
+          >
+            <UserPlus color={"lightgray"} strokeWidth={3} height={15} />
+            <Text
+              style={{
+                fontSize: 14,
+                color: "lightgray",
+
+                fontWeight: "700",
+
+                alignSelf: "center",
+              }}
+            >
+              Follow
+            </Text>
+          </AnimatedPressable>
+        </View>
       </View>
 
       <ScrollView>
@@ -128,7 +188,7 @@ const ProfilePage = () => {
             width: "100%",
             alignItems: "center",
             backgroundColor: "#1B1B1E",
-            borderRadius: 8,
+            borderRadius: 15,
             height: 65,
             marginTop: 5,
             paddingVertical: 4,
@@ -198,7 +258,7 @@ const ProfilePage = () => {
             flexDirection: "column",
             width: "100%",
             backgroundColor: "#1B1B1E",
-            borderRadius: 8,
+            borderRadius: 14,
             height: 100,
             marginTop: 15,
             paddingVertical: 12,
