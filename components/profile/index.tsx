@@ -119,7 +119,7 @@ const ProfilePage = () => {
             fontWeight: "700",
           }}
         >
-          Alec.lens
+          Alec.eth
         </Text>
         <View
           style={{

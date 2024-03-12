@@ -93,7 +93,7 @@ const Search = () => {
               ]}
             >
               <BlurView
-                intensity={50}
+                intensity={120}
                 tint="systemChromeMaterialDark"
                 style={[
                   styles.contentContainer,

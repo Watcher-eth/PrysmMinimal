@@ -10,7 +10,9 @@ import {
 import { BlurView } from "expo-blur";
 import {
   FadeInDown,
+  FadeOut,
   FadeOutDown,
+  FadeOutUp,
   useAnimatedStyle,
 } from "react-native-reanimated";
 import {
@@ -22,6 +24,8 @@ import {
 import Animated from "react-native-reanimated";
 import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
+import AnimatedPressable from "@/components/common/AnimatedPressable";
+import { Stars } from "lucide-react-native";
 
 const Card = (props: {
   name: any;
@@ -29,10 +33,12 @@ const Card = (props: {
   topic: any;
   image: any;
   icon: any;
+  total: string;
+  multiplier: number;
 }) => {
   const screenWidth = Dimensions.get("window").width * 0.92;
   const screenHeight = Dimensions.get("window").height * 0.5;
-  const { name, description, topic, image, icon } = props;
+  const { name, description, topic, image, icon, total, multiplier } = props;
   const scale = useSharedValue(1);
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -83,14 +89,13 @@ const Card = (props: {
     >
       <Animated.View
         entering={FadeInDown.duration(500)}
-        exiting={FadeOutDown.duration(500)}
+        exiting={FadeOutUp.duration(500)}
         style={[
           animatedStyle,
           {
             flex: 1,
             flexDirection: "column",
             justifyContent: "flex-end",
-
             marginVertical: 15,
             width: screenWidth,
             height: screenHeight,
@@ -115,20 +120,61 @@ const Card = (props: {
           }}
           resizeMode="cover"
         />
+        <AnimatedPressable
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            marginLeft: 9,
+            position: "absolute",
+            algignSelf: "flex-start",
+            top: -screenHeight / 2.19,
+            right: 11,
+          }}
+        >
+          <BlurView
+            intensity={30}
+            tint="systemUltraThinMaterialDark"
+            style={{
+              padding: 10,
+              paddingVertical: 8,
+              borderRadius: 120,
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              marginLeft: 9,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 14,
+                color: "#ffffff",
+                opacity: 0.9,
+
+                fontWeight: "600",
+              }}
+            >
+              /{topic}
+            </Text>
+          </BlurView>
+        </AnimatedPressable>
         <LinearGradient
           colors={[
             "rgba(7,7,7, 0.05)",
             "rgba(7,7,7, 0.15)",
             "rgba(7,7,7, 0.3)",
-            "rgba(7,7,7, 0.4)",
+            "rgba(7,7,7, 0.6)",
             "rgba(7,7,7, 0.5)",
-            "transparent",
+            "rgba(7,7,7, 0.6)",
+            "rgba(7,7,7, 0.8)",
+            "rgba(7,7,7, 1)",
           ]}
           style={{
             position: "absolute",
 
             width: screenWidth,
-            height: screenHeight / 2.4,
+            height: screenHeight / 2,
             borderRadius: 15,
             overflow: "hidden",
           }}
@@ -143,26 +189,30 @@ const Card = (props: {
         >
           <Text
             style={{
-              fontSize: 52,
+              fontSize: 49,
               color: "#ffffff",
               fontWeight: "900",
-              paddingRight: 50,
-              lineHeight: 50,
+              paddingRight: 65,
+              lineHeight: 46,
+              marginBottom: 2,
             }}
           >
             {name}
           </Text>
           <Text
             style={{
-              fontSize: 20,
+              fontSize: 15.5,
               color: "#ffffff",
               opacity: 0.9,
               marginTop: -6,
+              fontWeight: "600",
+              paddingRight: 50,
             }}
           >
-            {topic}
+            {description}
           </Text>
         </View>
+
         <BlurView
           intensity={90}
           tint="dark"
@@ -187,19 +237,72 @@ const Card = (props: {
               marginRight: 3,
             }}
           />
-          <Text
+          <View
             style={{
-              fontSize: 17,
-              marginLeft: 8,
-              lineHeight: 18,
-              fontWeight: "500",
-              color: "#ffffff",
-              opacity: 0.9,
-              maxWidth: screenWidth * 0.78,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
             }}
           >
-            {description}
-          </Text>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: 6,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 22.5,
+                  color: "#ffffff",
+
+                  fontWeight: "700",
+                  paddingRight: 50,
+                }}
+              >
+                ${total}
+              </Text>
+              <Text
+                style={{
+                  fontSize: 15,
+                  color: "#ffffff",
+                  opacity: 0.9,
+
+                  fontWeight: "600",
+                  paddingRight: 50,
+                }}
+              >
+                {multiplier}x Multiplier
+              </Text>
+            </View>
+            <AnimatedPressable
+              style={{
+                padding: 12,
+                paddingVertical: 10,
+                borderRadius: 120,
+                overflow: "hidden",
+                backgroundColor: "white",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                marginLeft: 9,
+              }}
+            >
+              <Stars color={"#202020"} strokeWidth={2.7} height={18} />
+              <Text
+                style={{
+                  fontSize: 17,
+                  color: "#202020",
+                  opacity: 0.9,
+
+                  fontWeight: "700",
+                }}
+              >
+                Predict
+              </Text>
+            </AnimatedPressable>
+          </View>
         </BlurView>
       </Animated.View>
     </Pressable>

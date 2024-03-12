@@ -11,7 +11,13 @@ import FeedHeader from "@/components/Feed/header";
 
 import { BlurView } from "expo-blur";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Compass, FlaskConical, Globe, Home } from "lucide-react-native";
+import {
+  Compass,
+  FlaskConical,
+  Globe,
+  Home,
+  Newspaper,
+} from "lucide-react-native";
 import { useEmbeddedWallet } from "@privy-io/expo";
 import { TabBarButton } from "@/components/common/AnimatedTabBarButton";
 import { HomeIcon } from "@/assets/icons/HomeIcon";
@@ -37,6 +43,7 @@ function MyTabBar({ state, descriptors, navigation }) {
         flexDirection: "row",
         justifyContent: "space-between",
         padding: 15,
+        paddingVertical: 12,
         marginHorizontal: 65,
         marginVertical: 34,
         bottom: 0,
@@ -44,6 +51,7 @@ function MyTabBar({ state, descriptors, navigation }) {
         right: 0,
         borderRadius: 50,
         overflow: "hidden",
+        alignItems: "center",
       }}
       tint="systemChromeMaterialDark"
       intensity={100}
@@ -90,11 +98,10 @@ function MyTabBar({ state, descriptors, navigation }) {
             style={{ flex: 1 }}
           >
             {label === "Tab One" && (
-              <TabBarButton
-                title="Home"
-                focused={isFocused}
-                icon={HomeIcon}
-                onPress={onPress}
+              <Newspaper
+                height={30}
+                style={{ alignSelf: "center", marginTop: 2 }}
+                color={isFocused ? "white" : "gray"}
               />
             )}
 
@@ -116,7 +123,8 @@ function MyTabBar({ state, descriptors, navigation }) {
             )}
             {label === "Test" && (
               <FlaskConical
-                style={{ alignSelf: "center", paddingBottom: -20 }}
+                height={34}
+                style={{ alignSelf: "center", marginTop: 1 }}
                 color={isFocused ? "white" : "gray"}
               />
             )}
@@ -140,6 +148,21 @@ export default function TabLayout() {
       tabBar={(props) => <MyTabBar {...props} />}
     >
       <Tabs.Screen
+        name="explore"
+        options={{
+          headerShown: false,
+          title: "Explore",
+          tabBarButton: ({ accessibilityState, onPress }) => (
+            <TabBarButton
+              title="Explore"
+              focused={accessibilityState?.selected}
+              icon={ExploreIcon}
+              onPress={onPress}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: "Tab One",
@@ -158,21 +181,7 @@ export default function TabLayout() {
           header: () => <FeedHeader />,
         }}
       />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          headerShown: false,
-          title: "Explore",
-          tabBarButton: ({ accessibilityState, onPress }) => (
-            <TabBarButton
-              title="Explore"
-              focused={accessibilityState?.selected}
-              icon={ExploreIcon}
-              onPress={onPress}
-            />
-          ),
-        }}
-      />
+
       <Tabs.Screen
         name="two"
         options={{

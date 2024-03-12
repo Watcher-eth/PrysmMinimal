@@ -1,5 +1,5 @@
 import { View, Text, Dimensions } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { feedData } from "../../../constants/feed";
 import Card from "./Card";
 import { FlashList, FlashListProps } from "@shopify/flash-list";
@@ -8,6 +8,9 @@ import TopicHeader from "../TopicHeader";
 import Animated, {
   Extrapolate,
   Extrapolation,
+  FadeInDown,
+  FadeOut,
+  FadeOutDown,
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,
@@ -20,6 +23,12 @@ const Feed = () => {
   const { width } = Dimensions.get("window");
   const scrollY = useSharedValue(0); // Initializes a shared value for scroll position
   const lastScrollY = useSharedValue(0); // Track the last scroll position to determine scroll direction
+  const [selectedTopic, setSelectedTopic] = useState("Trending"); // State to track selected topic
+
+  const filteredFeedData =
+    selectedTopic && selectedTopic !== "Trending"
+      ? feedData.filter((item) => item.topic === selectedTopic)
+      : feedData;
 
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
@@ -83,14 +92,22 @@ const Feed = () => {
     >
       {/* Animated TopicHeader */}
       <Animated.View style={headerStyle}>
-        <TopicHeader />
+        <TopicHeader
+          setSelectedTopic={setSelectedTopic}
+          selectedTopic={selectedTopic}
+        />
       </Animated.View>
       <AnimatedFlashList
-        data={feedData}
+        data={filteredFeedData}
         renderItem={({ item, index }) => (
-          <View key={index} style={{ alignSelf: "center" }}>
+          <Animated.View
+            entering={FadeInDown.duration(500)}
+            exiting={FadeOut.duration(500)}
+            key={index}
+            style={{ alignSelf: "center" }}
+          >
             <Card {...item} />
-          </View>
+          </Animated.View>
         )}
         estimatedItemSize={4}
         centerContent={true}

@@ -5,8 +5,7 @@ import { testTopics } from "@/constants/testData";
 import AnimatedPressable from "../common/AnimatedPressable";
 import Animated, { FadeInRight } from "react-native-reanimated";
 
-const TopicHeader = () => {
-  const [header, setHeader] = useState("Trending");
+const TopicHeader = ({ setSelectedTopic, selectedTopic }) => {
   return (
     <View
       style={{
@@ -25,18 +24,18 @@ const TopicHeader = () => {
               <Animated.View
                 entering={FadeInRight.duration(200 * index + 1 / 2)}
               >
-                <AnimatedPressable onPress={() => setHeader(item)}>
+                <AnimatedPressable onPress={() => setSelectedTopic(item)}>
                   <Text
                     key={index}
                     style={{
                       padding: 10,
                       paddingVertical: 10,
                       fontSize: 15,
-                      backgroundColor: header === item ? "white" : "#1B1B1E",
+                      backgroundColor: selectedTopic === item ? "white" : "#1B1B1E",
                       borderRadius: 20,
                       overflow: "hidden",
                       marginRight: 10,
-                      color: header === item ? "#1B1B1E" : "white",
+                      color: selectedTopic === item ? "#1B1B1E" : "white",
                       fontWeight: "600",
                     }}
                   >
@@ -54,7 +53,7 @@ const TopicHeader = () => {
               <Animated.View
                 entering={FadeInRight.duration(200 * index + 1 / 4)}
               >
-                <AnimatedPressable onPress={() => setHeader(item)}>
+                <AnimatedPressable onPress={() => setSelectedTopic(item)}>
                   <Text
                     key={index}
                     style={{
@@ -62,11 +61,11 @@ const TopicHeader = () => {
                       fontSize: 16,
                       paddingVertical: 10,
 
-                      backgroundColor: header === item ? "white" : "#1B1B1E",
+                      backgroundColor: selectedTopic === item ? "white" : "#1B1B1E",
                       borderRadius: 20,
                       overflow: "hidden",
                       marginRight: 10,
-                      color: header === item ? "#1B1B1E" : "white",
+                      color: selectedTopic === item ? "#1B1B1E" : "white",
                       fontWeight: "600",
                     }}
                   >

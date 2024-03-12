@@ -33,6 +33,12 @@ export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from "expo-router";
+import { vexo } from "vexo-analytics";
+
+// You may want to wrap this with `if (!__DEV__) { ... }` to only run Vexo in production.
+if (!__DEV__) {
+  vexo("14693254-6936-485a-b0bd-a94bce6d6909");
+}
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
