@@ -27,7 +27,7 @@ import {
   production,
 } from "@lens-protocol/client";
 import { AsyncStorageProvider } from "@/lib/stores/LensClient";
-import Login from "@/components/Feed/Onboarding/Login";
+import Login from "@/components/Onboarding/Login";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 export {
   // Catch any errors thrown by the Layout component.
@@ -125,6 +125,10 @@ function RootLayoutNav() {
             <Stack.Screen name="login" options={{ headerShown: false }} />
 
             <Stack.Screen name="featuredBet" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="recentPredictions"
+              options={{ headerShown: false }}
+            />
           </Stack>
         </GestureHandlerRootView>
       </ThemeProvider>

@@ -13,11 +13,12 @@ import { AvatarGroup } from "@/components/common/Avatar";
 import BetFeed from "@/components/Bet/BetFeed";
 import { ScrollView } from "react-native-gesture-handler";
 import PollingComponent from "@/components/Bet/BetSlider";
-import { ChevronLeft, Share } from "lucide-react-native";
+import { ChevronLeft, Share, Stars, Users } from "lucide-react-native";
 import AnimatedPressable from "@/components/common/AnimatedPressable";
 import VoteSideBet from "@/components/Bet/Vote/SideBet";
 import { BetModalPropData } from "@/constants/testData";
 import { BetBigView, BetSmallView } from "./TrendingBets";
+import PostFeed, { CommunityFeed } from "../Feed/PostFeed";
 
 const FeaturedBet = (props: BetType) => {
   const { name, description, image, icon, topic, id } = props;
@@ -149,11 +150,33 @@ const FeaturedBet = (props: BetType) => {
             fontWeight: "700",
             color: "white",
             marginBottom: 13,
-            marginLeft: -3,
+            marginLeft: -6,
           }}
         >
           {name}
         </Text>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            marginTop: 13,
+            marginLeft: -6,
+            marginBottom: 12,
+          }}
+        >
+          <Stars color={"white"} strokeWidth={2.9} height={20} />
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "700",
+              color: "white",
+              marginLeft: 4,
+            }}
+          >
+            Trending Bets
+          </Text>
+        </View>
         <BetBigView
           {...{
             index: 1,
@@ -247,6 +270,27 @@ const FeaturedBet = (props: BetType) => {
             },
           }}
         />
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            marginTop: 13,
+          }}
+        >
+          <Users color={"white"} strokeWidth={3.3} height={20} />
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "700",
+              color: "white",
+              marginLeft: 4,
+            }}
+          >
+            Community
+          </Text>
+        </View>
+        <CommunityFeed />
       </View>
     </Animated.ScrollView>
   );

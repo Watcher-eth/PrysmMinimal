@@ -21,7 +21,7 @@ const Login = () => {
     >
       <Image
         style={{ height: height * 0.7, width: width }}
-        source={require("../../../assets/images/Login.png")}
+        source={require("../../assets/images/Login.png")}
       />
       <Text
         style={{
@@ -37,7 +37,7 @@ const Login = () => {
       </Text>
       <Text
         style={{
-          fontSize: 15,
+          fontSize: 14,
           color: "lightgray",
           fontWeight: "500",
           textAlign: "center",
@@ -45,7 +45,7 @@ const Login = () => {
           marginTop: 15,
         }}
       >
-        Predict the future with your friends
+        And see what other people believe
       </Text>
       <LoginPopup />
     </View>

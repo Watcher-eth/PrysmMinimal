@@ -1,6 +1,6 @@
 import { View, Text, Image, Dimensions } from "react-native";
 import React from "react";
-import AnimatedPressable from "../../common/AnimatedPressable";
+import AnimatedPressable from "../common/AnimatedPressable";
 import { Globe, Unplug, X } from "lucide-react-native";
 import { useAuth } from "@/app/_layout";
 
@@ -58,7 +58,7 @@ const ConnectSocialsModal = ({ changeStep }) => {
             borderWidth: 1,
             borderColor: "lightgray",
           }}
-          source={require("../../../assets/icons/BlitzIcon.png")}
+          source={require("../../assets/icons/BlitzIcon.png")}
         />
         <Image
           style={{

@@ -26,6 +26,7 @@ import { router } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import AnimatedPressable from "@/components/common/AnimatedPressable";
 import { Stars } from "lucide-react-native";
+import AnimatedSlider from "@/components/common/AnimatedSlider";
 
 const Card = (props: {
   name: any;
@@ -128,12 +129,12 @@ const Card = (props: {
             marginLeft: 9,
             position: "absolute",
             algignSelf: "flex-start",
-            top: -screenHeight / 2.19,
+            top: -screenHeight / 2.4,
             right: 11,
           }}
         >
           <BlurView
-            intensity={30}
+            intensity={40}
             tint="systemUltraThinMaterialDark"
             style={{
               padding: 10,
@@ -218,90 +219,90 @@ const Card = (props: {
           tint="dark"
           style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: " column",
             alignItems: "center",
             width: screenWidth,
-            height: screenHeight * 0.18,
+            height: screenHeight * 0.22,
             borderBottomLeftRadius: 10,
             borderBottomRightRadius: 10,
             overflow: "hidden",
-            paddingLeft: 15,
+            paddingHorizontal: 8,
+            paddingVertical: 13,
+            paddingRight: 9,
           }}
         >
-          <Image
-            source={{ uri: icon }}
-            style={{
-              height: screenHeight * 0.115,
-              width: screenHeight * 0.115,
-              borderRadius: 5,
-              marginRight: 3,
-            }}
-          />
           <View
             style={{
               display: "flex",
               flexDirection: "row",
+              width: "95%",
               alignItems: "center",
+              alignSelf: "center",
               justifyContent: "space-between",
+              marginBottom: -5,
+              marginLeft: -1,
+              paddingTop: -5,
             }}
           >
-            <View
+            <Text
               style={{
-                display: "flex",
-                flexDirection: "column",
-                marginLeft: 6,
+                fontSize: 19,
+                color: "#ffffff",
+
+                fontWeight: "700",
               }}
             >
-              <Text
-                style={{
-                  fontSize: 22.5,
-                  color: "#ffffff",
-
-                  fontWeight: "700",
-                  paddingRight: 50,
-                }}
-              >
-                ${total}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 15,
-                  color: "#ffffff",
-                  opacity: 0.9,
-
-                  fontWeight: "600",
-                  paddingRight: 50,
-                }}
-              >
-                {multiplier}x Multiplier
-              </Text>
-            </View>
-            <AnimatedPressable
+              Haley
+            </Text>
+            <Text
               style={{
-                padding: 12,
-                paddingVertical: 10,
-                borderRadius: 120,
-                overflow: "hidden",
-                backgroundColor: "white",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                marginLeft: 9,
+                fontSize: 19,
+                color: "#ffffff",
+
+                fontWeight: "700",
               }}
             >
-              <Stars color={"#202020"} strokeWidth={2.7} height={18} />
-              <Text
-                style={{
-                  fontSize: 17,
-                  color: "#202020",
-                  opacity: 0.9,
-
-                  fontWeight: "700",
-                }}
-              >
-                Predict
-              </Text>
-            </AnimatedPressable>
+              Trump
+            </Text>
+          </View>
+          <View style={{ width: "95%", marginVertical: 5 }}>
+            <AnimatedSlider
+              onValueChange={() => {
+                return;
+              }}
+            />
+          </View>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              width: "95%",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginLeft: -1,
+              marginTop: 8,
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 14,
+                color: "#9D9D9D",
+                opacity: 0.9,
+                fontWeight: "700",
+              }}
+            >
+              3x Payout
+            </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                color: "#9D9D9D",
+                opacity: 0.9,
+                fontWeight: "700",
+              }}
+            >
+              1.65x Payout
+            </Text>
           </View>
         </BlurView>
       </Animated.View>

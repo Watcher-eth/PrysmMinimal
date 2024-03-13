@@ -38,6 +38,8 @@ const UserPredictions = (props: {
         borderRadius: 15,
         marginVertical: 5,
         backgroundColor: "#1B1B1E",
+        maxWidth: "100%",
+        minWidth: "100%",
       }}
     >
       <Animated.View
@@ -69,19 +71,60 @@ const UserPredictions = (props: {
             {title}
           </Text>
           <Text
+            numberOfLines={2}
             style={{
               fontSize: 14.5,
               color: "lightgray",
               fontWeight: "600",
-              maxWidth: "90%",
+              maxWidth: "84%",
             }}
           >
             {question}
           </Text>
         </View>
       </Animated.View>
+      <StatusIcon status={"resolved"} />
     </AnimatedPressable>
   );
 };
 
 export default UserPredictions;
+
+import {
+  FadeIn,
+  FadeOut,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
+import { CheckCircle, Clock, XCircle } from "lucide-react-native";
+
+export const StatusIcon = ({ status }) => {
+  let IconComponent = null; // Placeholder for the icon component
+  switch (status) {
+    case "live":
+      IconComponent = Clock;
+      break;
+    case "resolved":
+      IconComponent = CheckCircle;
+      break;
+    case "unresolvable":
+      IconComponent = XCircle;
+      break;
+    default:
+      IconComponent = null; // or a default icon
+  }
+
+  return (
+    <View>
+      {IconComponent && (
+        <Animated.View
+          style={{ marginLeft: -30 }}
+          entering={FadeIn}
+          exiting={FadeOut}
+        >
+          <IconComponent size={24} color="white" />
+        </Animated.View>
+      )}
+    </View>
+  );
+};

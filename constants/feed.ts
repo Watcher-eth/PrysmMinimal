@@ -24,7 +24,7 @@ export const feedData: CardType[] = [
   {
     name: "Best Picture",
     description: "Will Oppenheimer win the 2024 Academy Awards: Best Picture?",
-    topic: "Oppenheimer",
+    topic: "2024 Oscars",
     icon: "https://media-prod.fangoria.com/images/Opp2.width-800.jpg",
     image:
       "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",

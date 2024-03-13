@@ -2,8 +2,10 @@ import { View, Text, Dimensions, ActivityIndicator, Image } from "react-native";
 import React, { useState } from "react";
 import {
   Award,
+  ChevronLeft,
   Coins,
   MonitorUpIcon,
+  Share,
   Stars,
   Trophy,
   UserPlus,
@@ -19,34 +21,11 @@ import Animated, {
 } from "react-native-reanimated";
 import { LinearGradient } from "expo-linear-gradient";
 import AnimatedPressable from "../common/AnimatedPressable";
+import { router } from "expo-router";
+const { width, height } = Dimensions.get("window");
 
 const ProfilePage = () => {
-  const { width, height } = Dimensions.get("window");
   const [page, setPage] = useState<number>(1);
-
-  const renderRecentPredictions = () => {
-    const views = [];
-    for (let i = 0; i < 14; i++) {
-      const backgroundColor =
-        Math.random() < 0.5 ? "#404040" : "rgba(255,255,255, 0.8)"; // Randomly choose between lightgray and white
-      views.push(
-        <Animated.View
-          entering={FadeInLeft.duration((70 * i) / 2)}
-          exiting={FadeOutRight.duration((70 * i) / 2)}
-          key={i}
-          style={{
-            height: 48,
-            width: ((width / 10) * 6.6) / 16,
-            borderRadius: 8,
-            backgroundColor,
-
-            marginBottom: 8, // Add margin bottom between each view
-          }}
-        />
-      );
-    }
-    return views;
-  };
 
   return (
     <View
@@ -252,61 +231,7 @@ const ProfilePage = () => {
             </View>
           </View>
         </View>
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            backgroundColor: "#1B1B1E",
-            borderRadius: 14,
-            height: 100,
-            marginTop: 15,
-            paddingVertical: 12,
-            padding: 12,
-          }}
-        >
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              width: "100%",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 14,
-                color: "gray",
-                fontWeight: "700",
-              }}
-            >
-              Recent
-            </Text>
-            <Text
-              style={{
-                fontSize: 14,
-                color: "white",
-                fontWeight: "700",
-              }}
-            >
-              12/20 Predictions correct
-            </Text>
-          </View>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              width: "100%",
-              gap: 8,
-              alignItems: "center",
-              marginTop: 12,
-              marginBottom: 2,
-            }}
-          >
-            {renderRecentPredictions()}
-          </View>
-        </View>
+        <TruthyPredictionsSmall />
         <Text
           style={{
             fontSize: 19,
@@ -337,3 +262,91 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
+export const TruthyPredictionsSmall = () => {
+  const renderRecentPredictions = () => {
+    const views = [];
+    for (let i = 0; i < 14; i++) {
+      const backgroundColor =
+        Math.random() < 0.5 ? "#404040" : "rgba(255,255,255, 0.8)"; // Randomly choose between lightgray and white
+      views.push(
+        <Animated.View
+          entering={FadeInLeft.duration((70 * i) / 2)}
+          exiting={FadeOutRight.duration((70 * i) / 2)}
+          key={i}
+          style={{
+            height: 48,
+            width: ((width / 10) * 6.6) / 16,
+            borderRadius: 8,
+            backgroundColor,
+
+            marginBottom: 8, // Add margin bottom between each view
+          }}
+        />
+      );
+    }
+    return views;
+  };
+  return (
+    <AnimatedPressable
+      onPress={() =>
+        router.navigate({
+          pathname: "recentPredictions",
+        })
+      }
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        backgroundColor: "#1B1B1E",
+        borderRadius: 14,
+        height: 100,
+        marginTop: 15,
+        paddingVertical: 12,
+        padding: 12,
+      }}
+    >
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "100%",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 14,
+            color: "gray",
+            fontWeight: "700",
+          }}
+        >
+          Recent
+        </Text>
+        <Text
+          style={{
+            fontSize: 14,
+            color: "white",
+            fontWeight: "700",
+          }}
+        >
+          12/20 Predictions correct
+        </Text>
+      </View>
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "100%",
+          gap: 8,
+          alignItems: "center",
+          marginTop: 12,
+          marginBottom: 2,
+        }}
+      >
+        {renderRecentPredictions()}
+      </View>
+    </AnimatedPressable>
+  );
+};

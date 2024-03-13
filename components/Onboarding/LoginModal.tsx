@@ -23,7 +23,7 @@ import {
   useLoginWithSMS,
   usePrivy,
 } from "@privy-io/expo";
-import AnimatedPressable from "../../common/AnimatedPressable";
+import AnimatedPressable from "../common/AnimatedPressable";
 import useUserStore from "@/lib/stores/UserStore";
 import ConnectSocialsModal from "./ConnectSocialsModal";
 import { useAuth } from "@/app/_layout";

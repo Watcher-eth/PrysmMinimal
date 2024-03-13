@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
     marginTop: 13,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "black",
   },
   sliderContainer: {
     width: 280,

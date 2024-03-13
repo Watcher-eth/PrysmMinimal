@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { Text, View } from "react-native";
 import Feed from "@/components/Feed/feed";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import FindFriends from "@/components/Feed/Onboarding/Friends/FindFriends";
+import FindFriends from "@/components/Onboarding/Friends/FindFriends";
 import PostFeed from "@/components/Feed/PostFeed";
 import FeedHeader from "@/components/Feed/header";
 import { BetBigView } from "@/components/topics/TrendingBets";
