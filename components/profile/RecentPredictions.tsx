@@ -1,7 +1,10 @@
 import { View, Text, Image, Dimensions } from "react-native";
 import React from "react";
 import { TruthyPredictionsSmall } from ".";
-import { ActivityPropData } from "@/constants/testData";
+import {
+  ActivityPropData,
+  FinishedActivityPropData,
+} from "@/constants/testData";
 import UserPredictions from "./UserPredictions";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
@@ -135,7 +138,7 @@ const RecentPredictions = () => {
             marginBottom: 8,
           }}
         >
-          Correct Predictions
+          Live Predictions
         </Text>
         {ActivityPropData.map((item, index) => {
           return (
@@ -145,6 +148,30 @@ const RecentPredictions = () => {
               question={item.question}
               image={item.image}
               amount={item.amount}
+            />
+          );
+        })}
+        <Text
+          style={{
+            fontSize: 20,
+            marginTop: 19,
+            color: "white",
+            fontWeight: "700",
+            alignSelf: "flex-start",
+            marginBottom: 8,
+          }}
+        >
+          Correct Predictions
+        </Text>
+        {FinishedActivityPropData.map((item, index) => {
+          return (
+            <UserPredictions
+              index={index}
+              title={item.title}
+              question={item.question}
+              image={item.image}
+              amount={item.amount}
+              resolved={"true"}
             />
           );
         })}

@@ -66,7 +66,7 @@ const Bet = () => {
         backgroundColor: "#070707",
       }}
     >
-      <AnimatedPressable
+      <Pressable
         onPress={() => {
           router.back();
         }}
@@ -85,8 +85,8 @@ const Bet = () => {
         }}
       >
         <ChevronLeft height={21} color={"white"} strokeWidth={4} />
-      </AnimatedPressable>
-      <AnimatedPressable
+      </Pressable>
+      <Pressable
         onPress={() => {
           router.back();
         }}
@@ -105,7 +105,7 @@ const Bet = () => {
         }}
       >
         <Share height={16} color={"white"} strokeWidth={4} />
-      </AnimatedPressable>
+      </Pressable>
 
       <Animated.Image
         sharedTransitionTag={"shared"}

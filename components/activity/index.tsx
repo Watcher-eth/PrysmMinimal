@@ -1,10 +1,11 @@
 import { View, Text, Dimensions, ActivityIndicator } from "react-native";
 import React, { useState } from "react";
-import { Award, MonitorUpIcon } from "lucide-react-native";
+import { Activity, Award, MonitorUpIcon } from "lucide-react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { ActivityPropData } from "@/constants/testData";
 import ActivityField from "./activityField";
 import Chart from "./Chart";
+import { AnimatedTabBar, FriendsBetCarousel } from "./FriendsBetsBig";
 
 const ActivityPage = () => {
   const { width, height } = Dimensions.get("window");
@@ -16,7 +17,7 @@ const ActivityPage = () => {
         flexDirection: "column",
         width: "100%",
         padding: 20,
-        paddingTop: 65,
+        paddingTop: 75,
         backgroundColor: "#101010",
         height: height,
       }}
@@ -28,62 +29,27 @@ const ActivityPage = () => {
           width: "100%",
           justifyContent: "space-between",
           alignItems: "center",
+          marginBottom: 10,
         }}
       >
-        <Text style={{ fontSize: 25, color: "white", fontWeight: "700" }}>
+        <Text style={{ fontSize: 22, color: "white", fontWeight: "700" }}>
           Activity
         </Text>
-        <MonitorUpIcon color={"white"} />
+        <Activity color={"white"} strokeWidth={3} />
       </View>
       <ScrollView>
-        <Chart />
-        <Text
-          style={{
-            fontSize: 16,
-            color: "lightgray",
-            fontWeight: "700",
-            marginTop: 25,
-            marginRight: 5,
-            marginBottom: 8,
-          }}
-        >
-          Today
-        </Text>
+        <FriendsBetCarousel />
+        <AnimatedTabBar />
         <View>
           {ActivityPropData.map((item, index) => {
             return (
               <ActivityField
                 index={index}
                 name={item.name}
-                pfp={item.image}
+                pfp={item.pfp}
                 amount={item.amount}
                 title={item.title}
-              />
-            );
-          })}
-        </View>
-        <Text
-          style={{
-            fontSize: 16,
-            color: "lightgray",
-            fontWeight: "700",
-
-            marginRight: 5,
-            marginBottom: 8,
-            marginTop: 9,
-          }}
-        >
-          Yesterday
-        </Text>
-        <View>
-          {ActivityPropData.map((item, index) => {
-            return (
-              <ActivityField
-                index={index}
-                name={item.name}
-                pfp={item.image}
-                amount={item.amount}
-                title={item.title}
+                image={item.image}
               />
             );
           })}

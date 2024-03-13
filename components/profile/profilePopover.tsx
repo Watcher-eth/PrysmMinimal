@@ -21,12 +21,14 @@ import Animated, {
 } from "react-native-reanimated";
 import ConfirmBet from "../create/Bet/Confirm";
 import { BlurView } from "expo-blur";
+import AnimatedPressable from "../common/AnimatedPressable";
+import { Activity, Share } from "lucide-react-native";
+const { width, height } = Dimensions.get("window");
 
 const ProfilePopover = () => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const { width, height } = Dimensions.get("window");
   // variables
-  const snapPoints = useMemo(() => ["25%", "50%"], []);
+  const snapPoints = useMemo(() => ["10%", "80%"], []);
 
   // callbacks
   const handlePresentModalPress = useCallback(() => {
@@ -85,17 +87,18 @@ const ProfilePopover = () => {
               styles.sheetContainer,
               {
                 width: width / 1.12,
-                marginTop: height / 10,
+                marginTop: height / 2.5,
                 marginLeft: 8,
               },
             ]}
             snapPoints={snapPoints}
             onChange={handleSheetChanges}
+            backgroundStyle={{ backgroundColor: "transparent" }}
           >
             <View style={styles.contentContainer}>
               <Image
                 source={{
-                  uri: "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
+                  uri: "https://avatars.githubusercontent.com/u/1097953?v=4",
                 }}
                 style={{
                   width: width / 1.13,
@@ -109,6 +112,8 @@ const ProfilePopover = () => {
                 }}
               />
               <BlurView
+                intensity={540}
+                tint="systemUltraThinMaterialDark"
                 style={{
                   width: width / 1.12,
                   height: 90,
@@ -122,11 +127,11 @@ const ProfilePopover = () => {
               />
               <Image
                 source={{
-                  uri: "https://pbs.twimg.com/profile_images/1713576030063972352/qEdjq6VQ_400x400.jpg",
+                  uri: "https://avatars.githubusercontent.com/u/1097953?v=4",
                 }}
                 style={{
-                  width: 115,
-                  height: 115,
+                  width: 105,
+                  height: 105,
                   borderRadius: 68,
                   overflow: "hidden",
                   marginTop: 15,
@@ -136,21 +141,21 @@ const ProfilePopover = () => {
               <Text
                 style={{
                   fontSize: 25,
-                  color: "black",
+                  color: "white",
                   textAlign: "center",
                   fontWeight: "700",
                 }}
               >
-                0xDesigner
+                Jesse Pollack
               </Text>
               <Text
                 style={{
-                  fontSize: 14,
-                  color: "black",
+                  fontSize: 13,
+                  color: "D9D9D9",
                   textAlign: "center",
-                  padding: 3,
+                  padding: 4,
                   paddingHorizontal: 10,
-                  backgroundColor: "lightgray",
+                  backgroundColor: "#1G1G1G",
                   marginTop: 5,
                   borderRadius: 11,
                   overflow: "hidden",
@@ -170,49 +175,59 @@ const ProfilePopover = () => {
                   alignSelf: "center",
                 }}
               >
-                <Pressable
+                <AnimatedPressable
                   style={{
                     padding: 9,
                     borderRadius: 24,
+                    paddingVertical: 10,
                     overflow: "hidden",
-                    backgroundColor: "lightgray",
+                    backgroundColor: "#1D1D1D",
                     width: 130,
+                    display: "flex",
+                    flexDirection: "row",
                     alignItems: "center",
                     justifyContent: "center",
                   }}
                 >
+                  <Share color={"#D9D9D9"} height={20} strokeWidth={3} />
                   <Text
                     style={{
                       fontSize: 18,
-                      color: "black",
+                      color: "#D9D9D9",
                       fontWeight: "800",
+                      marginLeft: 2,
                     }}
                   >
                     Share
                   </Text>
-                </Pressable>
-                <Pressable
+                </AnimatedPressable>
+                <AnimatedPressable
                   style={{
                     marginLeft: 20,
                     padding: 9,
+                    paddingVertical: 8,
                     borderRadius: 24,
                     overflow: "hidden",
-                    backgroundColor: "black",
+                    backgroundColor: "#D9D9D9",
+                    display: "flex",
+                    flexDirection: "row",
                     width: 130,
                     alignItems: "center",
                     justifyContent: "center",
                   }}
                 >
+                  <Activity color={"#1D1D1D"} height={20} strokeWidth={3} />
                   <Text
                     style={{
                       fontSize: 18,
-                      color: "white",
+                      color: "#1D1D1D",
                       fontWeight: "800",
+                      marginLeft: 2,
                     }}
                   >
                     Activity
                   </Text>
-                </Pressable>
+                </AnimatedPressable>
               </View>
             </View>
           </BottomSheetModal>
@@ -236,9 +251,10 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     height: 278,
     minHeight: 225,
-    backgroundColor: "white",
+    backgroundColor: "#141414",
     borderWidth: 2,
-    borderColor: "lightgrey",
+    borderColor: "#202020",
+    right: width / 1.22,
   },
   input: {
     fontSize: 18,

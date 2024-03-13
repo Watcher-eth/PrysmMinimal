@@ -140,6 +140,7 @@ export default function TabLayout() {
 
   return (
     <Tabs
+      initialRouteName="explore"
       screenOptions={{
         tabBarActiveBackgroundColor: "#070707",
         // Disable the static render of the header on web

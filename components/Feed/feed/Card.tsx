@@ -39,7 +39,7 @@ const Card = (props: {
 }) => {
   const screenWidth = Dimensions.get("window").width * 0.92;
   const screenHeight = Dimensions.get("window").height * 0.5;
-  const { name, description, topic, image, icon, total, multiplier } = props;
+  const { name, description, topic, image, icon, optionA, optionB } = props;
   const scale = useSharedValue(1);
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -129,7 +129,7 @@ const Card = (props: {
             marginLeft: 9,
             position: "absolute",
             algignSelf: "flex-start",
-            top: -screenHeight / 2.4,
+            top: -screenHeight / 2.2,
             right: 11,
           }}
         >
@@ -163,13 +163,15 @@ const Card = (props: {
         <LinearGradient
           colors={[
             "rgba(7,7,7, 0.05)",
-            "rgba(7,7,7, 0.15)",
+            "rgba(7,7,7, 0.2)",
             "rgba(7,7,7, 0.3)",
+            "rgba(7,7,7, 0.4)",
+            "rgba(7,7,7, 0.5)",
             "rgba(7,7,7, 0.6)",
             "rgba(7,7,7, 0.5)",
             "rgba(7,7,7, 0.6)",
-            "rgba(7,7,7, 0.8)",
-            "rgba(7,7,7, 1)",
+
+            "rgba(7,7,7, 0)",
           ]}
           style={{
             position: "absolute",
@@ -252,7 +254,7 @@ const Card = (props: {
                 fontWeight: "700",
               }}
             >
-              Haley
+              {optionA.name}
             </Text>
             <Text
               style={{
@@ -262,7 +264,7 @@ const Card = (props: {
                 fontWeight: "700",
               }}
             >
-              Trump
+              {optionB.name}
             </Text>
           </View>
           <View style={{ width: "95%", marginVertical: 5 }}>
@@ -291,7 +293,7 @@ const Card = (props: {
                 fontWeight: "700",
               }}
             >
-              3x Payout
+              {optionA.multiplier}x Payout
             </Text>
             <Text
               style={{
@@ -301,7 +303,7 @@ const Card = (props: {
                 fontWeight: "700",
               }}
             >
-              1.65x Payout
+              {optionB.multiplier}x Payout
             </Text>
           </View>
         </BlurView>

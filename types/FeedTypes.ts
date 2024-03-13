@@ -4,8 +4,8 @@ export type CardType = {
   topic: string;
   image: string;
   icon: string;
-  multiplier: number;
-  total: string;
+  optionA: { multiplier: number; name: string };
+  optionB: { multiplier: number; name: string };
 };
 
 export type BetType = {

@@ -7,13 +7,15 @@ import { BetModalPropData } from "@/constants/testData";
 import { ScrollView } from "react-native-gesture-handler";
 import { BetBigView, BetSmallView } from "@/components/topics/TrendingBets";
 import { router } from "expo-router";
+import FriendsBetsBig, {
+  FriendsBetCarousel,
+} from "@/components/activity/FriendsBetsBig";
+import ActivityPage from "@/components/activity";
 
 const test = () => {
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "#070707" }}>
-      <View style={{ height: 590, width: "100%" }} />
-
-      <CreateBet />
+    <ScrollView style={{ flex: 1 }}>
+      <ActivityPage />
     </ScrollView>
   );
 };

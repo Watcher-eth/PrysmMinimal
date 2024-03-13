@@ -16,28 +16,52 @@ export const ActivityPropData = [
     question: "Will Oppenheimer win best picture at the 2024 Academy Awards",
     amount: "8,213",
     betId: "1234",
-    name: "Alec.eth",
+    name: "0xDesigner.eth",
     title: "Oppenheimer Best Picture",
     image:
       "https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_.jpg",
+    pfp: "https://pbs.twimg.com/profile_images/1762652874213834752/ohOpuC2T_400x400.jpg",
   },
   {
     question: "Will Taylor Swift get engaged with Travis Kelcee in 2024?",
-    amount: "8,213",
+    amount: "250",
     betId: "1234",
-    name: "Ted (Not Lasso)",
+    name: "Madfes",
     title: "Taylor Swift Engaged",
     image:
       "https://pyxis.nymag.com/v1/imgs/714/769/21baa9f9edb6ff5f9a7d91b88febedbadd-taylor-travis.1x.rsquare.w1400.jpg",
+    pfp: "https://pbs.twimg.com/profile_images/1441542795466919936/u98SJU8u_400x400.jpg",
   },
   {
     question: "Will GTA 6 deluxe edition cost more than 80 Dollars?",
-    amount: "1500",
+    amount: "1,234",
     betId: "1234",
-    name: "0xSmallbrain.eth",
+    name: "0xChristina.eth",
     title: "GTA 6 Online",
+    pfp: "https://pbs.twimg.com/profile_images/1766590729730629632/TdA7IzIa_400x400.jpg",
     image:
       "https://phantom-marca.unidadeditorial.es/931e11306070eef2226fbf72e6452563/resize/828/f/jpg/assets/multimedia/imagenes/2023/12/04/17017052216381.jpg",
+  },
+];
+
+export const FinishedActivityPropData = [
+  {
+    index: 3,
+
+    title: "Republican Nominee",
+    topic: "GOP",
+    image:
+      "https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3A710dbed6-33c9-4ec9-bec0-82dfb0dfa17b?source=next-article&fit=scale-down&quality=highest&width=1440&dpr=1",
+    question: "Who will be the Republican Nominee for the 2024 elections?",
+  },
+  {
+    question: "Will AOMG get kicked out of Meenoi?",
+    amount: "8,213",
+    betId: "1234",
+    name: "Ted (Not Lasso)",
+    title: "AOMG Fallout",
+    image:
+      "https://www.allkpop.com/upload/2024/03/content/130003/1710302625-dj-pumpkin-01.jpg",
   },
 ];
 

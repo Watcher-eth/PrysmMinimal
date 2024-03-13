@@ -206,7 +206,7 @@ const VotingScreen: React.FC<VotingScreenProps> = ({
           }}
         >
           <Text style={{ fontSize: 15, fontWeight: "700", color: "#D9D9D9" }}>
-            {sliderValue.toPrecision(4)} PRSM
+            {sliderValue.toPrecision(4)} USD
           </Text>
           <Text style={{ fontSize: 15, fontWeight: "700", color: "#D9D9D9" }}>
             Max {currentBalance}

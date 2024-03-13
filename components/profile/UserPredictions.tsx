@@ -11,6 +11,7 @@ const UserPredictions = (props: {
   question: string;
   amount: string;
   title: string;
+  resolved?: string;
 }) => {
   const { image, index, question, amount, title } = props;
   return (
@@ -83,7 +84,7 @@ const UserPredictions = (props: {
           </Text>
         </View>
       </Animated.View>
-      <StatusIcon status={"resolved"} />
+      <StatusIcon status={props.resolved ? "resolved" : "live"} />
     </AnimatedPressable>
   );
 };
@@ -122,7 +123,7 @@ export const StatusIcon = ({ status }) => {
           entering={FadeIn}
           exiting={FadeOut}
         >
-          <IconComponent size={24} color="white" />
+          <IconComponent size={24} color="gray" />
         </Animated.View>
       )}
     </View>
