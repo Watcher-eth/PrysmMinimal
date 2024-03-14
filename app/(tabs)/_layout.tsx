@@ -12,6 +12,7 @@ import FeedHeader from "@/components/Feed/header";
 import { BlurView } from "expo-blur";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import {
+  Activity,
   Compass,
   FlaskConical,
   Globe,
@@ -128,6 +129,13 @@ function MyTabBar({ state, descriptors, navigation }) {
                 color={isFocused ? "white" : "gray"}
               />
             )}
+            {label === "Activity" && (
+              <Activity
+                height={34}
+                style={{ alignSelf: "center", marginTop: 1 }}
+                color={isFocused ? "white" : "gray"}
+              />
+            )}
           </AnimatedPressable>
         );
       })}
@@ -164,9 +172,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="index"
+        name="feed"
         options={{
-          title: "Tab One",
+          title: "Feed",
           tabBarButton: ({ accessibilityState, onPress }) => (
             <TabBarButton
               title="Home"
@@ -182,7 +190,14 @@ export default function TabLayout() {
           header: () => <FeedHeader />,
         }}
       />
-
+      <Tabs.Screen
+        name="activity"
+        options={{
+          title: "Activity",
+          headerShown: false,
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
       <Tabs.Screen
         name="two"
         options={{

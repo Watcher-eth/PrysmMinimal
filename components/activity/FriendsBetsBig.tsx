@@ -82,6 +82,7 @@ const FriendsBetsBig = (props: {
               color: "white",
               fontWeight: "700",
               marginLeft: 5,
+              fontFamily: "AeonikBold",
             }}
           >
             {name}
@@ -126,6 +127,7 @@ const FriendsBetsBig = (props: {
             fontSize: 25,
             fontWeight: "600",
             color: "white",
+            fontFamily: "AeonikBold",
           }}
         >
           {title}
@@ -136,6 +138,7 @@ const FriendsBetsBig = (props: {
             fontWeight: "600",
             color: "white",
             opacity: 0.9,
+            fontFamily: "AeonikRegular",
           }}
         >
           {question}

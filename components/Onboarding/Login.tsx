@@ -31,6 +31,7 @@ const Login = () => {
           textAlign: "center",
           paddingHorizontal: 60,
           marginTop: 20,
+          fontFamily: "AeonikBold",
         }}
       >
         Predict the future with your friends
@@ -43,6 +44,7 @@ const Login = () => {
           textAlign: "center",
           paddingHorizontal: 60,
           marginTop: 15,
+          fontFamily: "AeonikRegular",
         }}
       >
         And see what other people believe

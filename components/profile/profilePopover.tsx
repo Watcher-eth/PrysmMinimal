@@ -23,6 +23,7 @@ import ConfirmBet from "../create/Bet/Confirm";
 import { BlurView } from "expo-blur";
 import AnimatedPressable from "../common/AnimatedPressable";
 import { Activity, Share } from "lucide-react-native";
+import { router } from "expo-router";
 const { width, height } = Dimensions.get("window");
 
 const ProfilePopover = () => {
@@ -151,11 +152,11 @@ const ProfilePopover = () => {
               <Text
                 style={{
                   fontSize: 13,
-                  color: "D9D9D9",
+                  color: "#D9D9D9",
                   textAlign: "center",
                   padding: 4,
                   paddingHorizontal: 10,
-                  backgroundColor: "#1G1G1G",
+                  backgroundColor: "#1D1D1D",
                   marginTop: 5,
                   borderRadius: 11,
                   overflow: "hidden",
@@ -176,6 +177,9 @@ const ProfilePopover = () => {
                 }}
               >
                 <AnimatedPressable
+                  onPress={() => {
+                    return;
+                  }}
                   style={{
                     padding: 9,
                     borderRadius: 24,
@@ -202,6 +206,11 @@ const ProfilePopover = () => {
                   </Text>
                 </AnimatedPressable>
                 <AnimatedPressable
+                  onPress={() =>
+                    router.navigate({
+                      pathname: "activity",
+                    })
+                  }
                   style={{
                     marginLeft: 20,
                     padding: 9,

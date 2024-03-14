@@ -98,14 +98,34 @@ const SideBet = (props: { border: boolean }) => {
                 marginLeft: 6,
               }}
             >
-              <Text style={{ color: "white", fontSize: 17, fontWeight: "600" }}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 17,
+                  fontWeight: "600",
+                  fontFamily: "AeonikBold",
+                }}
+              >
                 0xKraken.eth
               </Text>
-              <Text style={{ color: "white", fontSize: 15, fontWeight: "400" }}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 15,
+                  fontWeight: "400",
+                  fontFamily: "AeonikRegular",
+                }}
+              >
                 /Oppenheimer
               </Text>
             </View>
-            <Text style={{ fontWeight: "700", color: "lightgrey" }}>
+            <Text
+              style={{
+                fontWeight: "700",
+                color: "lightgrey",
+                fontFamily: "AeonikBold",
+              }}
+            >
               11hr ago
             </Text>
           </View>
@@ -116,6 +136,7 @@ const SideBet = (props: { border: boolean }) => {
             fontSize: 15,
             color: "lightgrey",
             marginTop: 9,
+            fontFamily: "AeonikRegular",
           }}
         >
           I think the score was one of the best parts of the movie. I think it

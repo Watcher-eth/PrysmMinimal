@@ -192,12 +192,13 @@ const Card = (props: {
         >
           <Text
             style={{
-              fontSize: 49,
+              fontSize: 40,
               color: "#ffffff",
               fontWeight: "900",
               paddingRight: 65,
-              lineHeight: 46,
-              marginBottom: 2,
+              lineHeight: 42,
+              marginBottom: 5,
+              fontFamily: "BenzinBold",
             }}
           >
             {name}
@@ -210,6 +211,7 @@ const Card = (props: {
               marginTop: -6,
               fontWeight: "600",
               paddingRight: 50,
+              fontFamily: "AeonikRegular",
             }}
           >
             {description}
@@ -250,7 +252,7 @@ const Card = (props: {
               style={{
                 fontSize: 19,
                 color: "#ffffff",
-
+                fontFamily: "AeonikBold",
                 fontWeight: "700",
               }}
             >
@@ -260,7 +262,7 @@ const Card = (props: {
               style={{
                 fontSize: 19,
                 color: "#ffffff",
-
+                fontFamily: "AeonikBold",
                 fontWeight: "700",
               }}
             >
@@ -291,6 +293,7 @@ const Card = (props: {
                 color: "#9D9D9D",
                 opacity: 0.9,
                 fontWeight: "700",
+                fontFamily: "AeonikBold",
               }}
             >
               {optionA.multiplier}x Payout
@@ -301,6 +304,7 @@ const Card = (props: {
                 color: "#9D9D9D",
                 opacity: 0.9,
                 fontWeight: "700",
+                fontFamily: "AeonikBold",
               }}
             >
               {optionB.multiplier}x Payout

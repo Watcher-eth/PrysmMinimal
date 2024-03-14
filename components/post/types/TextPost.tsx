@@ -101,7 +101,14 @@ const TextPost = (props: {
                 marginLeft: 6,
               }}
             >
-              <Text style={{ color: "white", fontSize: 17, fontWeight: "600" }}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 17,
+                  fontWeight: "600",
+                  fontFamily: "AeonikBold",
+                }}
+              >
                 Jesse Pollack
               </Text>
               <Text
@@ -110,12 +117,19 @@ const TextPost = (props: {
                   fontSize: 14,
                   marginTop: 1,
                   fontWeight: "400",
+                  fontFamily: "AeonikRegular",
                 }}
               >
                 {props.topic ? props.topic : "/Oppenheimer"}
               </Text>
             </View>
-            <Text style={{ fontWeight: "700", color: "lightgrey" }}>
+            <Text
+              style={{
+                fontWeight: "700",
+                color: "lightgrey",
+                fontFamily: "AeonikBold",
+              }}
+            >
               11hr ago
             </Text>
           </View>
@@ -126,6 +140,7 @@ const TextPost = (props: {
             fontSize: 16,
             color: "lightgrey",
             marginTop: 9,
+            fontFamily: "AeonikRegular",
           }}
         >
           {props.content !== undefined

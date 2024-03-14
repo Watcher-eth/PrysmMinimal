@@ -68,7 +68,14 @@ const UserPredictions = (props: {
             flexDirection: "column",
           }}
         >
-          <Text style={{ fontSize: 17, color: "white", fontWeight: "700" }}>
+          <Text
+            style={{
+              fontSize: 17,
+              color: "white",
+              fontWeight: "700",
+              fontFamily: "AeonikBold",
+            }}
+          >
             {title}
           </Text>
           <Text
@@ -77,7 +84,8 @@ const UserPredictions = (props: {
               fontSize: 14.5,
               color: "lightgray",
               fontWeight: "600",
-              maxWidth: "84%",
+              maxWidth: "82.5%",
+              fontFamily: "AeonikRegular",
             }}
           >
             {question}

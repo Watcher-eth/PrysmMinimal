@@ -65,7 +65,9 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => useContext(AuthContext);
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    AeonikBold: require("../assets/fonts/AeonikBold.otf"),
+    AeonikRegular: require("../assets/fonts/AeonikRegular.otf"),
+    BenzinBold: require("../assets/fonts/Benzin-ExtraBold.ttf"),
     ...FontAwesome.font,
   });
 

@@ -32,7 +32,14 @@ const ActivityPage = () => {
           marginBottom: 10,
         }}
       >
-        <Text style={{ fontSize: 22, color: "white", fontWeight: "700" }}>
+        <Text
+          style={{
+            fontSize: 24,
+            color: "white",
+            fontWeight: "700",
+            fontFamily: "AeonikBold",
+          }}
+        >
           Activity
         </Text>
         <Activity color={"white"} strokeWidth={3} />
@@ -45,6 +52,7 @@ const ActivityPage = () => {
             return (
               <ActivityField
                 index={index}
+                question={item.question}
                 name={item.name}
                 pfp={item.pfp}
                 amount={item.amount}

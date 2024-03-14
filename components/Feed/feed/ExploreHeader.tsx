@@ -11,7 +11,9 @@ const ExploreHeader = ({ data }) => {
 
   const renderItem = ({ item }) => (
     <View style={{ padding: 10, alignItems: "center" }}>
-      <Text style={{ color: "white" }}>{item}</Text>
+      <Text style={{ color: "white", fontFamily: "AeonikRegular" }}>
+        {item}
+      </Text>
     </View>
   );
 

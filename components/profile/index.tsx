@@ -96,6 +96,7 @@ const ProfilePage = () => {
             marginTop: 10,
             color: "white",
             fontWeight: "700",
+            fontFamily: "AeonikBold",
           }}
         >
           Alec.eth
@@ -129,6 +130,9 @@ const ProfilePage = () => {
             $14,000.48
           </Text>
           <AnimatedPressable
+            onPress={() => {
+              return;
+            }}
             style={{
               display: "flex",
               flexDirection: "row",
@@ -192,10 +196,24 @@ const ProfilePage = () => {
                 flexDirection: "column",
               }}
             >
-              <Text style={{ fontSize: 15, color: "gray", fontWeight: "700" }}>
+              <Text
+                style={{
+                  fontSize: 15,
+                  color: "gray",
+                  fontWeight: "700",
+                  fontFamily: "AeonikRegular",
+                }}
+              >
                 Rank
               </Text>
-              <Text style={{ fontSize: 19, color: "white", fontWeight: "700" }}>
+              <Text
+                style={{
+                  fontSize: 19,
+                  color: "white",
+                  fontWeight: "700",
+                  fontFamily: "AeonikBold",
+                }}
+              >
                 1248
               </Text>
             </View>
@@ -222,10 +240,24 @@ const ProfilePage = () => {
                 flexDirection: "column",
               }}
             >
-              <Text style={{ fontSize: 15, color: "gray", fontWeight: "700" }}>
+              <Text
+                style={{
+                  fontSize: 15,
+                  color: "gray",
+                  fontWeight: "700",
+                  fontFamily: "AeonikRegular",
+                }}
+              >
                 Points
               </Text>
-              <Text style={{ fontSize: 19, color: "white", fontWeight: "700" }}>
+              <Text
+                style={{
+                  fontSize: 19,
+                  color: "white",
+                  fontWeight: "700",
+                  fontFamily: "AeonikBold",
+                }}
+              >
                 13250
               </Text>
             </View>
@@ -241,6 +273,7 @@ const ProfilePage = () => {
             marginRight: 5,
             marginBottom: 8,
             marginTop: 20,
+            fontFamily: "AeonikBold",
           }}
         >
           Your Predictions

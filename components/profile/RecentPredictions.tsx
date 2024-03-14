@@ -93,7 +93,7 @@ const RecentPredictions = () => {
 
             color: "white",
             fontWeight: "700",
-
+            fontFamily: "AeonikBold",
             zIndex: 4,
           }}
         >
@@ -136,6 +136,7 @@ const RecentPredictions = () => {
             fontWeight: "700",
             alignSelf: "flex-start",
             marginBottom: 8,
+            fontFamily: "AeonikBold",
           }}
         >
           Live Predictions
@@ -159,6 +160,7 @@ const RecentPredictions = () => {
             fontWeight: "700",
             alignSelf: "flex-start",
             marginBottom: 8,
+            fontFamily: "AeonikBold",
           }}
         >
           Correct Predictions
