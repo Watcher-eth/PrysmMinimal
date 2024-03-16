@@ -1,8 +1,9 @@
 import { View, Text, Image, Dimensions } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import AnimatedPressable from "../common/AnimatedPressable";
-import { ArrowLeftRight, ReceiptText } from "lucide-react-native";
-
+import { ArrowLeftRight, ReceiptText, X } from "lucide-react-native";
+import { BasicExample } from "../common/AnimatedChart";
+const timeframes = ["1H", "1D", "1W", "1M"];
 const MyBetModal = (props: {
   title: string;
   image: string;
@@ -12,6 +13,7 @@ const MyBetModal = (props: {
   percentage: number;
 }) => {
   const { width, height } = Dimensions.get("window");
+  const [timeframe, setTimeframe] = useState("1D");
   return (
     <View
       style={{
@@ -40,12 +42,25 @@ const MyBetModal = (props: {
         <Image
           source={{ uri: props.image }}
           style={{
-            height: 40,
-            width: 40,
-            borderRadius: 20,
+            height: 38,
+            width: 38,
+            borderRadius: 19,
             overflow: "hidden",
           }}
         />
+        <AnimatedPressable
+          onPress={() => {}}
+          style={{
+            paddingVertical: 8.5,
+            paddingHorizontal: 6,
+            borderRadius: 17,
+            overflow: "hidden",
+            backgroundColor: "#1C1C1C",
+            alignSelf: "flex-start",
+          }}
+        >
+          <X color={"#585858"} strokeWidth={5} height={18} />
+        </AnimatedPressable>
       </View>
       <View
         style={{
@@ -56,15 +71,22 @@ const MyBetModal = (props: {
           marginTop: 5,
         }}
       >
-        <Text style={{ fontSize: 19, color: "white", fontWeight: "600" }}>
+        <Text
+          style={{
+            fontFamily: "Aeonik-Bold",
+            fontSize: 19,
+            color: "white",
+            fontWeight: "700",
+          }}
+        >
           ${props.price}
         </Text>
         <Text
           style={{
             color: props.percentage > 0 ? "green" : "red",
             fontSize: 20,
-
-            fontWeight: "600",
+            fontFamily: "Aeonik-Bold",
+            fontWeight: "700",
           }}
         >
           {props.percentage}%
@@ -78,35 +100,70 @@ const MyBetModal = (props: {
           justifyContent: "space-between",
         }}
       >
-        <Text style={{ fontSize: 17, color: "lightgray", fontWeight: "600" }}>
+        <Text
+          style={{
+            fontSize: 17,
+            color: "lightgray",
+            fontFamily: "Aeonik-Bold",
+            fontWeight: "700",
+          }}
+        >
           {props.title}
         </Text>
         <Text
           style={{
             color: props.percentage > 0 ? "green" : "red",
             fontSize: 17,
-
-            fontWeight: "600",
+            fontFamily: "Aeonik-Bold",
+            fontWeight: "700",
           }}
         >
           Today
         </Text>
       </View>
+      <BasicExample />
       <View
         style={{
-          width: "100%",
-          height: 250,
-          marginTop: 10,
-
-          backgroundColor: "#131313",
+          width: "75%",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          alignSelf: "center",
+          justifyContent: "space-between",
+          marginTop: -10,
         }}
-      />
-
+      >
+        {timeframes.map((item, index) => {
+          return (
+            <AnimatedPressable
+              key={index}
+              onPress={() => setTimeframe(item)}
+              style={{
+                padding: 6,
+                backgroundColor:
+                  timeframe === item ? "lightgray" : "transparent",
+                borderRadius: 15,
+              }}
+            >
+              <Text
+                style={{
+                  color: timeframe === item ? "black" : "gray",
+                  fontSize: 14,
+                  fontFamily: "Aeonik-Bold",
+                  fontWeight: "700",
+                }}
+              >
+                {item}
+              </Text>
+            </AnimatedPressable>
+          );
+        })}
+      </View>
       <View
         style={{
           width: "100%",
           height: 1,
-          backgroundColor: "rgba(100,100,100, 0.5)",
+          backgroundColor: "rgba(100,100,100, 0.3)",
           marginVertical: 15,
         }}
       />

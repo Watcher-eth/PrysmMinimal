@@ -1,7 +1,7 @@
 {
   "name": "blitz",
   "main": "expo-router/entry",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "scripts": {
     "start": "expo start",
     "android": "expo run:android",
@@ -25,6 +25,7 @@
     "@react-native-community/slider": "4.4.2",
     "@react-navigation/native": "^6.0.2",
     "@shopify/flash-list": "1.6.3",
+    "@shopify/react-native-skia": "^1.0.4",
     "@tanstack/react-query": "^5.24.7",
     "atob": "^2.1.2",
     "babel-plugin-inline-import": "^3.0.0",
@@ -54,6 +55,7 @@
     "react-native": "0.73.4",
     "react-native-gesture-handler": "~2.14.0",
     "react-native-get-random-values": "^1.10.0",
+    "react-native-graph": "^1.1.0",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-reanimated": "^3.7.0",
     "react-native-reanimated-carousel": "^3.5.1",

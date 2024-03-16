@@ -19,7 +19,7 @@
     <key>CFBundlePackageType</key>
     <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.0.32</string>
+    <string>1.0.33</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleURLTypes</key>
@@ -51,36 +51,8 @@
     <string>Allow $(PRODUCT_NAME) to access your microphone</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Allow $(PRODUCT_NAME) to access your photos</string>
-    <key>NSPrivacyAccessedAPITypes</key>
-    <array>
-      <dict/>
-      <dict>
-        <key>NSPrivacyAccessedAPICategoryDiskSpace</key>
-        <string>The app uses disk space information to ensure there is enough space to download and store content without affecting device performance</string>
-      </dict>
-      <dict>
-        <key>NSPrivacyAccessedAPICategoryFileTimestamp</key>
-        <string>File timestamps are used to better organiye files by the date they were last accessed, providing a better user experience</string>
-      </dict>
-      <dict>
-        <key>NSPrivacyAccessedAPICategoryUSerDefaults</key>
-        <string>We are using User defaults to enable a smoother experience for user coming in and to make onboarding to our app much simpler.</string>
-      </dict>
-      <dict>
-        <key>NSPrivacyAccessedAPICategorySystemBootTime</key>
-        <string>Were using System Boot time to ensure smooth performance for our users and to ensure that our app doesnt effect the performance of our users device</string>
-      </dict>
-    </array>
     <key>NSUserActivityTypes</key>
     <array>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
-      <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
       <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>
     </array>
     <key>UIAppFonts</key>

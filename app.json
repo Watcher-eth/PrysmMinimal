@@ -2,7 +2,7 @@
   "expo": {
     "name": "TryBlitz",
     "slug": "Prysm",
-    "version": "1.0.32",
+    "version": "1.0.33",
     "orientation": "portrait",
     "icon": "./assets/icons/BlitzIcon.png",
     "scheme": "myapp",

@@ -148,7 +148,6 @@ export default function TabLayout() {
 
   return (
     <Tabs
-      initialRouteName="explore"
       screenOptions={{
         tabBarActiveBackgroundColor: "#070707",
         // Disable the static render of the header on web
@@ -157,7 +156,7 @@ export default function TabLayout() {
       tabBar={(props) => <MyTabBar {...props} />}
     >
       <Tabs.Screen
-        name="explore"
+        name="index"
         options={{
           headerShown: false,
           title: "Explore",
@@ -174,7 +173,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="feed"
         options={{
-          title: "Feed",
+          title: "Tab One",
           tabBarButton: ({ accessibilityState, onPress }) => (
             <TabBarButton
               title="Home"

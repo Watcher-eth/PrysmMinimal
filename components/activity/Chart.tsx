@@ -116,23 +116,12 @@ const styles = StyleSheet.create({
   },
 });
 
-// Define a functional component that takes an amount prop
-const ChartBar = (props: { amount: number }) => {
-  // Convert the amount to a percentage of the screen width
-  const filledWidth = ((height / 10.5) * props.amount) / 10;
-
-  return (
-    <View style={BarStyles.barContainer}>
-      <View style={[BarStyles.filledBar, { height: filledWidth }]} />
-    </View>
-  );
-};
 
 // Create the styles
 const BarStyles = StyleSheet.create({
   barContainer: {
     height: height / 10.5, // Adjust the height of the bar
-    width: 20, // Subtract some width for padding
+    width: 400, // Subtract some width for padding
     backgroundColor: "#D6EDE2", // Light grey color for unfilled part
     borderRadius: 7, // Rounded corners for the bar
     overflow: "hidden", // Ensures the filled part doesn't overflow
