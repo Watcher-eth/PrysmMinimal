@@ -1,18 +1,25 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 
+import { Text, View } from "react-native";
 import Feed from "@/components/Feed/feed";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import FindFriends from "@/components/Onboarding/Friends/FindFriends";
-import ExploreHeader from "@/components/Feed/feed/ExploreHeader";
-import TopicHeader from "@/components/Feed/TopicHeader";
+import PostFeed from "@/components/Feed/PostFeed";
+import FeedHeader from "@/components/Feed/header";
 
-export default function Explore() {
+export default function TabOneScreen() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <Feed />
-      </View>
-    </GestureHandlerRootView>
+    <View
+      style={{
+        backgroundColor: "#101010",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <FeedHeader />
+
+      <PostFeed />
+    </View>
   );
 }
 
@@ -21,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "white",
+    backgroundColor: "#101010",
   },
   title: {
     fontSize: 20,

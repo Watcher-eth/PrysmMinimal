@@ -20,25 +20,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useColorScheme } from "@/components/useColorScheme";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { init } from "@airstack/airstack-react";
-import {
-  InMemoryStorageProvider,
-  LensClient,
-  development,
-  production,
-} from "@lens-protocol/client";
-import { AsyncStorageProvider } from "@/lib/stores/LensClient";
 import Login from "@/components/Onboarding/Login";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from "expo-router";
-import { vexo } from "vexo-analytics";
-
-// You may want to wrap this with `if (!__DEV__) { ... }` to only run Vexo in production.
-if (!__DEV__) {
-  vexo("14693254-6936-485a-b0bd-a94bce6d6909");
-}
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
@@ -109,28 +96,12 @@ function RootLayoutNav() {
   // If logged in, show the tabs screen
 
   return (
-    <PrivyProvider appId="clsz6ft6o05svsulm7mi5b7v6">
+    <PrivyProvider appId={process.env.EXPO_PUBLIC_PRIVY_API}>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <GestureHandlerRootView style={{ flex: 1, backgroundColor: "#101010" }}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="modal"
-              options={{
-                presentation: "modal",
-                headerShown: false,
-                headerTransparent: true,
-              }}
-            />
-            <Stack.Screen name="[id]" options={{ headerShown: false }} />
-            <Stack.Screen name="post" options={{ headerShown: false }} />
             <Stack.Screen name="login" options={{ headerShown: false }} />
-
-            <Stack.Screen name="featuredBet" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="recentPredictions"
-              options={{ headerShown: false }}
-            />
           </Stack>
         </GestureHandlerRootView>
       </ThemeProvider>

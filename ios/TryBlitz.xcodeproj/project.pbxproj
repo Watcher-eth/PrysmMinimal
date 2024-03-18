@@ -7,38 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016FE435869E406C90BC1DEE /* Benzin-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74790E5C7CE43C4B9389503 /* Benzin-ExtraBold.ttf */; };
+		05C8F1A97CCF45749D0F9B3B /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE0FEB2F01B47C5B75F2325 /* noop-file.swift */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		38A8A7567AB949EB84E54932 /* AeonikBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 665567853B3B4D47A50DEFBE /* AeonikBold.otf */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
+		75AED0032A3546008CC01395 /* AeonikRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE8E886407943D4885FB7C2 /* AeonikRegular.otf */; };
 		96905EF65AED1B983A6B3ABC /* libPods-TryBlitz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-TryBlitz.a */; };
-		9F081FEA8E0341F9B42C16D2 /* AeonikRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB54BC69F6AE45F6A627D115 /* AeonikRegular.otf */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		CC978232A09141559EC953B9 /* Benzin-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BA94E2583944C8CAD81D6EB /* Benzin-ExtraBold.ttf */; };
-		D04FBC9E9BA24625BFD77C8C /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BB1338FD4845658EA988E3 /* noop-file.swift */; };
+		CBF88D08ACC6460F9A4B1D6D /* AeonikBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F00A65FF28A4D7FB61AB838 /* AeonikBold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0BC129998ED542298F8E4817 /* TryBlitz-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "TryBlitz-Bridging-Header.h"; path = "TryBlitz/TryBlitz-Bridging-Header.h"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* TryBlitz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TryBlitz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TryBlitz/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = TryBlitz/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TryBlitz/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TryBlitz/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TryBlitz/main.m; sourceTree = "<group>"; };
-		28BB1338FD4845658EA988E3 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "TryBlitz/noop-file.swift"; sourceTree = "<group>"; };
+		1F00A65FF28A4D7FB61AB838 /* AeonikBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AeonikBold.otf; path = ../assets/fonts/AeonikBold.otf; sourceTree = "<group>"; };
+		2CE8E886407943D4885FB7C2 /* AeonikRegular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AeonikRegular.otf; path = ../assets/fonts/AeonikRegular.otf; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-TryBlitz.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TryBlitz.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BA94E2583944C8CAD81D6EB /* Benzin-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Benzin-ExtraBold.ttf"; path = "../assets/fonts/Benzin-ExtraBold.ttf"; sourceTree = "<group>"; };
-		665567853B3B4D47A50DEFBE /* AeonikBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AeonikBold.otf; path = ../assets/fonts/AeonikBold.otf; sourceTree = "<group>"; };
+		6475DAF8E2894C5B8CF58347 /* TryBlitz-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "TryBlitz-Bridging-Header.h"; path = "TryBlitz/TryBlitz-Bridging-Header.h"; sourceTree = "<group>"; };
 		6C2E3173556A471DD304B334 /* Pods-TryBlitz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TryBlitz.debug.xcconfig"; path = "Target Support Files/Pods-TryBlitz/Pods-TryBlitz.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-TryBlitz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TryBlitz.release.xcconfig"; path = "Target Support Files/Pods-TryBlitz/Pods-TryBlitz.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = TryBlitz/SplashScreen.storyboard; sourceTree = "<group>"; };
+		B74790E5C7CE43C4B9389503 /* Benzin-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Benzin-ExtraBold.ttf"; path = "../assets/fonts/Benzin-ExtraBold.ttf"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		BDE0FEB2F01B47C5B75F2325 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "TryBlitz/noop-file.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-TryBlitz/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		FB54BC69F6AE45F6A627D115 /* AeonikRegular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AeonikRegular.otf; path = ../assets/fonts/AeonikRegular.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				28BB1338FD4845658EA988E3 /* noop-file.swift */,
-				0BC129998ED542298F8E4817 /* TryBlitz-Bridging-Header.h */,
+				BDE0FEB2F01B47C5B75F2325 /* noop-file.swift */,
+				6475DAF8E2894C5B8CF58347 /* TryBlitz-Bridging-Header.h */,
 			);
 			name = TryBlitz;
 			sourceTree = "<group>";
@@ -76,6 +76,17 @@
 				58EEBF8E8E6FB1BC6CAF49B5 /* libPods-TryBlitz.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F91177A78F345B08D423FED /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F00A65FF28A4D7FB61AB838 /* AeonikBold.otf */,
+				2CE8E886407943D4885FB7C2 /* AeonikRegular.otf */,
+				B74790E5C7CE43C4B9389503 /* Benzin-ExtraBold.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -94,7 +105,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
-				DDCD9561D4EC43F09E6A4706 /* Resources */,
+				7F91177A78F345B08D423FED /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -143,17 +154,6 @@
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
-		DDCD9561D4EC43F09E6A4706 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				665567853B3B4D47A50DEFBE /* AeonikBold.otf */,
-				FB54BC69F6AE45F6A627D115 /* AeonikRegular.otf */,
-				5BA94E2583944C8CAD81D6EB /* Benzin-ExtraBold.ttf */,
-			);
-			name = Resources;
-			path = "";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,13 +162,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TryBlitz" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				BE69DD3FC18EDF1EB52D4CC6 /* [Expo] Configure project */,
+				D72D191FAEBC6A87DA6961A1 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				FFD74AC4454A69831AC1DFDE /* [CP] Embed Pods Frameworks */,
+				EDAC2FDACAF03ABCF68526C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -218,9 +218,9 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				38A8A7567AB949EB84E54932 /* AeonikBold.otf in Resources */,
-				9F081FEA8E0341F9B42C16D2 /* AeonikRegular.otf in Resources */,
-				CC978232A09141559EC953B9 /* Benzin-ExtraBold.ttf in Resources */,
+				CBF88D08ACC6460F9A4B1D6D /* AeonikBold.otf in Resources */,
+				75AED0032A3546008CC01395 /* AeonikRegular.otf in Resources */,
+				016FE435869E406C90BC1DEE /* Benzin-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +284,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TryBlitz/Pods-TryBlitz-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BE69DD3FC18EDF1EB52D4CC6 /* [Expo] Configure project */ = {
+		D72D191FAEBC6A87DA6961A1 /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -303,7 +303,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-TryBlitz/expo-configure-project.sh\"\n";
 		};
-		FFD74AC4454A69831AC1DFDE /* [CP] Embed Pods Frameworks */ = {
+		EDAC2FDACAF03ABCF68526C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -333,7 +333,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				D04FBC9E9BA24625BFD77C8C /* noop-file.swift in Sources */,
+				05C8F1A97CCF45749D0F9B3B /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

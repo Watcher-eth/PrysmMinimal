@@ -6,7 +6,6 @@ import { Pressable, Text } from "react-native";
 import Colors from "@/constants/Colors";
 import { useColorScheme } from "@/components/useColorScheme";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
-import ProfileModal from "@/components/profile/profileModal";
 import FeedHeader from "@/components/Feed/header";
 
 import { BlurView } from "expo-blur";
@@ -106,36 +105,6 @@ function MyTabBar({ state, descriptors, navigation }) {
               />
             )}
 
-            {label === "Tab Two" && (
-              <TabBarButton
-                title="Profile"
-                focused={isFocused}
-                icon={ProfileIcon}
-                onPress={onPress}
-              />
-            )}
-            {label === "Explore" && (
-              <TabBarButton
-                title="Explore"
-                focused={isFocused}
-                icon={ExploreIcon}
-                onPress={onPress}
-              />
-            )}
-            {label === "Test" && (
-              <FlaskConical
-                height={34}
-                style={{ alignSelf: "center", marginTop: 1 }}
-                color={isFocused ? "white" : "gray"}
-              />
-            )}
-            {label === "Activity" && (
-              <Activity
-                height={34}
-                style={{ alignSelf: "center", marginTop: 1 }}
-                color={isFocused ? "white" : "gray"}
-              />
-            )}
           </AnimatedPressable>
         );
       })}
@@ -155,23 +124,9 @@ export default function TabLayout() {
       }}
       tabBar={(props) => <MyTabBar {...props} />}
     >
+      
       <Tabs.Screen
         name="index"
-        options={{
-          headerShown: false,
-          title: "Explore",
-          tabBarButton: ({ accessibilityState, onPress }) => (
-            <TabBarButton
-              title="Explore"
-              focused={accessibilityState?.selected}
-              icon={ExploreIcon}
-              onPress={onPress}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="feed"
         options={{
           title: "Tab One",
           tabBarButton: ({ accessibilityState, onPress }) => (
@@ -189,37 +144,7 @@ export default function TabLayout() {
           header: () => <FeedHeader />,
         }}
       />
-      <Tabs.Screen
-        name="activity"
-        options={{
-          title: "Activity",
-          headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="two"
-        options={{
-          title: "Tab Two",
-          headerShown: false,
-          tabBarButton: ({ accessibilityState, onPress }) => (
-            <TabBarButton
-              title="Profile"
-              focused={accessibilityState?.selected}
-              icon={ProfileIcon}
-              onPress={onPress}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="test"
-        options={{
-          title: "Test",
-          headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
+     
     </Tabs>
   );
 }
